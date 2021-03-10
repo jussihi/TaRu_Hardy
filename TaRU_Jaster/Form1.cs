@@ -52,39 +52,6 @@ namespace TaRU_Jaster
         private void _buttonStart_Click(object sender, EventArgs e)
         {
             _jasterExecutor.RunCommands(_textBoxCommands.Text);
-            if(_jasterExecutor.IsSerialOpen())
-            {
-                // reset Jasters
-                if(!_jasterExecutor.CommandAllJastersReset())
-                {
-                    // fail
-                    return;
-                }
-
-                // give some time for modem and Jasters to reset
-                Thread.Sleep(2000);
-
-                // loop for 2 loops 
-                for (int i = 0; i < 2; i++)
-                {
-                    if(!_jasterExecutor.CommandAllJastersUp())
-                    {
-                        // fail
-                        return;
-                    }
-                    Thread.Sleep(5000);
-                    if(!_jasterExecutor.CommandAllJastersDown())
-                    {
-                        // fail
-                        return;
-                    }
-                    Thread.Sleep(5000);
-                }
-            }
-            else
-            {
-                log_msg("ERROR while starting routine! The COM is not connected");
-            }
         }
 
         private void _buttonStop_Click(object sender, EventArgs e)
