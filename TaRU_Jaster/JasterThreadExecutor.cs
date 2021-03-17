@@ -22,6 +22,7 @@ namespace TaRU_Jaster
         public JasterThreadExecutor()
         {
             _serialPort = new SerialPort();
+            _serialPort.ErrorReceived += HandleSerialError;
             Global.g_form1.log_msg("Jaster Executor initialized!");
         }
 
@@ -57,6 +58,11 @@ namespace TaRU_Jaster
         public bool IsSerialOpen()
         {
             return _serialPort.IsOpen;
+        }
+
+        private void HandleSerialError(object sender, SerialErrorReceivedEventArgs e)
+        {
+            Global.g_form1.log_msg("ERROR SERIAL ERROR " + e.EventType.ToString() + "!");
         }
 
         /*
@@ -459,7 +465,7 @@ namespace TaRU_Jaster
 
         public bool RunCommands(string w_program)
         {
-            string[] lines = Regex.Split(w_program, Environment.NewLine);
+            string[] lines = Regex.Split(w_program, "\n");
             lines = lines.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
 
             int currentExecutionLine = 0;
