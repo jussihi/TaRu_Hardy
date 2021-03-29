@@ -8,8 +8,11 @@ using System.Text.RegularExpressions;
 
 using System.Threading;
 
+
+
 namespace TaRU_Jaster
 {
+
     class Global
     {
         public static Form1 g_form1;
@@ -17,13 +20,49 @@ namespace TaRU_Jaster
 
     class JasterThreadExecutor
     {
+
+        public enum ComStatus
+        {
+            Disconnected,
+            Connected,
+            Sending,
+            Receiving
+        }
+
+        public ComStatus _comStatus;
+        public event System.EventHandler ComStatusChanged;
+
+        public ComStatus pComStatus
+        {
+            get
+            {
+                return _comStatus;
+            }
+
+            set
+            {
+                bool changed = false;
+                if (_comStatus != value)
+                {
+                    _comStatus = value;
+                    changed = true;
+                }
+                if (ComStatusChanged != null && changed) ComStatusChanged(this, EventArgs.Empty);
+            }
+        }
+
+
         private SerialPort _serialPort;
+        private int _serialTimeOut;
 
         public JasterThreadExecutor()
         {
             _serialPort = new SerialPort();
             _serialPort.ErrorReceived += HandleSerialError;
             Global.g_form1.log_msg("Jaster Executor initialized!");
+
+            _comStatus = ComStatus.Disconnected;
+            _serialTimeOut = 500;
         }
 
 
@@ -46,6 +85,7 @@ namespace TaRU_Jaster
                 _serialPort.StopBits  = StopBits.One;
                 _serialPort.Handshake = Handshake.None;
                 _serialPort.Open();
+                pComStatus = ComStatus.Connected;
                 return true;
             }
             catch (Exception ex)
@@ -60,8 +100,93 @@ namespace TaRU_Jaster
             return _serialPort.IsOpen;
         }
 
+        private async Task<bool> SendSerial(byte[] w_data, int w_timeout = 0)
+        {
+            // Sanity check
+            if(w_data == null)
+            {
+                return false;
+            }
+
+            // Catch exceptions, show to user
+            try
+            {
+                if (_serialPort.IsOpen)
+                {
+                    pComStatus = ComStatus.Sending;
+                    if (w_timeout <= 0) w_timeout = _serialTimeOut;
+                    await _serialPort.BaseStream.WriteAsync(w_data, 0, w_data.Length);
+                    var receiveTask = Task.Run(async () => { 
+                        await _serialPort.BaseStream.WriteAsync(w_data, 0, w_data.Length);
+                    });
+                    var isReceived = await Task.WhenAny(receiveTask, Task.Delay(w_timeout)) == receiveTask;
+                    if (!isReceived) return false;
+                    pComStatus = ComStatus.Connected;
+                    return true;
+                }
+                else
+                {
+                    Global.g_form1.log_msg("ERROR while sending on COM port! " +
+                    "The port is not open!");
+                    pComStatus = ComStatus.Disconnected;
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.g_form1.log_msg("ERROR while sending on COM port " +
+                    _serialPort.PortName + "! error message: " + ex.Message);
+                pComStatus = ComStatus.Disconnected;
+                return false;
+            }
+        }
+
+        private async Task<byte[]> ReadSerial(int w_len, int w_timeout = 0)
+        {
+            // Sanity check
+            if (w_len <= 0)
+            {
+                return null;
+            }
+
+            // Catch exceptions, show to user
+            try
+            {
+                if (_serialPort.IsOpen)
+                {
+                    pComStatus = ComStatus.Receiving;
+                    byte[] data = new byte[w_len];
+                    if (w_timeout <= 0) w_timeout = _serialTimeOut;
+                    _serialPort.ReadTimeout = w_timeout;
+                    var ReciveCount = 0;
+                    var receiveTask = Task.Run(async () => { 
+                        ReciveCount = await _serialPort.BaseStream.ReadAsync(data, 0, w_len); 
+                    });
+                    var isReceived = await Task.WhenAny(receiveTask, Task.Delay(w_timeout)) == receiveTask;
+                    if (!isReceived) return null;
+                    pComStatus = ComStatus.Connected;
+                    return data;
+                }
+                else
+                {
+                    Global.g_form1.log_msg("ERROR while reading on COM port! " +
+                    "The port is not open!");
+                    pComStatus = ComStatus.Disconnected;
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.g_form1.log_msg("ERROR while reading on COM port " +
+                    _serialPort.PortName + "! error message: " + ex.Message);
+                pComStatus = ComStatus.Disconnected;
+                return null;
+            }
+        }
+
         private void HandleSerialError(object sender, SerialErrorReceivedEventArgs e)
         {
+            pComStatus = ComStatus.Disconnected;
             Global.g_form1.log_msg("ERROR SERIAL ERROR " + e.EventType.ToString() + "!");
         }
 
@@ -327,7 +452,7 @@ namespace TaRU_Jaster
             return true;
         }
 
-        public int EvaluateExpression(string w_line, int w_lineno)
+        public async Task<int> EvaluateExpression(string w_line, int w_lineno)
         {
             string[] tokens = w_line.Split(' ');
             tokens = tokens.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
@@ -407,7 +532,7 @@ namespace TaRU_Jaster
                 // recursively call evaluation for the if expression
                 if (validated)
                 {
-                    returnLineNo = EvaluateExpression(toEvaluate, w_lineno);
+                    returnLineNo = await EvaluateExpression(toEvaluate, w_lineno);
                 }
 
             }
@@ -415,7 +540,7 @@ namespace TaRU_Jaster
             else if (tokens[0] == "SLEEP")
             {
                 Global.g_form1.log_msg("SLEEP");
-                Thread.Sleep(Int32.Parse(tokens[1]));
+                await Task.Delay(Int32.Parse(tokens[1]));
             }
 
             else if (tokens[0] == "GOTO")
@@ -463,7 +588,7 @@ namespace TaRU_Jaster
         }
 
 
-        public bool RunCommands(string w_program)
+        public async Task RunCommands(string w_program)
         {
             string[] lines = Regex.Split(w_program, "\n");
             lines = lines.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
@@ -478,102 +603,47 @@ namespace TaRU_Jaster
                 if(!ValidateExpression(lines[i], i))
                 {
                     // fail
-                    return false;
+                    return;
                 }
             }
 
             while (currentExecutionLine >= 0 && currentExecutionLine < lines.Length)
             {
                 Global.g_form1.log_msg("EXECUTING line " + currentExecutionLine.ToString());
-                currentExecutionLine = EvaluateExpression(lines[currentExecutionLine], currentExecutionLine);
+                currentExecutionLine = await EvaluateExpression(lines[currentExecutionLine], currentExecutionLine);
             }
 
             Global.g_form1.log_msg("DONE EXECUTING");
 
-            return true;
+            return;
         }
 
 
         /*
          * JASTER COMMAND FUNCTIONS
          */
-        public bool CommandAllJastersReset()
+        public async void CommandAllJastersReset()
         {
+            Global.g_form1.log_msg("RESET all Jasters ...");
 
-            try
-            {
-                if (_serialPort.IsOpen)
-                {
-                    // reset Jasters
-                    byte[] jastersResetBuffer = { 0x91 };
-                    _serialPort.Write(jastersResetBuffer, 0, 1);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.g_form1.log_msg("ERROR while reseting all Jaster on COM port " +
-                    _serialPort.PortName + "! error message: " + ex.Message);
-                return false;
-            }
+            byte[] jastersResetBuffer = { 0x91 };
+            await SendSerial(jastersResetBuffer);
         }
 
-        public bool CommandAllJastersUp()
+        public async void CommandAllJastersUp()
         {
             Global.g_form1.log_msg("UP all Jasters ...");
-            try
-            {
-                if (_serialPort.IsOpen)
-                {
-                    // initialize UP byte buffer
-                    byte[] jastersUpBuffer = { 0x80 };
 
-                    // send command on serial
-                    _serialPort.Write(jastersUpBuffer, 0, 1);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.g_form1.log_msg("ERROR while commanding all Jaster UP on COM port " +
-                    _serialPort.PortName + "! error message: " + ex.Message);
-                return false;
-            }
+            byte[] jastersUpBuffer = { 0x80 };
+            await SendSerial(jastersUpBuffer);
         }
 
-        public bool CommandAllJastersDown()
+        public async void CommandAllJastersDown()
         {
             Global.g_form1.log_msg("DOWN all Jasters ...");
-            try
-            {
-                if (_serialPort.IsOpen)
-                {
-                    // initialize UP byte buffer
-                    byte[] jastersDownBuffer = { 0x81 };
 
-                    // send command on serial
-                    _serialPort.Write(jastersDownBuffer, 0, 1);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Global.g_form1.log_msg("ERROR while commanding all Jaster DOWN on COM port " +
-                    _serialPort.PortName + "! error message: " + ex.Message);
-                return false;
-            }
+            byte[] jastersDownBuffer = { 0x81 };
+            await SendSerial(jastersDownBuffer);
         }
 
     }

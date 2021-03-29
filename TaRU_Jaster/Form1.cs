@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 using System.Threading;
 using MaterialSkin;
@@ -33,11 +34,14 @@ namespace TaRU_Jaster
             public bool motionOn;
         }
 
+        
+
         private JasterThreadExecutor _jasterExecutor;
         private bool _scriptTextChanged;
         private string _scriptFullPath;
         private MaterialSkinManager _materialSkinManager;
         private TargetSettings[] _targetSettings;
+        
 
         public Form1()
         {
@@ -96,6 +100,9 @@ namespace TaRU_Jaster
             // At the very start, disable serial functionality, require connection
             DisableSerialFunctionality();
 
+            // Set com status changed handler
+            _jasterExecutor.ComStatusChanged += ComStatusChangedHandler;
+
             // Set the button instances to TargetSettings struct
             for (int i = 1; i <= 30; i++)
             {
@@ -139,6 +146,11 @@ namespace TaRU_Jaster
             return;
         }
 
+        private void ComStatusChangedHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("COM status changed");
+        }
+
         private void _materialButtonComConnect_Click(object sender, EventArgs e)
         {
             if (!_jasterExecutor.ConnectSerial(_materialComboBoxComPorts.Text))
@@ -151,14 +163,15 @@ namespace TaRU_Jaster
         private void _materialButtonComRefresh_Click(object sender, EventArgs e)
         {
             string[] ports = _jasterExecutor.GetPortNames();
+            _materialComboBoxComPorts.Items.Clear();
             _materialComboBoxComPorts.Items.AddRange(ports);
             _materialComboBoxComPorts.SelectedIndex = 0;
             log_msg("Found " + ports.Length + " COM port(s).");
         }
 
-        private void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
+        private async void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
         {
-            _jasterExecutor.RunCommands(_materialMultiLineTextBoxScript.Text);
+            await _jasterExecutor.RunCommands(_materialMultiLineTextBoxScript.Text);
         }
 
         private void _materialButtonStopScript_Click(object sender, EventArgs e)
@@ -226,6 +239,17 @@ namespace TaRU_Jaster
             {
                 _targetSettings[i].buttonInstance.UseAccentColor = false;
             }
+        }
+
+        private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
+        {
+            w_targetNo = w_targetNo - 1;
+            toolTip1.Show("Target  " + (w_targetNo + 1).ToString() + "\n" +
+                "Sensitivity: " + _targetSettings[w_targetNo].sensitivity.ToString() + "\n" +
+                "Hits to fall: " + _targetSettings[w_targetNo].hitsToFall.ToString() + "\n" +
+                "Light on: " + _targetSettings[w_targetNo].lightOn.ToString() + "\n" +
+                "Motion on: " + _targetSettings[w_targetNo].motionOn.ToString()
+                , _targetSettings[w_targetNo].buttonInstance);
         }
 
 
@@ -379,5 +403,156 @@ namespace TaRU_Jaster
         {
             ToggleSingleTargetSimple(29);
         }
+
+        private void _materialButtonSelectTargetSimple1_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(1, _materialButtonSelectTargetSimple1);
+        }
+
+        private void _materialButtonSelectTargetSimple2_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(2, _materialButtonSelectTargetSimple2);
+        }
+
+        private void _materialButtonSelectTargetSimple3_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(3, _materialButtonSelectTargetSimple3);
+        }
+
+        private void _materialButtonSelectTargetSimple4_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(4, _materialButtonSelectTargetSimple4);
+        }
+
+        private void _materialButtonSelectTargetSimple5_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(5, _materialButtonSelectTargetSimple5);
+        }
+
+        private void _materialButtonSelectTargetSimple6_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(6, _materialButtonSelectTargetSimple6);
+        }
+
+        private void _materialButtonSelectTargetSimple7_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(7, _materialButtonSelectTargetSimple7);
+        }
+
+        private void _materialButtonSelectTargetSimple8_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(8, _materialButtonSelectTargetSimple8);
+        }
+
+        private void _materialButtonSelectTargetSimple9_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(9, _materialButtonSelectTargetSimple9);
+        }
+
+        private void _materialButtonSelectTargetSimple10_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(10, _materialButtonSelectTargetSimple10);
+        }
+
+        private void _materialButtonSelectTargetSimple11_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(11, _materialButtonSelectTargetSimple11);
+        }
+
+        private void _materialButtonSelectTargetSimple12_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(12, _materialButtonSelectTargetSimple12);
+        }
+
+        private void _materialButtonSelectTargetSimple13_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(13, _materialButtonSelectTargetSimple13);
+        }
+
+        private void _materialButtonSelectTargetSimple14_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(14, _materialButtonSelectTargetSimple14);
+        }
+
+        private void _materialButtonSelectTargetSimple15_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(15, _materialButtonSelectTargetSimple15);
+        }
+
+        private void _materialButtonSelectTargetSimple16_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(16, _materialButtonSelectTargetSimple16);
+        }
+
+        private void _materialButtonSelectTargetSimple17_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(17, _materialButtonSelectTargetSimple17);
+        }
+
+        private void _materialButtonSelectTargetSimple18_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(18, _materialButtonSelectTargetSimple18);
+        }
+
+        private void _materialButtonSelectTargetSimple19_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(19, _materialButtonSelectTargetSimple19);
+        }
+
+        private void _materialButtonSelectTargetSimple20_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(20, _materialButtonSelectTargetSimple20);
+        }
+
+        private void _materialButtonSelectTargetSimple21_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(21, _materialButtonSelectTargetSimple21);
+        }
+
+        private void _materialButtonSelectTargetSimple22_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(22, _materialButtonSelectTargetSimple22);
+        }
+
+        private void _materialButtonSelectTargetSimple23_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(23, _materialButtonSelectTargetSimple23);
+        }
+
+        private void _materialButtonSelectTargetSimple24_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(24, _materialButtonSelectTargetSimple24);
+        }
+
+        private void _materialButtonSelectTargetSimple25_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(25, _materialButtonSelectTargetSimple25);
+        }
+
+        private void _materialButtonSelectTargetSimple26_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(26, _materialButtonSelectTargetSimple26);
+        }
+
+        private void _materialButtonSelectTargetSimple27_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(27, _materialButtonSelectTargetSimple27);
+        }
+
+        private void _materialButtonSelectTargetSimple28_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(28, _materialButtonSelectTargetSimple28);
+        }
+
+        private void _materialButtonSelectTargetSimple29_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(29, _materialButtonSelectTargetSimple29);
+        }
+
+        private void _materialButtonSelectTargetSimple30_MouseHover(object sender, EventArgs e)
+        {
+            ShowTargetToolTip(30, _materialButtonSelectTargetSimple30);
+        }
+
     }
 }
