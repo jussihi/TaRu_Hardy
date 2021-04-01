@@ -243,6 +243,49 @@ namespace TaRU_Jaster
             }
         }
 
+        private byte[] convertTargetNumberToAddress(int w_target)
+        {
+            // 30 targets, max 5 bytes
+            byte[] ret = new byte[5];
+
+            // place the dummy to right position to create the address
+            ret[(w_target - 1) / 7] = (byte)(0b_0000_0001 << ((w_target - 1) % 7));
+
+            // return address array
+            return ret;
+        }
+
+        private async void _upSelectedTargetsSimple_Click(object sender, EventArgs e)
+        {
+            byte[] upTargetsAll      = { 0x80 };
+            byte[] upTargetsSelected = { 0x82 };
+            var targetList = new List<int>();
+
+            for (int i = 1; i < 31; i++)
+            {
+                if (_targetSettings[i - 1].buttonInstance.UseAccentColor)
+                    targetList.Add(i);
+            }
+
+            if(targetList.Count == 30)
+            {
+                await _jasterExecutor.SendSerial(upTargetsAll);
+                return;
+            }
+            
+            // Default workflow: only up selected targets
+            foreach (int target in targetList)
+            {
+                byte[] address = convertTargetNumberToAddress(target);
+                /*log_msg("Address used: ");
+                log_msg(Convert.ToString(address[0], toBase: 2));
+                log_msg(Convert.ToString(address[1], toBase: 2));
+                log_msg(Convert.ToString(address[2], toBase: 2));
+                log_msg(Convert.ToString(address[3], toBase: 2));
+                log_msg(Convert.ToString(address[4], toBase: 2));*/
+            }
+        }
+
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
         {
             w_targetNo = w_targetNo - 1;
@@ -556,5 +599,6 @@ namespace TaRU_Jaster
             ShowTargetToolTip(30, _materialButtonSelectTargetSimple30);
         }
 
+        
     }
 }

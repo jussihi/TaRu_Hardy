@@ -100,7 +100,7 @@ namespace TaRU_Jaster
             return _serialPort.IsOpen;
         }
 
-        private async Task<bool> SendSerial(byte[] w_data, int w_timeout = 0)
+        public async Task<bool> SendSerial(byte[] w_data, int w_timeout = 0)
         {
             // Sanity check
             if(w_data == null)
