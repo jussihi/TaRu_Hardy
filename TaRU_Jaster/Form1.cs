@@ -166,7 +166,8 @@ namespace TaRU_Jaster
             string[] ports = _jasterExecutor.GetPortNames();
             _materialComboBoxComPorts.Items.Clear();
             _materialComboBoxComPorts.Items.AddRange(ports);
-            _materialComboBoxComPorts.SelectedIndex = 0;
+            if(_materialComboBoxComPorts.Items.Count > 0)
+                _materialComboBoxComPorts.SelectedIndex = 0;
             log_msg("Found " + ports.Length + " COM port(s).");
         }
 
