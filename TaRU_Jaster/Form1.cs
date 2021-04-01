@@ -88,7 +88,8 @@ namespace TaRU_Jaster
 
             // initialize the serial port list, maybe have a handler do this every X seconds?
             _materialComboBoxComPorts.Items.AddRange(_jasterExecutor.GetPortNames());
-            _materialComboBoxComPorts.SelectedIndex = 0;
+            if(_materialComboBoxComPorts.Items.Count > 0)
+                _materialComboBoxComPorts.SelectedIndex = 0;
 
             // Handle drags
             _materialMultiLineTextBoxScript.AllowDrop = true;
