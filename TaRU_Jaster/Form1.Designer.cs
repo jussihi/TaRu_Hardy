@@ -1538,6 +1538,7 @@ namespace TaRU_Jaster
             this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton3.UseAccentColor = false;
             this.materialButton3.UseVisualStyleBackColor = true;
+            this.materialButton3.Click += new System.EventHandler(this._resetSelectedTargetsSimple_Click);
             // 
             // materialButton2
             // 
@@ -1557,6 +1558,7 @@ namespace TaRU_Jaster
             this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton2.UseAccentColor = false;
             this.materialButton2.UseVisualStyleBackColor = true;
+            this.materialButton2.Click += new System.EventHandler(this._downSelectedTargetsSimple_Click);
             // 
             // materialButton1
             // 

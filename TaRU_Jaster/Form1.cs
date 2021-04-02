@@ -243,22 +243,42 @@ namespace TaRU_Jaster
             }
         }
 
-        private byte[] convertTargetNumberToAddress(int w_target)
+        private byte[] addTargetNumberToAddress(int w_target, byte[] w_addressBytes)
         {
-            // 30 targets, max 5 bytes
-            byte[] ret = new byte[5];
-
             // place the dummy to right position to create the address
-            ret[(w_target - 1) / 7] = (byte)(0b_0000_0001 << ((w_target - 1) % 7));
+            w_addressBytes[(w_target - 1) / 7] = (byte)(0b_0000_0001 << ((w_target - 1) % 7));
 
             // return address array
-            return ret;
+            return w_addressBytes;
         }
 
-        private async void _upSelectedTargetsSimple_Click(object sender, EventArgs e)
+        enum OneShotCommand
         {
-            byte[] upTargetsAll      = { 0x80 };
-            byte[] upTargetsSelected = { 0x82 };
+            Up,
+            Down,
+            SetSensitivity,
+            SetHitsToFall,
+            SetLightsOn,
+            SetLightsOff,
+            SetMotionOn,
+            SetMotionOff,
+            SetProgramHitsToFall,
+            SetProgramTimeUp,
+            SetProgramTimeDown,
+            StartProgram,
+            EndProgram,
+            Reset
+        }
+
+
+        private async Task<bool> oneShotTargetsSimpleExecute(OneShotCommand w_command, byte w_param = 0xFF)
+        {
+            // Initialize the needed byte buffers
+            byte[] command   = null;
+            byte[] address   = new byte[5];
+            byte[] nullBytes = null;
+
+            // Set up target list from currently activated targets
             var targetList = new List<int>();
 
             for (int i = 1; i < 31; i++)
@@ -267,23 +287,257 @@ namespace TaRU_Jaster
                     targetList.Add(i);
             }
 
-            if(targetList.Count == 30)
+            // If no targets are set, bail out
+            if (targetList.Count == 0)
+                return false;
+
+            bool allTargets = targetList.Count == 30;
+
+            // Set target array (unset if needed in command switch!)
+            foreach (int targetNo in targetList)
             {
-                await _jasterExecutor.SendSerial(upTargetsAll);
-                return;
+                address = addTargetNumberToAddress(targetNo, address);
             }
-            
-            // Default workflow: only up selected targets
-            foreach (int target in targetList)
+
+            // Set up the command-specific commands
+            switch (w_command)
             {
-                byte[] address = convertTargetNumberToAddress(target);
-                /*log_msg("Address used: ");
-                log_msg(Convert.ToString(address[0], toBase: 2));
-                log_msg(Convert.ToString(address[1], toBase: 2));
-                log_msg(Convert.ToString(address[2], toBase: 2));
-                log_msg(Convert.ToString(address[3], toBase: 2));
-                log_msg(Convert.ToString(address[4], toBase: 2));*/
+                case OneShotCommand.Up:
+                    if(allTargets)
+                    {
+                        command = new byte[] { 0x80 };
+                        address = null;
+                        break;
+                    }
+                    command   = new byte[] { 0x82 };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.Down:
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x81 };
+                        address = null;
+                        break;
+                    }
+                    command   = new byte[] { 0x83 };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetSensitivity:
+                    // Check that the sensitivity is within limits
+                    if(w_param > 99)
+                    {
+                        MessageBox.Show("Sensitivity must be between 0-99!");
+                        log_msg("Sensitivity value not set or invalid: " + w_param);
+                        return false;
+                    }
+                    if(allTargets)
+                    {
+                        command   = new byte[] { 0x92 };
+                        address   = null;
+                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
+                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
+                        break;
+                    }
+                    command   = new byte[] { 0x92 };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetHitsToFall:
+                    // Check that the hitstofall is within limits
+                    if (w_param > 99 || w_param == 0)
+                    {
+                        MessageBox.Show("Number of hits to fall must be between 1-99!");
+                        log_msg("Number of hits to fall value not set or invalid: " + w_param);
+                        return false;
+                    }
+                    if (allTargets)
+                    {
+                        command   = new byte[] { 0x8C };
+                        address   = null;
+                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
+                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
+                        break;
+                    }
+                    command   = new byte[] { 0x8C };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetLightsOn:
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x88 };
+                        address = null;
+                        break;
+                    }
+                    command   = new byte[] { 0x9C };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetLightsOff:
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x89 };
+                        address = null;
+                        break;
+                    }
+                    command   = new byte[] { 0x9D };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetMotionOn:
+                    if (allTargets)
+                    {
+                        command   = new byte[] { 0x9E };
+                        address   = null;
+                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
+                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
+                        break;
+                    }
+                    command   = new byte[] { 0x9E };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetMotionOff:
+                    if (allTargets)
+                    {
+                        command   = new byte[] { 0x9F };
+                        address   = null;
+                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
+                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
+                        break;
+                    }
+                    command   = new byte[] { 0x9F };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetProgramHitsToFall:
+                    // Check that the hitstofall is within limits
+                    if (w_param > 99 || w_param == 0)
+                    {
+                        MessageBox.Show("Number of hits to fall must be between 1-99!");
+                        log_msg("Number of hits to fall value not set or invalid: " + w_param);
+                        return false;
+                    }
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x8F };
+                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
+                        nullBytes = new byte[8];
+                        break;
+                    }
+                    command = new byte[] { 0x8F };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetProgramTimeUp:
+                    // Check that the hitstofall is within limits
+                    if (w_param > 99 || w_param == 0)
+                    {
+                        MessageBox.Show("Value of timeup must be between 1-99!");
+                        log_msg("Timeup value not set or invalid: " + w_param);
+                        return false;
+                    }
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x93 };
+                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
+                        nullBytes = new byte[8];
+                        break;
+                    }
+                    command = new byte[] { 0x93 };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.SetProgramTimeDown:
+                    // Check that the hitstofall is within limits
+                    if (w_param > 99 || w_param == 0)
+                    {
+                        MessageBox.Show("Value of timedown must be between 1-99!");
+                        log_msg("Timedown value not set or invalid: " + w_param);
+                        return false;
+                    }
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x94 };
+                        // address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
+                        nullBytes = new byte[8];
+                        break;
+                    }
+                    command = new byte[] { 0x94 };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.StartProgram:
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x95 };
+                        // address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
+                        nullBytes = new byte[8];
+                        break;
+                    }
+                    command = new byte[] { 0x95 };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.EndProgram:
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x8F };
+                        address = new byte[] { 0x01, 0x7F, 0x7F, 0x7F, 0x07, 0x03 };
+                        nullBytes = new byte[8];
+                        break;
+                    }
+                    command = new byte[] { 0x96 };
+                    nullBytes = new byte[8];
+                    break;
+                case OneShotCommand.Reset:
+                    if (allTargets)
+                    {
+                        command = new byte[] { 0x91 };
+                        address = null;
+                        break;
+                    }
+                    command = new byte[] { 0x9B };
+                    nullBytes = new byte[8];
+                    break;
             }
+
+            // compile the final command and send it out
+            if(command == null)
+            {
+                MessageBox.Show("No command given !");
+                log_msg("ERROR: No command given!");
+            }
+
+            // append param if it's present
+            if(w_param != 0xFF)
+            {
+                command = command.Concat(new byte[] { w_param }).ToArray();
+            }
+
+            // append address if it's present
+            if (address != null)
+            {
+                command = command.Concat(address).ToArray();
+            }
+
+            // append null bytes if it's present
+            if (nullBytes != null)
+            {
+                command = command.Concat(nullBytes).ToArray();
+            }
+
+            // Finally, execute the command
+            await _jasterExecutor.SendSerial(command);
+            return true;
+        }
+
+        private async void _upSelectedTargetsSimple_Click(object sender, EventArgs e)
+        {
+            await oneShotTargetsSimpleExecute(OneShotCommand.Up);
+            return;
+        }
+
+        private async void _downSelectedTargetsSimple_Click(object sender, EventArgs e)
+        {
+            await oneShotTargetsSimpleExecute(OneShotCommand.Down);
+            return;
+        }
+
+        private async void _resetSelectedTargetsSimple_Click(object sender, EventArgs e)
+        {
+            await oneShotTargetsSimpleExecute(OneShotCommand.Reset);
+            return;
         }
 
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
