@@ -50,11 +50,11 @@ namespace TaRU_Jaster
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialButton6 = new MaterialSkin.Controls.MaterialButton();
+            this._materialButtonSetQuickConfig = new MaterialSkin.Controls.MaterialButton();
             this.materialButton7 = new MaterialSkin.Controls.MaterialButton();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.materialButton8 = new MaterialSkin.Controls.MaterialButton();
+            this._materialButtonGoQuickProgram = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
@@ -62,6 +62,7 @@ namespace TaRU_Jaster
             this.materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox5 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
+            this._materialButtonEndQuickProgram = new MaterialSkin.Controls.MaterialButton();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -293,7 +294,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel8.Controls.Add(this.materialLabel9, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.materialTextBox1, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.materialTextBox2, 1, 1);
-            this.tableLayoutPanel8.Controls.Add(this.materialButton6, 1, 4);
+            this.tableLayoutPanel8.Controls.Add(this._materialButtonSetQuickConfig, 1, 4);
             this.tableLayoutPanel8.Controls.Add(this.materialButton7, 0, 4);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 29);
@@ -425,24 +426,25 @@ namespace TaRU_Jaster
             this.materialTextBox2.Text = "";
             this.materialTextBox2.UseTallSize = false;
             // 
-            // materialButton6
+            // _materialButtonSetQuickConfig
             // 
-            this.materialButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton6.Depth = 0;
-            this.materialButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialButton6.DrawShadows = true;
-            this.materialButton6.HighEmphasis = true;
-            this.materialButton6.Icon = null;
-            this.materialButton6.Location = new System.Drawing.Point(143, 170);
-            this.materialButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton6.Name = "materialButton6";
-            this.materialButton6.Size = new System.Drawing.Size(121, 29);
-            this.materialButton6.TabIndex = 17;
-            this.materialButton6.Text = "SET";
-            this.materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton6.UseAccentColor = false;
-            this.materialButton6.UseVisualStyleBackColor = true;
+            this._materialButtonSetQuickConfig.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._materialButtonSetQuickConfig.Depth = 0;
+            this._materialButtonSetQuickConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._materialButtonSetQuickConfig.DrawShadows = true;
+            this._materialButtonSetQuickConfig.HighEmphasis = true;
+            this._materialButtonSetQuickConfig.Icon = null;
+            this._materialButtonSetQuickConfig.Location = new System.Drawing.Point(143, 170);
+            this._materialButtonSetQuickConfig.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSetQuickConfig.MouseState = MaterialSkin.MouseState.HOVER;
+            this._materialButtonSetQuickConfig.Name = "_materialButtonSetQuickConfig";
+            this._materialButtonSetQuickConfig.Size = new System.Drawing.Size(121, 29);
+            this._materialButtonSetQuickConfig.TabIndex = 17;
+            this._materialButtonSetQuickConfig.Text = "SET";
+            this._materialButtonSetQuickConfig.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this._materialButtonSetQuickConfig.UseAccentColor = false;
+            this._materialButtonSetQuickConfig.UseVisualStyleBackColor = true;
+            this._materialButtonSetQuickConfig.Click += new System.EventHandler(this._materialButtonSetQuickConfig_Click);
             // 
             // materialButton7
             // 
@@ -483,7 +485,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Controls.Add(this.materialButton8, 1, 4);
+            this.tableLayoutPanel9.Controls.Add(this._materialButtonGoQuickProgram, 1, 4);
             this.tableLayoutPanel9.Controls.Add(this.materialLabel10, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.materialLabel11, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.materialLabel12, 0, 3);
@@ -491,6 +493,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel9.Controls.Add(this.materialTextBox4, 1, 2);
             this.tableLayoutPanel9.Controls.Add(this.materialTextBox5, 1, 3);
             this.tableLayoutPanel9.Controls.Add(this.materialLabel13, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this._materialButtonEndQuickProgram, 0, 4);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -503,23 +506,24 @@ namespace TaRU_Jaster
             this.tableLayoutPanel9.Size = new System.Drawing.Size(274, 228);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
-            // materialButton8
+            // _materialButtonGoQuickProgram
             // 
-            this.materialButton8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton8.Depth = 0;
-            this.materialButton8.DrawShadows = true;
-            this.materialButton8.HighEmphasis = true;
-            this.materialButton8.Icon = null;
-            this.materialButton8.Location = new System.Drawing.Point(141, 186);
-            this.materialButton8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton8.Name = "materialButton8";
-            this.materialButton8.Size = new System.Drawing.Size(41, 36);
-            this.materialButton8.TabIndex = 0;
-            this.materialButton8.Text = "GO";
-            this.materialButton8.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton8.UseAccentColor = false;
-            this.materialButton8.UseVisualStyleBackColor = true;
+            this._materialButtonGoQuickProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._materialButtonGoQuickProgram.Depth = 0;
+            this._materialButtonGoQuickProgram.DrawShadows = true;
+            this._materialButtonGoQuickProgram.HighEmphasis = true;
+            this._materialButtonGoQuickProgram.Icon = null;
+            this._materialButtonGoQuickProgram.Location = new System.Drawing.Point(141, 186);
+            this._materialButtonGoQuickProgram.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonGoQuickProgram.MouseState = MaterialSkin.MouseState.HOVER;
+            this._materialButtonGoQuickProgram.Name = "_materialButtonGoQuickProgram";
+            this._materialButtonGoQuickProgram.Size = new System.Drawing.Size(41, 36);
+            this._materialButtonGoQuickProgram.TabIndex = 0;
+            this._materialButtonGoQuickProgram.Text = "GO";
+            this._materialButtonGoQuickProgram.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this._materialButtonGoQuickProgram.UseAccentColor = false;
+            this._materialButtonGoQuickProgram.UseVisualStyleBackColor = true;
+            this._materialButtonGoQuickProgram.Click += new System.EventHandler(this._materialButtonGoQuickProgram_Click);
             // 
             // materialLabel10
             // 
@@ -622,6 +626,25 @@ namespace TaRU_Jaster
             this.materialLabel13.Size = new System.Drawing.Size(105, 19);
             this.materialLabel13.TabIndex = 8;
             this.materialLabel13.Text = "Quick program";
+            // 
+            // _materialButtonEndQuickProgram
+            // 
+            this._materialButtonEndQuickProgram.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._materialButtonEndQuickProgram.Depth = 0;
+            this._materialButtonEndQuickProgram.DrawShadows = true;
+            this._materialButtonEndQuickProgram.HighEmphasis = true;
+            this._materialButtonEndQuickProgram.Icon = null;
+            this._materialButtonEndQuickProgram.Location = new System.Drawing.Point(4, 186);
+            this._materialButtonEndQuickProgram.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonEndQuickProgram.MouseState = MaterialSkin.MouseState.HOVER;
+            this._materialButtonEndQuickProgram.Name = "_materialButtonEndQuickProgram";
+            this._materialButtonEndQuickProgram.Size = new System.Drawing.Size(50, 36);
+            this._materialButtonEndQuickProgram.TabIndex = 9;
+            this._materialButtonEndQuickProgram.Text = "END";
+            this._materialButtonEndQuickProgram.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this._materialButtonEndQuickProgram.UseAccentColor = false;
+            this._materialButtonEndQuickProgram.UseVisualStyleBackColor = true;
+            this._materialButtonEndQuickProgram.Click += new System.EventHandler(this._materialButtonEndQuickProgram_Click);
             // 
             // materialCard2
             // 
@@ -2090,10 +2113,10 @@ namespace TaRU_Jaster
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
-        private MaterialSkin.Controls.MaterialButton materialButton6;
+        private MaterialSkin.Controls.MaterialButton _materialButtonSetQuickConfig;
         private MaterialSkin.Controls.MaterialButton materialButton7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private MaterialSkin.Controls.MaterialButton materialButton8;
+        private MaterialSkin.Controls.MaterialButton _materialButtonGoQuickProgram;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private MaterialSkin.Controls.MaterialLabel materialLabel12;
@@ -2102,6 +2125,7 @@ namespace TaRU_Jaster
         private MaterialSkin.Controls.MaterialTextBox materialTextBox5;
         private MaterialSkin.Controls.MaterialLabel materialLabel13;
         private System.Windows.Forms.ToolTip toolTip1;
+        private MaterialSkin.Controls.MaterialButton _materialButtonEndQuickProgram;
     }
 }
 

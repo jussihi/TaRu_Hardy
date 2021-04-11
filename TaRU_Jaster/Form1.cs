@@ -540,6 +540,113 @@ namespace TaRU_Jaster
             return;
         }
 
+        private async void _materialButtonGoQuickProgram_Click(object sender, EventArgs e)
+        {
+            int hitsToFall = 0, timeUp = 0, timeDown = 0;
+
+            try
+            {
+                hitsToFall = int.Parse(materialTextBox3.Text);
+                if (hitsToFall < 1 || hitsToFall > 20)
+                    throw new ArgumentException("Hits to fall must be between 1 and 19!");
+            }
+            catch(Exception ex)
+            {
+                log_msg("ERROR: trying to parse integer value hits to fall, exception: " + ex.Message);
+                return;
+            }
+
+            try
+            {
+                timeUp = int.Parse(materialTextBox4.Text);
+                if (timeUp < 1 || timeUp > 99)
+                    throw new ArgumentException("Time up must be between 1 and 99 (RND)!");
+            }
+            catch (Exception ex)
+            {
+                log_msg("ERROR: trying to parse integer value time up, exception: " + ex.Message);
+                return;
+            }
+
+            try
+            {
+                timeDown = int.Parse(materialTextBox5.Text);
+                if (timeDown < 1 || timeDown > 99)
+                    throw new ArgumentException("Time down must be between 1 and 99 (RND)!");
+            }
+            catch (Exception ex)
+            {
+                log_msg("ERROR: trying to parse integer value time down, exception: " + ex.Message);
+                return;
+            }
+
+            // all values are validated, go on ...
+
+            await oneShotTargetsSimpleExecute(OneShotCommand.SetProgramHitsToFall, (byte)hitsToFall);
+            await oneShotTargetsSimpleExecute(OneShotCommand.SetProgramTimeUp, (byte)timeUp);
+            await oneShotTargetsSimpleExecute(OneShotCommand.SetProgramTimeDown, (byte)timeDown);
+            await oneShotTargetsSimpleExecute(OneShotCommand.StartProgram);
+        }
+
+        private async void _materialButtonEndQuickProgram_Click(object sender, EventArgs e)
+        {
+            await oneShotTargetsSimpleExecute(OneShotCommand.EndProgram);
+        }
+
+        private async void _materialButtonSetQuickConfig_Click(object sender, EventArgs e)
+        {
+            int sensitivity = 0, hitsToFall = 0;
+
+            try
+            {
+                sensitivity = int.Parse(materialTextBox1.Text);
+                if (sensitivity < 1 || sensitivity > 20)
+                    throw new ArgumentException("Hits to fall must be between 0 and 99!");
+            }
+            catch (Exception ex)
+            {
+                log_msg("ERROR: trying to parse integer value sensitivity, exception: " + ex.Message);
+                return;
+            }
+
+            try
+            {
+                hitsToFall = int.Parse(materialTextBox2.Text);
+                if (hitsToFall < 1 || hitsToFall > 20)
+                    throw new ArgumentException("Hits to fall must be between 1 and 19!");
+            }
+            catch (Exception ex)
+            {
+                log_msg("ERROR: trying to parse integer value hits to fall, exception: " + ex.Message);
+                return;
+            }
+
+            // all values are validated, go on ...
+            await oneShotTargetsSimpleExecute(OneShotCommand.SetSensitivity, (byte)sensitivity);
+            await oneShotTargetsSimpleExecute(OneShotCommand.SetHitsToFall, (byte)hitsToFall);
+            switch(materialCheckbox2.Checked)
+            {
+                case true:
+                    await oneShotTargetsSimpleExecute(OneShotCommand.SetLightsOn);
+                    break;
+                default:
+                    await oneShotTargetsSimpleExecute(OneShotCommand.SetLightsOff);
+                    break;
+            }
+
+            switch (materialCheckbox1.Checked)
+            {
+                case true:
+                    await oneShotTargetsSimpleExecute(OneShotCommand.SetMotionOn);
+                    break;
+                default:
+                    await oneShotTargetsSimpleExecute(OneShotCommand.SetMotionOff);
+                    break;
+            }
+
+
+        }
+
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
         {
             w_targetNo = w_targetNo - 1;
@@ -853,6 +960,5 @@ namespace TaRU_Jaster
             ShowTargetToolTip(30, _materialButtonSelectTargetSimple30);
         }
 
-        
     }
 }
