@@ -115,7 +115,6 @@ namespace TaRU_Jaster
                 {
                     pComStatus = ComStatus.Sending;
                     if (w_timeout <= 0) w_timeout = _serialTimeOut;
-                    await _serialPort.BaseStream.WriteAsync(w_data, 0, w_data.Length);
                     var receiveTask = Task.Run(async () => { 
                         await _serialPort.BaseStream.WriteAsync(w_data, 0, w_data.Length);
                     });
