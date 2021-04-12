@@ -602,10 +602,11 @@ namespace TaRU_Jaster
                 sensitivity = int.Parse(materialTextBox1.Text);
                 if (sensitivity < 1 || sensitivity > 20)
                     throw new ArgumentException("Hits to fall must be between 0 and 99!");
+                await oneShotTargetsSimpleExecute(OneShotCommand.SetSensitivity, (byte)sensitivity);
             }
             catch (Exception ex)
             {
-                log_msg("ERROR: trying to parse integer value sensitivity, exception: " + ex.Message);
+                log_msg("WARNING: trying to parse integer value sensitivity, exception: " + ex.Message + ". Not setting value.");
                 return;
             }
 
@@ -614,16 +615,14 @@ namespace TaRU_Jaster
                 hitsToFall = int.Parse(materialTextBox2.Text);
                 if (hitsToFall < 1 || hitsToFall > 20)
                     throw new ArgumentException("Hits to fall must be between 1 and 19!");
+                await oneShotTargetsSimpleExecute(OneShotCommand.SetHitsToFall, (byte)hitsToFall);
             }
             catch (Exception ex)
             {
-                log_msg("ERROR: trying to parse integer value hits to fall, exception: " + ex.Message);
+                log_msg("WARNING: trying to parse integer value hits to fall, exception: " + ex.Message + ". Not setting value.");
                 return;
             }
-
-            // all values are validated, go on ...
-            await oneShotTargetsSimpleExecute(OneShotCommand.SetSensitivity, (byte)sensitivity);
-            await oneShotTargetsSimpleExecute(OneShotCommand.SetHitsToFall, (byte)hitsToFall);
+            
             switch(materialCheckbox2.Checked)
             {
                 case true:
