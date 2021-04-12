@@ -246,7 +246,7 @@ namespace TaRU_Jaster
         private byte[] addTargetNumberToAddress(int w_target, byte[] w_addressBytes)
         {
             // place the dummy to right position to create the address
-            w_addressBytes[(w_target - 1) / 7] = (byte)(0b_0000_0001 << ((w_target - 1) % 7));
+            w_addressBytes[(w_target - 1) / 7] |= (byte)(0b_0000_0001 << ((w_target - 1) % 7));
 
             // return address array
             return w_addressBytes;
