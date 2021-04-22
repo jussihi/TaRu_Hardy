@@ -287,11 +287,8 @@ namespace TaRU_Jaster
                     targetList.Add(i);
             }
 
-            // If no targets are set, bail out
-            if (targetList.Count == 0)
-                return false;
-
-            bool allTargets = targetList.Count == 30;
+            bool allTargets = (targetList.Count == 30 || targetList.Count == 0);
+            
 
             // Set target array (unset if needed in command switch!)
             foreach (int targetNo in targetList)

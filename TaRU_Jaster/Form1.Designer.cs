@@ -66,7 +66,6 @@ namespace TaRU_Jaster
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this._selectAllTargetsSimple = new MaterialSkin.Controls.MaterialButton();
             this._deselectAllTargetsSimple = new MaterialSkin.Controls.MaterialButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this._materialButtonSelectTargetSimple2 = new MaterialSkin.Controls.MaterialButton();
@@ -689,7 +688,6 @@ namespace TaRU_Jaster
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this._selectAllTargetsSimple, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this._deselectAllTargetsSimple, 1, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 390);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -697,27 +695,6 @@ namespace TaRU_Jaster
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(451, 47);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // _selectAllTargetsSimple
-            // 
-            this._selectAllTargetsSimple.AutoSize = false;
-            this._selectAllTargetsSimple.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this._selectAllTargetsSimple.Depth = 0;
-            this._selectAllTargetsSimple.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._selectAllTargetsSimple.DrawShadows = true;
-            this._selectAllTargetsSimple.HighEmphasis = true;
-            this._selectAllTargetsSimple.Icon = ((System.Drawing.Image)(resources.GetObject("_selectAllTargetsSimple.Icon")));
-            this._selectAllTargetsSimple.Location = new System.Drawing.Point(4, 4);
-            this._selectAllTargetsSimple.Margin = new System.Windows.Forms.Padding(4);
-            this._selectAllTargetsSimple.MouseState = MaterialSkin.MouseState.HOVER;
-            this._selectAllTargetsSimple.Name = "_selectAllTargetsSimple";
-            this._selectAllTargetsSimple.Size = new System.Drawing.Size(217, 39);
-            this._selectAllTargetsSimple.TabIndex = 3;
-            this._selectAllTargetsSimple.Text = "Select all";
-            this._selectAllTargetsSimple.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this._selectAllTargetsSimple.UseAccentColor = false;
-            this._selectAllTargetsSimple.UseVisualStyleBackColor = true;
-            this._selectAllTargetsSimple.Click += new System.EventHandler(this._selectAllTargetsSimple_Click);
             // 
             // _deselectAllTargetsSimple
             // 
@@ -2054,7 +2031,6 @@ namespace TaRU_Jaster
         private MaterialSkin.Controls.MaterialLabel _materialLabelScriptName;
         private MaterialSkin.Controls.MaterialLabel _materialLabelEditingFile;
         private MaterialSkin.Controls.MaterialCard materialCard2;
-        private MaterialSkin.Controls.MaterialButton _selectAllTargetsSimple;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialButton _materialButtonSelectTargetSimple2;
         private MaterialSkin.Controls.MaterialButton _materialButtonSelectTargetSimple30;
