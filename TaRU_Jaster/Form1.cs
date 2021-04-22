@@ -645,6 +645,35 @@ namespace TaRU_Jaster
 
         }
 
+        private async void _materialButtonAskStats_Click(object sender, EventArgs e)
+        {
+            var targetList = new List<int>();
+
+            for (int i = 1; i < 31; i++)
+            {
+                if (_targetSettings[i - 1].buttonInstance.UseAccentColor)
+                    targetList.Add(i);
+            }
+
+            // Add all targets if none selected
+            if(targetList.Count == 0)
+            {
+                targetList.AddRange(Enumerable.Range(1, 30));
+            }
+
+            foreach (int targetNo in targetList)
+            {
+                byte[] command = { 0x90, 0x00 };
+                command[1] = (byte)targetNo;
+                await _jasterExecutor.SendSerial(command);
+                byte[] res = await _jasterExecutor.ReadSerial(6);
+                if (res == null)
+                    continue;
+                // TODO: do something with data
+                MessageBox.Show("Successfully serial data from target " + targetNo + ": " + res + "\nFirst byte in base10: " + res[0]);
+            }
+        }
+
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
         {
             w_targetNo = w_targetNo - 1;
@@ -966,5 +995,6 @@ namespace TaRU_Jaster
             ShowTargetToolTip(30, _materialButtonSelectTargetSimple30);
         }
 
+        
     }
 }

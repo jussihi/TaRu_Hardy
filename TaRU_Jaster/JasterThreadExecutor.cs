@@ -140,7 +140,7 @@ namespace TaRU_Jaster
             }
         }
 
-        private async Task<byte[]> ReadSerial(int w_len, int w_timeout = 0)
+        public async Task<byte[]> ReadSerial(int w_len, int w_timeout = 0)
         {
             // Sanity check
             if (w_len <= 0)

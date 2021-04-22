@@ -1500,6 +1500,7 @@ namespace TaRU_Jaster
             this.materialButton5.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton5.UseAccentColor = false;
             this.materialButton5.UseVisualStyleBackColor = true;
+            this.materialButton5.Click += new System.EventHandler(this._materialButtonAskStats_Click);
             // 
             // materialButton4
             // 
