@@ -59,7 +59,7 @@ namespace TaRU_Jaster
         {
             _serialPort = new SerialPort();
             _serialPort.ErrorReceived += HandleSerialError;
-            Global.g_form1.log_msg("Jaster Executor initialized!");
+            Global.g_form1.log_msg("Hardy Commander Executor initialized!");
 
             _comStatus = ComStatus.Disconnected;
             _serialTimeOut = 500;

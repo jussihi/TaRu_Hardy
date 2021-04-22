@@ -1969,7 +1969,7 @@ namespace TaRU_Jaster
             this.DrawerTabControl = this.materialTabControl1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TaRU Jaster Controller";
+            this.Text = "TaRU Hardy Controller";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
