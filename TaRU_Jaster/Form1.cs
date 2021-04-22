@@ -32,6 +32,7 @@ namespace TaRU_Jaster
             public int hitsToFall;
             public bool lightOn;
             public bool motionOn;
+            public bool up;
         }
 
         
@@ -67,6 +68,7 @@ namespace TaRU_Jaster
                 _targetSettings[i].hitsToFall = 1;
                 _targetSettings[i].motionOn = false;
                 _targetSettings[i].lightOn = false;
+                _targetSettings[i].up = false;
             }
 
             //_targetSettings[3].buttonInstance.ForeColor = Color.White;
@@ -646,12 +648,20 @@ namespace TaRU_Jaster
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
         {
             w_targetNo = w_targetNo - 1;
+            if(_targetSettings[w_targetNo].enabled)
+            {
+                toolTip1.Show("Target  " + (w_targetNo + 1).ToString() + "\n" +
+                    "Sensitivity: " + _targetSettings[w_targetNo].sensitivity.ToString() + "\n" +
+                    "Hits to fall: " + _targetSettings[w_targetNo].hitsToFall.ToString() + "\n" +
+                    "Light on: " + _targetSettings[w_targetNo].lightOn.ToString() + "\n" +
+                    "Motion on: " + _targetSettings[w_targetNo].motionOn.ToString() + "\n" +
+                    "State: " + (_targetSettings[w_targetNo].up ? "up" : "down"), 
+                    _targetSettings[w_targetNo].buttonInstance);
+                return;
+            }
             toolTip1.Show("Target  " + (w_targetNo + 1).ToString() + "\n" +
-                "Sensitivity: " + _targetSettings[w_targetNo].sensitivity.ToString() + "\n" +
-                "Hits to fall: " + _targetSettings[w_targetNo].hitsToFall.ToString() + "\n" +
-                "Light on: " + _targetSettings[w_targetNo].lightOn.ToString() + "\n" +
-                "Motion on: " + _targetSettings[w_targetNo].motionOn.ToString()
-                , _targetSettings[w_targetNo].buttonInstance);
+                    "No target information, please fetch",
+                    _targetSettings[w_targetNo].buttonInstance);
         }
 
 
