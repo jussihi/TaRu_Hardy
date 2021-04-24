@@ -670,8 +670,16 @@ namespace TaRU_Jaster
                 if (res == null)
                     continue;
                 // TODO: do something with data
-                MessageBox.Show("Successfully serial data from target " + targetNo + ": " + res + "\nFirst byte in base10: " + res[0]);
+                MessageBox.Show("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
             }
+        }
+
+        private static string ByteArrayToString(byte[] ba)
+        {
+            StringBuilder hex = new StringBuilder(ba.Length * 2);
+            foreach (byte b in ba)
+                hex.AppendFormat("0x{0:x2} ", b);
+            return hex.ToString();
         }
 
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
