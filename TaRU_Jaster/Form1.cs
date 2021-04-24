@@ -151,7 +151,8 @@ namespace TaRU_Jaster
 
         private void ComStatusChangedHandler(object sender, EventArgs e)
         {
-            MessageBox.Show("COM status changed");
+            // TODO: change status indicator
+            // MessageBox.Show("COM status changed");
         }
 
         private void _materialButtonComConnect_Click(object sender, EventArgs e)
