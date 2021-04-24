@@ -666,6 +666,7 @@ namespace TaRU_Jaster
             {
                 byte[] command = { 0x90, 0x00 };
                 command[1] = (byte)targetNo;
+                _jasterExecutor.ClearSerialInBuffer();
                 await _jasterExecutor.SendSerial(command);
                 byte[] res = await _jasterExecutor.ReadSerial(6);
                 if (res == null)

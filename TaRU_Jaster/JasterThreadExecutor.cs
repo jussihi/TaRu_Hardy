@@ -100,6 +100,12 @@ namespace TaRU_Jaster
             return _serialPort.IsOpen;
         }
 
+        public void ClearSerialInBuffer()
+        {
+            _serialPort.DiscardInBuffer();
+            return;
+        }
+
         public async Task<bool> SendSerial(byte[] w_data, int w_timeout = 0)
         {
             // Sanity check
