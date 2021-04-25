@@ -207,9 +207,16 @@ namespace TaRU_Jaster
                     var ReceiveCount = 0;
                     var receiveTask = Task.Run(async () => { 
                         while(ReceiveCount < w_len)
-                            ReceiveCount += await _serialPort.BaseStream.ReadAsync(data, ReceiveCount, w_len);
+                        {
+                            ReceiveCount += await _serialPort.BaseStream.ReadAsync(data, ReceiveCount, w_len - ReceiveCount);
+                            Global.g_form1.log_msg("RECV: Currently received: " + ReceiveCount + "bytes");
+                            await Task.Delay(20);
+                            if(ReceiveCount < w_len)
+                                Global.g_form1.log_msg("RECV: Not satisfied, reading more ...");
+                        }
                     });
                     var isReceived = await Task.WhenAny(receiveTask, Task.Delay(w_timeout)) == receiveTask;
+                    Global.g_form1.log_msg("RECV: Received total of: " + ReceiveCount + "bytes");
                     if (!isReceived) return null;
                     pComStatus = ComStatus.Connected;
                     return data;
