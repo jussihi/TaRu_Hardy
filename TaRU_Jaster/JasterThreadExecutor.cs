@@ -88,6 +88,9 @@ namespace TaRU_Jaster
                 pComStatus = ComStatus.Connected;
                 // clear serial port data
                 _serialPort.DiscardInBuffer();
+
+                // add listener for new data
+                _serialPort.DataReceived += DataReceivedHandler;
                 return true;
             }
             catch (Exception ex)
@@ -225,6 +228,12 @@ namespace TaRU_Jaster
                 pComStatus = ComStatus.Disconnected;
                 return null;
             }
+        }
+
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            Global.g_form1.log_msg("DATA received! Currently " +
+                    _serialPort.BytesToRead + " bytes of data in buffer.");
         }
 
         private void HandleSerialError(object sender, SerialErrorReceivedEventArgs e)
