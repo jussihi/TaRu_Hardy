@@ -100,9 +100,40 @@ namespace TaRU_Jaster
             return _serialPort.IsOpen;
         }
 
-        public void ClearSerialInBuffer()
+        public async void ClearSerialInBuffer()
         {
-            _serialPort.DiscardInBuffer();
+            // _serialPort.DiscardInBuffer();
+
+            int timeout = 20;
+
+            try
+            {
+                if (_serialPort.IsOpen)
+                {
+                    pComStatus = ComStatus.Receiving;
+                    byte[] data = new byte[0x1000];
+                    _serialPort.ReadTimeout = timeout;
+                    var ReciveCount = 0;
+                    var receiveTask = Task.Run(async () => {
+                        ReciveCount = await _serialPort.BaseStream.ReadAsync(data, 0, 0x1000);
+                    });
+                    var isReceived = await Task.WhenAny(receiveTask, Task.Delay(timeout)) == receiveTask;
+                    pComStatus = ComStatus.Connected;
+                }
+                else
+                {
+                    Global.g_form1.log_msg("ERROR while clearing COM port! " +
+                    "The port is not open!");
+                    pComStatus = ComStatus.Disconnected;
+                }
+            }
+            catch (Exception ex)
+            {
+                Global.g_form1.log_msg("ERROR while clearing COM port " +
+                    _serialPort.PortName + "! error message: " + ex.Message);
+                pComStatus = ComStatus.Disconnected;
+            }
+
             return;
         }
 
