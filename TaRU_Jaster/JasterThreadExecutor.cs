@@ -100,7 +100,7 @@ namespace TaRU_Jaster
             return _serialPort.IsOpen;
         }
 
-        public async void ClearSerialInBuffer()
+        public async Task<bool> ClearSerialInBuffer()
         {
             // _serialPort.DiscardInBuffer();
 
@@ -125,6 +125,7 @@ namespace TaRU_Jaster
                     Global.g_form1.log_msg("ERROR while clearing COM port! " +
                     "The port is not open!");
                     pComStatus = ComStatus.Disconnected;
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -132,9 +133,10 @@ namespace TaRU_Jaster
                 Global.g_form1.log_msg("ERROR while clearing COM port " +
                     _serialPort.PortName + "! error message: " + ex.Message);
                 pComStatus = ComStatus.Disconnected;
+                return false;
             }
 
-            return;
+            return true;
         }
 
         public async Task<bool> SendSerial(byte[] w_data, int w_timeout = 0)
