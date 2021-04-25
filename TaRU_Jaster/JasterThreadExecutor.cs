@@ -204,9 +204,10 @@ namespace TaRU_Jaster
                     byte[] data = new byte[w_len];
                     if (w_timeout <= 0) w_timeout = _serialTimeOut;
                     _serialPort.ReadTimeout = w_timeout;
-                    var ReciveCount = 0;
+                    var ReceiveCount = 0;
                     var receiveTask = Task.Run(async () => { 
-                        ReciveCount = await _serialPort.BaseStream.ReadAsync(data, 0, w_len); 
+                        while(ReceiveCount < w_len)
+                            ReceiveCount += await _serialPort.BaseStream.ReadAsync(data, ReceiveCount, w_len);
                     });
                     var isReceived = await Task.WhenAny(receiveTask, Task.Delay(w_timeout)) == receiveTask;
                     if (!isReceived) return null;
