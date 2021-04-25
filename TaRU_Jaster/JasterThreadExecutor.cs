@@ -86,6 +86,8 @@ namespace TaRU_Jaster
                 _serialPort.Handshake = Handshake.None;
                 _serialPort.Open();
                 pComStatus = ComStatus.Connected;
+                // clear serial port data
+                _serialPort.DiscardInBuffer();
                 return true;
             }
             catch (Exception ex)
@@ -102,8 +104,11 @@ namespace TaRU_Jaster
 
         public async Task<bool> ClearSerialInBuffer()
         {
-            // _serialPort.DiscardInBuffer();
+             _serialPort.DiscardInBuffer();
 
+            return true;
+
+            /*
             int timeout = 20;
 
             try
@@ -136,7 +141,7 @@ namespace TaRU_Jaster
                 return false;
             }
 
-            return true;
+            return true;*/
         }
 
         public async Task<bool> SendSerial(byte[] w_data, int w_timeout = 0)
