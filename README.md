@@ -15,11 +15,12 @@ TBD
  - Script manager! (saving, loading, creating and running of scripts)
  - Initial COM port connection
  - Rudimentary logging system
+ - Fetching of target configuration, shown on the preferences tab as a list
 
 ### What does not work:
 
  - COM port reconnection in case of changed port/failed connection
- - Fetchable commands (Get config, get stats, get hits, get battery)
+ - Fetchable command HITS not yet implemented
 
 ### Future functionality:
 
