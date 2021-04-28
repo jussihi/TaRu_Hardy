@@ -119,6 +119,11 @@ namespace TaRU_Jaster
             this._materialMultiLineTextBoxScript = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this._materialSwitchAutoResults = new MaterialSkin.Controls.MaterialSwitch();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this._materialButtonComRefresh = new MaterialSkin.Controls.MaterialButton();
             this._materialButtonComConnect = new MaterialSkin.Controls.MaterialButton();
@@ -129,6 +134,8 @@ namespace TaRU_Jaster
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1835,6 +1842,7 @@ namespace TaRU_Jaster
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.materialListView1);
             this.tabPage3.Controls.Add(this.materialCard1);
             this.tabPage3.ImageKey = "settings.png";
             this.tabPage3.Location = new System.Drawing.Point(4, 39);
@@ -1843,6 +1851,55 @@ namespace TaRU_Jaster
             this.tabPage3.Size = new System.Drawing.Size(870, 575);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
+            // 
+            // materialListView1
+            // 
+            this.materialListView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialListView1.AutoSizeTable = false;
+            this.materialListView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.materialListView1.Depth = 0;
+            this.materialListView1.FullRowSelect = true;
+            this.materialListView1.HideSelection = false;
+            this.materialListView1.Location = new System.Drawing.Point(6, 250);
+            this.materialListView1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialListView1.Name = "materialListView1";
+            this.materialListView1.OwnerDraw = true;
+            this.materialListView1.Size = new System.Drawing.Size(858, 319);
+            this.materialListView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.materialListView1.TabIndex = 4;
+            this.materialListView1.UseCompatibleStateImageBehavior = false;
+            this.materialListView1.View = System.Windows.Forms.View.Details;
+            this.materialListView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.materialListView1_ColumnClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Target";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Last update";
+            this.columnHeader2.Width = 179;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Light on";
+            this.columnHeader3.Width = 69;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Hits to fall";
+            this.columnHeader4.Width = 82;
             // 
             // materialCard1
             // 
@@ -1982,6 +2039,16 @@ namespace TaRU_Jaster
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(884, 892);
             this.tableLayoutPanel10.TabIndex = 8;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Battery (volts)";
+            this.columnHeader5.Width = 109;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Sensitivity";
+            this.columnHeader6.Width = 359;
             // 
             // Form1
             // 
@@ -2127,6 +2194,13 @@ namespace TaRU_Jaster
         private System.Windows.Forms.ToolTip toolTip1;
         private MaterialSkin.Controls.MaterialButton _materialButtonEndQuickProgram;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private MaterialSkin.Controls.MaterialListView materialListView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 

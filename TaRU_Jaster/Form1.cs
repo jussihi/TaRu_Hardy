@@ -16,6 +16,8 @@ using System.IO;
 
 using System.Reflection;
 
+using System.Windows.Forms;
+
 namespace TaRU_Jaster
 {
     public partial class Form1 : MaterialForm
@@ -44,7 +46,8 @@ namespace TaRU_Jaster
         private string _scriptFullPath;
         private MaterialSkinManager _materialSkinManager;
         private TargetSettings[] _targetSettings;
-        
+        private ListViewColumnSorter _lvwColumnSorter;
+
 
         public Form1()
         {
@@ -66,13 +69,17 @@ namespace TaRU_Jaster
             for (int i = 0; i < _targetSettings.Length; i++)
             {
                 _targetSettings[i].enabled = false;
-                _targetSettings[i].sensitivity = 50;
-                _targetSettings[i].hitsToFall = 1;
+                _targetSettings[i].sensitivity = 0;
+                _targetSettings[i].hitsToFall = 0;
                 _targetSettings[i].motionOn = false;
                 _targetSettings[i].lightOn = false;
                 _targetSettings[i].up = false;
+                _targetSettings[i].battery = 0.0f;
                 _targetSettings[i].lastUpdate = DateTime.MinValue;
             }
+
+            _lvwColumnSorter = new ListViewColumnSorter();
+            this.materialListView1.ListViewItemSorter = _lvwColumnSorter;
 
             //_targetSettings[3].buttonInstance.ForeColor = Color.White;
         }
@@ -123,6 +130,12 @@ namespace TaRU_Jaster
                     }
                     _targetSettings[i - 1].buttonInstance = b;
                 }
+            }
+
+            // Update / add targets to the target list
+            for(int i = 0; i < 30; i++)
+            {
+                UpdateTargetList(i);
             }
 
         }
@@ -185,6 +198,28 @@ namespace TaRU_Jaster
         private void _materialButtonStopScript_Click(object sender, EventArgs e)
         {
             // TODO
+        }
+
+        private void UpdateTargetList(int w_targetNo)
+        {
+            // Check if it exists already
+            foreach(ListViewItem entry in materialListView1.Items)
+            {
+                if(entry.Text.Equals((w_targetNo + 1).ToString()))
+                {
+                    entry.Remove();
+                }
+            }
+
+            ListViewItem item = new ListViewItem((w_targetNo + 1).ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].lastUpdate == DateTime.MinValue ? "N/A" : _targetSettings[w_targetNo].lastUpdate.ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].lightOn ? "Yes" : "No");
+            item.SubItems.Add(_targetSettings[w_targetNo].hitsToFall.ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].battery.ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].sensitivity.ToString());
+            materialListView1.Items.Add(item);
+
+            materialListView1.Sort();
         }
 
 
@@ -665,6 +700,8 @@ namespace TaRU_Jaster
                 targetList.AddRange(Enumerable.Range(1, 30));
             }
 
+            int targetResponses = 0;
+
             foreach (int targetNo in targetList)
             {
                 byte[] command = { 0x90, 0x00 };
@@ -695,8 +732,15 @@ namespace TaRU_Jaster
                 _targetSettings[targetNo - 1].enabled = true;
                 _targetSettings[targetNo - 1].lastUpdate = DateTime.Now;
 
+                // Update target
+                UpdateTargetList(targetNo - 1);
+                targetResponses++;
+
                 MessageBox.Show("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
             }
+
+            if(targetResponses > 0)
+                materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
         }
 
         private async void _materialButtonAskHits_Click(object sender, EventArgs e)
@@ -1058,6 +1102,29 @@ namespace TaRU_Jaster
             ShowTargetToolTip(30, _materialButtonSelectTargetSimple30);
         }
 
-        
+        private void materialListView1_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e)
+        {
+            if (e.Column == _lvwColumnSorter.SortColumn)
+            {
+                // Reverse the current sort direction for this column.
+                if (_lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    _lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    _lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                // Set the column number that is to be sorted; default to ascending.
+                _lvwColumnSorter.SortColumn = e.Column;
+                _lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            materialListView1.Sort();
+        }
+
     }
 }
