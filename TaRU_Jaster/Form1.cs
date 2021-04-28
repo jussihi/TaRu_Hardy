@@ -33,6 +33,8 @@ namespace TaRU_Jaster
             public bool lightOn;
             public bool motionOn;
             public bool up;
+            public float battery;
+            public DateTime lastUpdate;
         }
 
         
@@ -69,6 +71,7 @@ namespace TaRU_Jaster
                 _targetSettings[i].motionOn = false;
                 _targetSettings[i].lightOn = false;
                 _targetSettings[i].up = false;
+                _targetSettings[i].lastUpdate = DateTime.MinValue;
             }
 
             //_targetSettings[3].buttonInstance.ForeColor = Color.White;
@@ -667,6 +670,56 @@ namespace TaRU_Jaster
                 byte[] command = { 0x90, 0x00 };
                 command[1] = (byte)targetNo;
                 
+                await _jasterExecutor.SendSerial(command);
+                byte[] res = await _jasterExecutor.ReadSerial(6);
+                if (res == null)
+                    continue;
+
+                // Set states
+                bool help;
+                help = (res[0] & 0x20) == 0x20 ? (_targetSettings[targetNo - 1].up = true) : (_targetSettings[targetNo - 1].up = false);
+                help = (res[0] & 0x08) == 0x08 ? (_targetSettings[targetNo - 1].lightOn = true) : (_targetSettings[targetNo - 1].lightOn = false);
+
+                // Set hits to fall
+                _targetSettings[targetNo - 1].hitsToFall = res[1];
+
+                // Bytes 2-3 unknown ???
+
+                // Set battery level
+                _targetSettings[targetNo - 1].battery = ((float)((int)res[4]) / 10.0f) + 3.0f;
+
+                // Set sensitivity
+                _targetSettings[targetNo - 1].sensitivity = res[5];
+
+                // Set target enabled (since we were able to connect) and set latest timestamp
+                _targetSettings[targetNo - 1].enabled = true;
+                _targetSettings[targetNo - 1].lastUpdate = DateTime.Now;
+
+                MessageBox.Show("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
+            }
+        }
+
+        private async void _materialButtonAskHits_Click(object sender, EventArgs e)
+        {
+            var targetList = new List<int>();
+
+            for (int i = 1; i < 31; i++)
+            {
+                if (_targetSettings[i - 1].buttonInstance.UseAccentColor)
+                    targetList.Add(i);
+            }
+
+            // Add all targets if none selected
+            if (targetList.Count == 0)
+            {
+                targetList.AddRange(Enumerable.Range(1, 30));
+            }
+
+            foreach (int targetNo in targetList)
+            {
+                byte[] command = { 0x86, 0x00 };
+                command[1] = (byte)targetNo;
+
                 await _jasterExecutor.SendSerial(command);
                 byte[] res = await _jasterExecutor.ReadSerial(6);
                 if (res == null)

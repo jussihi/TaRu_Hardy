@@ -200,6 +200,7 @@ namespace TaRU_Jaster
             {
                 if (_serialPort.IsOpen)
                 {
+                    _serialPort.DiscardInBuffer();
                     pComStatus = ComStatus.Receiving;
                     byte[] data = new byte[w_len];
                     if (w_timeout <= 0) w_timeout = _serialTimeOut;

@@ -1524,6 +1524,7 @@ namespace TaRU_Jaster
             this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton4.UseAccentColor = false;
             this.materialButton4.UseVisualStyleBackColor = true;
+            this.materialButton4.Click += new System.EventHandler(this._materialButtonAskHits_Click);
             // 
             // materialButton3
             // 
@@ -1628,7 +1629,7 @@ namespace TaRU_Jaster
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(861, 604);
+            this.tabPage2.Size = new System.Drawing.Size(870, 575);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -1663,7 +1664,7 @@ namespace TaRU_Jaster
             this._materialSwitchResetResultsScriptStart.Checked = true;
             this._materialSwitchResetResultsScriptStart.CheckState = System.Windows.Forms.CheckState.Checked;
             this._materialSwitchResetResultsScriptStart.Depth = 0;
-            this._materialSwitchResetResultsScriptStart.Location = new System.Drawing.Point(543, 286);
+            this._materialSwitchResetResultsScriptStart.Location = new System.Drawing.Point(552, 286);
             this._materialSwitchResetResultsScriptStart.Margin = new System.Windows.Forms.Padding(0);
             this._materialSwitchResetResultsScriptStart.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchResetResultsScriptStart.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1683,7 +1684,7 @@ namespace TaRU_Jaster
             this._materialButtonGetResults.DrawShadows = true;
             this._materialButtonGetResults.HighEmphasis = true;
             this._materialButtonGetResults.Icon = null;
-            this._materialButtonGetResults.Location = new System.Drawing.Point(547, 475);
+            this._materialButtonGetResults.Location = new System.Drawing.Point(556, 475);
             this._materialButtonGetResults.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonGetResults.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonGetResults.Name = "_materialButtonGetResults";
@@ -1703,7 +1704,7 @@ namespace TaRU_Jaster
             this._materialButtonLoadScript.DrawShadows = true;
             this._materialButtonLoadScript.HighEmphasis = true;
             this._materialButtonLoadScript.Icon = null;
-            this._materialButtonLoadScript.Location = new System.Drawing.Point(547, 135);
+            this._materialButtonLoadScript.Location = new System.Drawing.Point(556, 135);
             this._materialButtonLoadScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonLoadScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonLoadScript.Name = "_materialButtonLoadScript";
@@ -1723,7 +1724,7 @@ namespace TaRU_Jaster
             this._materialButtonSaveScriptAs.DrawShadows = true;
             this._materialButtonSaveScriptAs.HighEmphasis = true;
             this._materialButtonSaveScriptAs.Icon = null;
-            this._materialButtonSaveScriptAs.Location = new System.Drawing.Point(547, 87);
+            this._materialButtonSaveScriptAs.Location = new System.Drawing.Point(556, 87);
             this._materialButtonSaveScriptAs.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScriptAs.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScriptAs.Name = "_materialButtonSaveScriptAs";
@@ -1743,7 +1744,7 @@ namespace TaRU_Jaster
             this._materialButtonSaveScript.DrawShadows = true;
             this._materialButtonSaveScript.HighEmphasis = true;
             this._materialButtonSaveScript.Icon = null;
-            this._materialButtonSaveScript.Location = new System.Drawing.Point(547, 39);
+            this._materialButtonSaveScript.Location = new System.Drawing.Point(556, 39);
             this._materialButtonSaveScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScript.Name = "_materialButtonSaveScript";
@@ -1763,7 +1764,7 @@ namespace TaRU_Jaster
             this._materialButtonStopScript.DrawShadows = true;
             this._materialButtonStopScript.HighEmphasis = true;
             this._materialButtonStopScript.Icon = null;
-            this._materialButtonStopScript.Location = new System.Drawing.Point(547, 427);
+            this._materialButtonStopScript.Location = new System.Drawing.Point(556, 427);
             this._materialButtonStopScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStopScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStopScript.Name = "_materialButtonStopScript";
@@ -1784,7 +1785,7 @@ namespace TaRU_Jaster
             this._materialButtonStartPauseScript.DrawShadows = true;
             this._materialButtonStartPauseScript.HighEmphasis = true;
             this._materialButtonStartPauseScript.Icon = null;
-            this._materialButtonStartPauseScript.Location = new System.Drawing.Point(547, 379);
+            this._materialButtonStartPauseScript.Location = new System.Drawing.Point(556, 379);
             this._materialButtonStartPauseScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStartPauseScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStartPauseScript.Name = "_materialButtonStartPauseScript";
@@ -1811,7 +1812,7 @@ namespace TaRU_Jaster
             this._materialMultiLineTextBoxScript.Location = new System.Drawing.Point(6, 39);
             this._materialMultiLineTextBoxScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialMultiLineTextBoxScript.Name = "_materialMultiLineTextBoxScript";
-            this._materialMultiLineTextBoxScript.Size = new System.Drawing.Size(534, 537);
+            this._materialMultiLineTextBoxScript.Size = new System.Drawing.Size(543, 508);
             this._materialMultiLineTextBoxScript.TabIndex = 1;
             this._materialMultiLineTextBoxScript.Text = "";
             // 
@@ -1820,7 +1821,7 @@ namespace TaRU_Jaster
             this._materialSwitchAutoResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialSwitchAutoResults.AutoSize = true;
             this._materialSwitchAutoResults.Depth = 0;
-            this._materialSwitchAutoResults.Location = new System.Drawing.Point(543, 323);
+            this._materialSwitchAutoResults.Location = new System.Drawing.Point(552, 323);
             this._materialSwitchAutoResults.Margin = new System.Windows.Forms.Padding(0);
             this._materialSwitchAutoResults.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchAutoResults.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1839,7 +1840,7 @@ namespace TaRU_Jaster
             this.tabPage3.Location = new System.Drawing.Point(4, 39);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(861, 604);
+            this.tabPage3.Size = new System.Drawing.Size(870, 575);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             // 
@@ -1854,7 +1855,7 @@ namespace TaRU_Jaster
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(393, 17);
+            this.materialCard1.Location = new System.Drawing.Point(402, 17);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
