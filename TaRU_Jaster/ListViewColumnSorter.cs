@@ -59,11 +59,11 @@ namespace TaRU_Jaster
             // Always show updated targets first
             if (listviewX.SubItems[1].Text == "N/A" && listviewY.SubItems[1].Text != "N/A")
             {
-                return -1;
+                return 1;
             }
             else if (listviewX.SubItems[1].Text != "N/A" && listviewY.SubItems[1].Text == "N/A")
             {
-                return 1;
+                return -1;
             }
 
             // If the compare should be done numerically
