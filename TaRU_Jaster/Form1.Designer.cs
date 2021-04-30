@@ -124,6 +124,8 @@ namespace TaRU_Jaster
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this._materialButtonComRefresh = new MaterialSkin.Controls.MaterialButton();
             this._materialButtonComConnect = new MaterialSkin.Controls.MaterialButton();
@@ -134,8 +136,6 @@ namespace TaRU_Jaster
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1901,6 +1901,16 @@ namespace TaRU_Jaster
             this.columnHeader4.Text = "Hits to fall";
             this.columnHeader4.Width = 82;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Battery (volts)";
+            this.columnHeader5.Width = 109;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Sensitivity";
+            this.columnHeader6.Width = 359;
+            // 
             // materialCard1
             // 
             this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2039,16 +2049,6 @@ namespace TaRU_Jaster
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(884, 892);
             this.tableLayoutPanel10.TabIndex = 8;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Battery (volts)";
-            this.columnHeader5.Width = 109;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Sensitivity";
-            this.columnHeader6.Width = 359;
             // 
             // Form1
             // 

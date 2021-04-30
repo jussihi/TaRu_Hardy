@@ -759,6 +759,8 @@ namespace TaRU_Jaster
                 targetList.AddRange(Enumerable.Range(1, 30));
             }
 
+            var targetHitsList = new List<HitsForm.TargetHits>();
+
             foreach (int targetNo in targetList)
             {
                 byte[] command = { 0x86, 0x00 };
@@ -770,7 +772,26 @@ namespace TaRU_Jaster
                     continue;
                 // TODO: do something with data
                 MessageBox.Show("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
+
+                HitsForm.TargetHits entry = new HitsForm.TargetHits 
+                                             {  targetNo     = targetNo, 
+                                                overallHits  = (short)(res[0] | (res[1] << 8)), 
+                                                riseCount    = (short)(res[2] | (res[3] << 8)), 
+                                                hitFallCount = (short)(res[4] | (res[5] << 8))
+                };
+
+                targetHitsList.Add(entry);
             }
+
+            if(targetHitsList.Count == 0)
+            {
+                MessageBox.Show("No targets answered to HITS request!");
+                return;
+            }
+
+            HitsForm f = new HitsForm();
+            f.SetTargetHitsList(targetHitsList);
+            f.Show();
         }
 
         private static string ByteArrayToString(byte[] ba)

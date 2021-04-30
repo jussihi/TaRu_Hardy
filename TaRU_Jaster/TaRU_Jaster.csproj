@@ -55,12 +55,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HitsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HitsForm.Designer.cs">
+      <DependentUpon>HitsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="JasterThreadExecutor.cs" />
     <Compile Include="ListViewColumnSorter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HitsForm.resx">
+      <DependentUpon>HitsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
