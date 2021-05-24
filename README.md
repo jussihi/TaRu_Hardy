@@ -17,6 +17,7 @@ TBD
  - Rudimentary logging system
  - Fetching of target configuration, shown on the preferences tab as a list
  - Fetching of target HITS
+ - Show COM port status with a GREEN/YELLOW/RED light (Connected, Busy writing/reading, Disconnected)
 
 ### What does not work:
 
@@ -24,6 +25,5 @@ TBD
 
 ### Future functionality:
 
- - Show COM port status with a GREEN/YELLOW/RED light (Connected, Busy writing/reading, Disconnected)
  - Line numbers to script editor
  - Something else?
