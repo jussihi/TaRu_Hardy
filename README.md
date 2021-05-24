@@ -16,11 +16,11 @@ TBD
  - Initial COM port connection
  - Rudimentary logging system
  - Fetching of target configuration, shown on the preferences tab as a list
+ - Fetching of target HITS
 
 ### What does not work:
 
  - COM port reconnection in case of changed port/failed connection
- - Fetchable command HITS not yet implemented
 
 ### Future functionality:
 
