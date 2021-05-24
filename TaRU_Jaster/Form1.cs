@@ -462,9 +462,9 @@ namespace TaRU_Jaster
                     break;
                 case OneShotCommand.SetProgramTimeUp:
                     // Check that the hitstofall is within limits
-                    if (w_param > 99 || w_param == 0)
+                    if (w_param > 99)
                     {
-                        MessageBox.Show("Value of timeup must be between 1-99!");
+                        MessageBox.Show("Value of timeup must be between 0-99!");
                         log_msg("Timeup value not set or invalid: " + w_param);
                         return false;
                     }
@@ -480,9 +480,9 @@ namespace TaRU_Jaster
                     break;
                 case OneShotCommand.SetProgramTimeDown:
                     // Check that the hitstofall is within limits
-                    if (w_param > 99 || w_param == 0)
+                    if (w_param > 99)
                     {
-                        MessageBox.Show("Value of timedown must be between 1-99!");
+                        MessageBox.Show("Value of timedown must be between 0-99!");
                         log_msg("Timedown value not set or invalid: " + w_param);
                         return false;
                     }
@@ -773,8 +773,8 @@ namespace TaRU_Jaster
                 // TODO: do something with data
                 MessageBox.Show("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
 
-                HitsForm.TargetHits entry = new HitsForm.TargetHits 
-                                             {  targetNo     = targetNo, 
+                HitsForm.TargetHits entry = new HitsForm.TargetHits {  
+                                                targetNo     = targetNo, 
                                                 overallHits  = (short)(res[0] | (res[1] << 8)), 
                                                 riseCount    = (short)(res[2] | (res[3] << 8)), 
                                                 hitFallCount = (short)(res[4] | (res[5] << 8))
@@ -783,11 +783,11 @@ namespace TaRU_Jaster
                 targetHitsList.Add(entry);
             }
 
-            if(targetHitsList.Count == 0)
-            {
-                MessageBox.Show("No targets answered to HITS request!");
-                return;
-            }
+            //if(targetHitsList.Count == 0)
+            //{
+            //    MessageBox.Show("No targets answered to HITS request!");
+            //    return;
+            //}
 
             HitsForm f = new HitsForm();
             f.SetTargetHitsList(targetHitsList);
