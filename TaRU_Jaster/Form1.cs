@@ -12,6 +12,8 @@ using System.Threading;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
+using System.Diagnostics;
+
 using System.IO;
 
 using System.Reflection;
@@ -78,8 +80,44 @@ namespace TaRU_Jaster
                 _targetSettings[i].lastUpdate = DateTime.MinValue;
             }
 
+            // initialize target list sorter
             _lvwColumnSorter = new ListViewColumnSorter();
             this.materialListView1.ListViewItemSorter = _lvwColumnSorter;
+
+            
+            // initialize tab images
+            string[] tab_images = new string[]{ "avatar.png", "edit.png", "settings.png" };
+
+            foreach (string tab_image in tab_images)
+            {
+                var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TaRU_Jaster.Resources." + tab_image);
+                if (imageStream != null)
+                {
+                    var image = Image.FromStream(imageStream);
+                    imageList1.Images.Add(image);
+                }
+                else
+                    Debug.WriteLine("null tabanme");
+            }
+
+            // Set the image list for the tablayout
+            materialTabControl1.ImageList = imageList1;
+
+            // initialize connection status icons
+            string[] conn_images = new string[] { "OK.png", "PENDING.png", "cancel.png" };
+
+            foreach (string conn_image in conn_images)
+            {
+                var imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TaRU_Jaster.Resources." + conn_image);
+                if (imageStream != null)
+                {
+                    var image = Image.FromStream(imageStream);
+                    imageList2.Images.Add(image);
+                }
+                else
+                    Debug.WriteLine("null conname\n");
+            }
+            
 
             //_targetSettings[3].buttonInstance.ForeColor = Color.White;
         }

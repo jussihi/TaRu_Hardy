@@ -721,7 +721,7 @@ namespace TaRU_Jaster
             this._deselectAllTargetsSimple.Dock = System.Windows.Forms.DockStyle.Fill;
             this._deselectAllTargetsSimple.DrawShadows = true;
             this._deselectAllTargetsSimple.HighEmphasis = true;
-            this._deselectAllTargetsSimple.Icon = ((System.Drawing.Image)(resources.GetObject("_deselectAllTargetsSimple.Icon")));
+            this._deselectAllTargetsSimple.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._deselectAllTargetsSimple.Location = new System.Drawing.Point(232, 4);
             this._deselectAllTargetsSimple.Margin = new System.Windows.Forms.Padding(4);
             this._deselectAllTargetsSimple.MouseState = MaterialSkin.MouseState.HOVER;
@@ -796,7 +796,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple2.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple2.DrawShadows = true;
             this._materialButtonSelectTargetSimple2.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple2.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple2.Icon")));
+            this._materialButtonSelectTargetSimple2.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple2.Location = new System.Drawing.Point(95, 6);
             this._materialButtonSelectTargetSimple2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -819,7 +819,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple30.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple30.DrawShadows = true;
             this._materialButtonSelectTargetSimple30.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple30.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple30.Icon")));
+            this._materialButtonSelectTargetSimple30.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple30.Location = new System.Drawing.Point(368, 281);
             this._materialButtonSelectTargetSimple30.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple30.MouseState = MaterialSkin.MouseState.HOVER;
@@ -842,7 +842,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple3.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple3.DrawShadows = true;
             this._materialButtonSelectTargetSimple3.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple3.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple3.Icon")));
+            this._materialButtonSelectTargetSimple3.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple3.Location = new System.Drawing.Point(186, 6);
             this._materialButtonSelectTargetSimple3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -865,7 +865,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple29.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple29.DrawShadows = true;
             this._materialButtonSelectTargetSimple29.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple29.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple29.Icon")));
+            this._materialButtonSelectTargetSimple29.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple29.Location = new System.Drawing.Point(277, 281);
             this._materialButtonSelectTargetSimple29.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple29.MouseState = MaterialSkin.MouseState.HOVER;
@@ -888,7 +888,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple4.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple4.DrawShadows = true;
             this._materialButtonSelectTargetSimple4.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple4.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple4.Icon")));
+            this._materialButtonSelectTargetSimple4.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple4.Location = new System.Drawing.Point(277, 6);
             this._materialButtonSelectTargetSimple4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -911,7 +911,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple28.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple28.DrawShadows = true;
             this._materialButtonSelectTargetSimple28.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple28.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple28.Icon")));
+            this._materialButtonSelectTargetSimple28.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple28.Location = new System.Drawing.Point(186, 281);
             this._materialButtonSelectTargetSimple28.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple28.MouseState = MaterialSkin.MouseState.HOVER;
@@ -934,7 +934,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple5.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple5.DrawShadows = true;
             this._materialButtonSelectTargetSimple5.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple5.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple5.Icon")));
+            this._materialButtonSelectTargetSimple5.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple5.Location = new System.Drawing.Point(368, 6);
             this._materialButtonSelectTargetSimple5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple5.MouseState = MaterialSkin.MouseState.HOVER;
@@ -957,7 +957,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple27.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple27.DrawShadows = true;
             this._materialButtonSelectTargetSimple27.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple27.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple27.Icon")));
+            this._materialButtonSelectTargetSimple27.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple27.Location = new System.Drawing.Point(95, 281);
             this._materialButtonSelectTargetSimple27.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple27.MouseState = MaterialSkin.MouseState.HOVER;
@@ -980,7 +980,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple26.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple26.DrawShadows = true;
             this._materialButtonSelectTargetSimple26.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple26.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple26.Icon")));
+            this._materialButtonSelectTargetSimple26.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple26.Location = new System.Drawing.Point(4, 281);
             this._materialButtonSelectTargetSimple26.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple26.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1003,7 +1003,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple1.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple1.DrawShadows = true;
             this._materialButtonSelectTargetSimple1.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple1.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple1.Icon")));
+            this._materialButtonSelectTargetSimple1.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple1.Location = new System.Drawing.Point(4, 6);
             this._materialButtonSelectTargetSimple1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1026,7 +1026,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple6.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple6.DrawShadows = true;
             this._materialButtonSelectTargetSimple6.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple6.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple6.Icon")));
+            this._materialButtonSelectTargetSimple6.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple6.Location = new System.Drawing.Point(4, 61);
             this._materialButtonSelectTargetSimple6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple6.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1049,7 +1049,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple25.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple25.DrawShadows = true;
             this._materialButtonSelectTargetSimple25.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple25.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple25.Icon")));
+            this._materialButtonSelectTargetSimple25.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple25.Location = new System.Drawing.Point(368, 226);
             this._materialButtonSelectTargetSimple25.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple25.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1072,7 +1072,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple7.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple7.DrawShadows = true;
             this._materialButtonSelectTargetSimple7.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple7.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple7.Icon")));
+            this._materialButtonSelectTargetSimple7.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple7.Location = new System.Drawing.Point(95, 61);
             this._materialButtonSelectTargetSimple7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple7.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1095,7 +1095,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple24.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple24.DrawShadows = true;
             this._materialButtonSelectTargetSimple24.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple24.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple24.Icon")));
+            this._materialButtonSelectTargetSimple24.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple24.Location = new System.Drawing.Point(277, 226);
             this._materialButtonSelectTargetSimple24.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple24.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1118,7 +1118,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple8.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple8.DrawShadows = true;
             this._materialButtonSelectTargetSimple8.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple8.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple8.Icon")));
+            this._materialButtonSelectTargetSimple8.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple8.Location = new System.Drawing.Point(186, 61);
             this._materialButtonSelectTargetSimple8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple8.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1141,7 +1141,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple23.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple23.DrawShadows = true;
             this._materialButtonSelectTargetSimple23.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple23.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple23.Icon")));
+            this._materialButtonSelectTargetSimple23.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple23.Location = new System.Drawing.Point(186, 226);
             this._materialButtonSelectTargetSimple23.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple23.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1164,7 +1164,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple9.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple9.DrawShadows = true;
             this._materialButtonSelectTargetSimple9.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple9.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple9.Icon")));
+            this._materialButtonSelectTargetSimple9.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple9.Location = new System.Drawing.Point(277, 61);
             this._materialButtonSelectTargetSimple9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple9.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1187,7 +1187,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple22.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple22.DrawShadows = true;
             this._materialButtonSelectTargetSimple22.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple22.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple22.Icon")));
+            this._materialButtonSelectTargetSimple22.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple22.Location = new System.Drawing.Point(95, 226);
             this._materialButtonSelectTargetSimple22.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple22.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1210,7 +1210,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple21.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple21.DrawShadows = true;
             this._materialButtonSelectTargetSimple21.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple21.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple21.Icon")));
+            this._materialButtonSelectTargetSimple21.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple21.Location = new System.Drawing.Point(4, 226);
             this._materialButtonSelectTargetSimple21.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple21.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1233,7 +1233,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple10.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple10.DrawShadows = true;
             this._materialButtonSelectTargetSimple10.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple10.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple10.Icon")));
+            this._materialButtonSelectTargetSimple10.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple10.Location = new System.Drawing.Point(368, 61);
             this._materialButtonSelectTargetSimple10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple10.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1256,7 +1256,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple11.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple11.DrawShadows = true;
             this._materialButtonSelectTargetSimple11.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple11.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple11.Icon")));
+            this._materialButtonSelectTargetSimple11.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple11.Location = new System.Drawing.Point(4, 116);
             this._materialButtonSelectTargetSimple11.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple11.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1279,7 +1279,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple20.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple20.DrawShadows = true;
             this._materialButtonSelectTargetSimple20.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple20.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple20.Icon")));
+            this._materialButtonSelectTargetSimple20.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple20.Location = new System.Drawing.Point(368, 171);
             this._materialButtonSelectTargetSimple20.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple20.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1302,7 +1302,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple12.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple12.DrawShadows = true;
             this._materialButtonSelectTargetSimple12.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple12.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple12.Icon")));
+            this._materialButtonSelectTargetSimple12.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple12.Location = new System.Drawing.Point(95, 116);
             this._materialButtonSelectTargetSimple12.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple12.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1325,7 +1325,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple19.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple19.DrawShadows = true;
             this._materialButtonSelectTargetSimple19.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple19.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple19.Icon")));
+            this._materialButtonSelectTargetSimple19.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple19.Location = new System.Drawing.Point(277, 171);
             this._materialButtonSelectTargetSimple19.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple19.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1348,7 +1348,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple13.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple13.DrawShadows = true;
             this._materialButtonSelectTargetSimple13.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple13.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple13.Icon")));
+            this._materialButtonSelectTargetSimple13.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple13.Location = new System.Drawing.Point(186, 116);
             this._materialButtonSelectTargetSimple13.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple13.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1371,7 +1371,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple18.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple18.DrawShadows = true;
             this._materialButtonSelectTargetSimple18.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple18.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple18.Icon")));
+            this._materialButtonSelectTargetSimple18.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple18.Location = new System.Drawing.Point(186, 171);
             this._materialButtonSelectTargetSimple18.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple18.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1394,7 +1394,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple14.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple14.DrawShadows = true;
             this._materialButtonSelectTargetSimple14.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple14.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple14.Icon")));
+            this._materialButtonSelectTargetSimple14.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple14.Location = new System.Drawing.Point(277, 116);
             this._materialButtonSelectTargetSimple14.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple14.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1417,7 +1417,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple17.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple17.DrawShadows = true;
             this._materialButtonSelectTargetSimple17.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple17.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple17.Icon")));
+            this._materialButtonSelectTargetSimple17.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple17.Location = new System.Drawing.Point(95, 171);
             this._materialButtonSelectTargetSimple17.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple17.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1440,7 +1440,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple16.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple16.DrawShadows = true;
             this._materialButtonSelectTargetSimple16.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple16.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple16.Icon")));
+            this._materialButtonSelectTargetSimple16.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple16.Location = new System.Drawing.Point(4, 171);
             this._materialButtonSelectTargetSimple16.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple16.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1463,7 +1463,7 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple15.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSelectTargetSimple15.DrawShadows = true;
             this._materialButtonSelectTargetSimple15.HighEmphasis = true;
-            this._materialButtonSelectTargetSimple15.Icon = ((System.Drawing.Image)(resources.GetObject("_materialButtonSelectTargetSimple15.Icon")));
+            this._materialButtonSelectTargetSimple15.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
             this._materialButtonSelectTargetSimple15.Location = new System.Drawing.Point(368, 116);
             this._materialButtonSelectTargetSimple15.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSelectTargetSimple15.MouseState = MaterialSkin.MouseState.HOVER;
@@ -2096,6 +2096,7 @@ namespace TaRU_Jaster
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::TaRU_Jaster.Properties.Resources.cancel;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(710, 891);
             this.pictureBox1.Name = "pictureBox1";
@@ -2106,11 +2107,9 @@ namespace TaRU_Jaster
             // 
             // imageList2
             // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "OK.png");
-            this.imageList2.Images.SetKeyName(1, "PENDING.png");
-            this.imageList2.Images.SetKeyName(2, "cancel.png");
             // 
             // Form1
             // 
