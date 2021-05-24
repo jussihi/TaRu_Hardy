@@ -125,7 +125,7 @@ namespace TaRU_Jaster
                     MaterialButton b = c as MaterialButton;
                     if (b == null)
                     {
-                        MessageBox.Show("fail");
+                        log_msg("ERROR: could not find Button for target " + i);
                         continue;
                     }
                     _targetSettings[i - 1].buttonInstance = b;
@@ -176,7 +176,7 @@ namespace TaRU_Jaster
             if (!_jasterExecutor.ConnectSerial(_materialComboBoxComPorts.Text))
             {
                 // fail
-                MessageBox.Show("FAIL");
+                MessageBox.Show("Could not connect to serial!");
             }
         }
 
@@ -736,7 +736,7 @@ namespace TaRU_Jaster
                 UpdateTargetList(targetNo - 1);
                 targetResponses++;
 
-                MessageBox.Show("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
+                log_msg("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
             }
 
             if(targetResponses > 0)
@@ -771,7 +771,7 @@ namespace TaRU_Jaster
                 if (res == null)
                     continue;
                 // TODO: do something with data
-                MessageBox.Show("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
+                log_msg("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
 
                 HitsForm.TargetHits entry = new HitsForm.TargetHits {  
                                                 targetNo     = targetNo, 
