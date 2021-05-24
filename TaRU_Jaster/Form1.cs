@@ -138,6 +138,9 @@ namespace TaRU_Jaster
                 UpdateTargetList(i);
             }
 
+            // Set initial status for connection
+            materialLabel14.Text = "Disconnected";
+            pictureBox1.Image = imageList2.Images[2];
         }
 
         private Control GetControlByName(Control ParentCntl, string NameToSearch)
@@ -167,8 +170,28 @@ namespace TaRU_Jaster
 
         private void ComStatusChangedHandler(object sender, EventArgs e)
         {
-            // TODO: change status indicator
-            // MessageBox.Show("COM status changed");
+            switch(_jasterExecutor.pComStatus)
+            {
+                case JasterThreadExecutor.ComStatus.Connected:
+                    materialLabel14.Text = "Connected";
+                    pictureBox1.Image = imageList2.Images[0];
+                    break;
+
+                case JasterThreadExecutor.ComStatus.Disconnected:
+                    materialLabel14.Text = "Disconnected";
+                    pictureBox1.Image = imageList2.Images[2];
+                    break;
+
+                case JasterThreadExecutor.ComStatus.Sending:
+                    materialLabel14.Text = "Sending";
+                    pictureBox1.Image = imageList2.Images[1];
+                    break;
+
+                case JasterThreadExecutor.ComStatus.Receiving:
+                    materialLabel14.Text = "Receiving";
+                    pictureBox1.Image = imageList2.Images[1];
+                    break;
+            }
         }
 
         private void _materialButtonComConnect_Click(object sender, EventArgs e)
