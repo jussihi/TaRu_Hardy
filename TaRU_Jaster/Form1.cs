@@ -658,8 +658,8 @@ namespace TaRU_Jaster
             try
             {
                 timeUp = int.Parse(materialTextBox4.Text);
-                if (timeUp < 1 || timeUp > 99)
-                    throw new ArgumentException("Time up must be between 1 and 99 (RND)!");
+                if (timeUp < 0 || timeUp > 99)
+                    throw new ArgumentException("Time up must be between 0 and 99 (RND)!");
             }
             catch (Exception ex)
             {
@@ -670,8 +670,8 @@ namespace TaRU_Jaster
             try
             {
                 timeDown = int.Parse(materialTextBox5.Text);
-                if (timeDown < 1 || timeDown > 99)
-                    throw new ArgumentException("Time down must be between 1 and 99 (RND)!");
+                if (timeDown < 0 || timeDown > 99)
+                    throw new ArgumentException("Time down must be between 0 and 99 (RND)!");
             }
             catch (Exception ex)
             {
