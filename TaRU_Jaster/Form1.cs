@@ -572,7 +572,7 @@ namespace TaRU_Jaster
                     if (allTargets)
                     {
                         command = new byte[] { 0x8F };
-                        address = new byte[] { 0x01, 0x7F, 0x7F, 0x7F, 0x07, 0x03 };
+                        address = new byte[] { 0x01, 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
                         nullBytes = new byte[8];
                         break;
                     }
