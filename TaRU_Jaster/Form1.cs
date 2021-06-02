@@ -706,7 +706,6 @@ namespace TaRU_Jaster
             catch (Exception ex)
             {
                 log_msg("WARNING: trying to parse integer value sensitivity, exception: " + ex.Message + ". Not setting value.");
-                return;
             }
 
             try
@@ -719,7 +718,6 @@ namespace TaRU_Jaster
             catch (Exception ex)
             {
                 log_msg("WARNING: trying to parse integer value hits to fall, exception: " + ex.Message + ". Not setting value.");
-                return;
             }
             
             switch(materialCheckbox2.Checked)
