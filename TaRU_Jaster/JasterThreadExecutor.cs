@@ -220,8 +220,8 @@ namespace TaRU_Jaster
                     });
                     var isReceived = await Task.WhenAny(receiveTask, Task.Delay(w_timeout)) == receiveTask;
                     Global.g_form1.log_msg("RECV: Received total of: " + ReceiveCount + "bytes");
-                    if (!isReceived) return null;
                     pComStatus = ComStatus.Connected;
+                    if (!isReceived) return null;
                     return data;
                 }
                 else
