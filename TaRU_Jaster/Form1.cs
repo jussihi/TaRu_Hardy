@@ -550,7 +550,7 @@ namespace TaRU_Jaster
                     if (allTargets)
                     {
                         command = new byte[] { 0x94 };
-                        // address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
+                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
                         nullBytes = new byte[8];
                         break;
                     }
@@ -561,7 +561,7 @@ namespace TaRU_Jaster
                     if (allTargets)
                     {
                         command = new byte[] { 0x95 };
-                        // address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
+                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
                         nullBytes = new byte[8];
                         break;
                     }
