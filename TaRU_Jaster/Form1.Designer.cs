@@ -107,6 +107,7 @@ namespace TaRU_Jaster
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CodeTextBox = new ScintillaNET.Scintilla();
             this._materialLabelEditingFile = new MaterialSkin.Controls.MaterialLabel();
             this._materialLabelScriptName = new MaterialSkin.Controls.MaterialLabel();
             this._materialSwitchResetResultsScriptStart = new MaterialSkin.Controls.MaterialSwitch();
@@ -116,7 +117,6 @@ namespace TaRU_Jaster
             this._materialButtonSaveScript = new MaterialSkin.Controls.MaterialButton();
             this._materialButtonStopScript = new MaterialSkin.Controls.MaterialButton();
             this._materialButtonStartPauseScript = new MaterialSkin.Controls.MaterialButton();
-            this._materialMultiLineTextBoxScript = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this._materialSwitchAutoResults = new MaterialSkin.Controls.MaterialSwitch();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -1627,6 +1627,7 @@ namespace TaRU_Jaster
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.CodeTextBox);
             this.tabPage2.Controls.Add(this._materialLabelEditingFile);
             this.tabPage2.Controls.Add(this._materialLabelScriptName);
             this.tabPage2.Controls.Add(this._materialSwitchResetResultsScriptStart);
@@ -1636,7 +1637,6 @@ namespace TaRU_Jaster
             this.tabPage2.Controls.Add(this._materialButtonSaveScript);
             this.tabPage2.Controls.Add(this._materialButtonStopScript);
             this.tabPage2.Controls.Add(this._materialButtonStartPauseScript);
-            this.tabPage2.Controls.Add(this._materialMultiLineTextBoxScript);
             this.tabPage2.Controls.Add(this._materialSwitchAutoResults);
             this.tabPage2.ImageKey = "edit.png";
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
@@ -1645,6 +1645,20 @@ namespace TaRU_Jaster
             this.tabPage2.Size = new System.Drawing.Size(870, 556);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
+            // 
+            // CodeTextBox
+            // 
+            this.CodeTextBox.AdditionalCaretForeColor = System.Drawing.Color.Silver;
+            this.CodeTextBox.AllowDrop = true;
+            this.CodeTextBox.AutoCMaxHeight = 9;
+            this.CodeTextBox.HScrollBar = false;
+            this.CodeTextBox.IndentationGuides = ScintillaNET.IndentView.LookBoth;
+            this.CodeTextBox.Lexer = ScintillaNET.Lexer.VbScript;
+            this.CodeTextBox.Location = new System.Drawing.Point(9, 39);
+            this.CodeTextBox.Name = "CodeTextBox";
+            this.CodeTextBox.Size = new System.Drawing.Size(485, 502);
+            this.CodeTextBox.TabIndex = 11;
+            this.CodeTextBox.TabWidth = 2;
             // 
             // _materialLabelEditingFile
             // 
@@ -1809,25 +1823,6 @@ namespace TaRU_Jaster
             this._materialButtonStartPauseScript.UseAccentColor = false;
             this._materialButtonStartPauseScript.UseVisualStyleBackColor = true;
             this._materialButtonStartPauseScript.Click += new System.EventHandler(this._materialButtonStartPauseScript_Click);
-            // 
-            // _materialMultiLineTextBoxScript
-            // 
-            this._materialMultiLineTextBoxScript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._materialMultiLineTextBoxScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this._materialMultiLineTextBoxScript.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._materialMultiLineTextBoxScript.Depth = 0;
-            this._materialMultiLineTextBoxScript.DetectUrls = false;
-            this._materialMultiLineTextBoxScript.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this._materialMultiLineTextBoxScript.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._materialMultiLineTextBoxScript.Hint = "";
-            this._materialMultiLineTextBoxScript.Location = new System.Drawing.Point(6, 39);
-            this._materialMultiLineTextBoxScript.MouseState = MaterialSkin.MouseState.HOVER;
-            this._materialMultiLineTextBoxScript.Name = "_materialMultiLineTextBoxScript";
-            this._materialMultiLineTextBoxScript.Size = new System.Drawing.Size(543, 489);
-            this._materialMultiLineTextBoxScript.TabIndex = 1;
-            this._materialMultiLineTextBoxScript.Text = "";
             // 
             // _materialSwitchAutoResults
             // 
@@ -2180,7 +2175,6 @@ namespace TaRU_Jaster
         private MaterialSkin.Controls.MaterialButton _materialButtonComRefresh;
         private MaterialSkin.Controls.MaterialButton _materialButtonStopScript;
         private MaterialSkin.Controls.MaterialButton _materialButtonStartPauseScript;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox _materialMultiLineTextBoxScript;
         private MaterialSkin.Controls.MaterialButton _materialButtonLoadScript;
         private MaterialSkin.Controls.MaterialButton _materialButtonSaveScriptAs;
         private MaterialSkin.Controls.MaterialButton _materialButtonSaveScript;
@@ -2273,6 +2267,7 @@ namespace TaRU_Jaster
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Label label1;
+        private ScintillaNET.Scintilla CodeTextBox;
     }
 }
 

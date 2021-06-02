@@ -20,6 +20,9 @@ using System.Reflection;
 
 using System.Windows.Forms;
 
+using System.Drawing;
+using ScintillaNET;
+
 namespace TaRU_Jaster
 {
     public partial class Form1 : MaterialForm
@@ -117,9 +120,12 @@ namespace TaRU_Jaster
                 else
                     Debug.WriteLine("null conname\n");
             }
-            
+
 
             //_targetSettings[3].buttonInstance.ForeColor = Color.White;
+
+            InitializeCodeBox();
+
         }
 
         public void log_msg(string msg)
@@ -140,13 +146,6 @@ namespace TaRU_Jaster
             _materialComboBoxComPorts.Items.AddRange(_jasterExecutor.GetPortNames());
             if(_materialComboBoxComPorts.Items.Count > 0)
                 _materialComboBoxComPorts.SelectedIndex = 0;
-
-            // Handle drags
-            _materialMultiLineTextBoxScript.AllowDrop = true;
-            _materialMultiLineTextBoxScript.DragDrop += _materialMultiLineTextBoxScriptDragHandler;
-
-            // Handle text edit in script box
-            _materialMultiLineTextBoxScript.TextChanged += _materialMultiLineTextBoxScriptTextChangedHandler;
 
             // At the very start, disable serial functionality, require connection
             DisableSerialFunctionality();
@@ -181,6 +180,58 @@ namespace TaRU_Jaster
             pictureBox1.Image = imageList2.Images[2];
         }
 
+        private void InitializeCodeBox()
+        {
+            // Initialize the code box
+            CodeTextBox.Styles[Style.Default].Font = "Consolas";
+            CodeTextBox.Styles[Style.Default].Size = 12;
+            //CodeTextBox.Styles[Style.Default].BackColor = IntToColor(0x212121);
+            //CodeTextBox.Styles[Style.Default].ForeColor = IntToColor(0xFFFFFF);
+
+            // Configure the CPP (C#) lexer styles
+            CodeTextBox.Styles[Style.Cpp.Identifier].ForeColor = IntToColor(0x2a2a2a);
+            CodeTextBox.Styles[Style.Cpp.Comment].ForeColor = IntToColor(0xBD758B);
+            CodeTextBox.Styles[Style.Cpp.CommentLine].ForeColor = IntToColor(0x40BF57);
+            CodeTextBox.Styles[Style.Cpp.CommentDoc].ForeColor = IntToColor(0x2FAE35);
+            CodeTextBox.Styles[Style.Cpp.Number].ForeColor = IntToColor(0x00750a);
+            CodeTextBox.Styles[Style.Cpp.String].ForeColor = IntToColor(0x00750a);
+            CodeTextBox.Styles[Style.Cpp.Character].ForeColor = IntToColor(0xE95454);
+            CodeTextBox.Styles[Style.Cpp.Preprocessor].ForeColor = IntToColor(0x8AAFEE);
+            CodeTextBox.Styles[Style.Cpp.Operator].ForeColor = IntToColor(0x2a2a2a);
+            CodeTextBox.Styles[Style.Cpp.Regex].ForeColor = IntToColor(0xff00ff);
+            CodeTextBox.Styles[Style.Cpp.CommentLineDoc].ForeColor = IntToColor(0x77A7DB);
+            CodeTextBox.Styles[Style.Cpp.Word].ForeColor = IntToColor(0x48A8EE);
+            CodeTextBox.Styles[Style.Cpp.Word2].ForeColor = IntToColor(0xF98906);
+            CodeTextBox.Styles[Style.Cpp.CommentDocKeyword].ForeColor = IntToColor(0xB3D991);
+            CodeTextBox.Styles[Style.Cpp.CommentDocKeywordError].ForeColor = IntToColor(0xFF0000);
+            CodeTextBox.Styles[Style.Cpp.GlobalClass].ForeColor = IntToColor(0x48A8EE);
+
+            CodeTextBox.Lexer = Lexer.Cpp;
+
+            CodeTextBox.SetKeywords(0, "class extends implements import interface new case do while else if for in switch throw get set function var try catch finally while with default break continue delete return each const namespace package include use is as instanceof typeof author copy default deprecated eventType example exampleText exception haxe inheritDoc internal link mtasc mxmlc param private return see serial serialData serialField since throws usage version langversion playerversion productversion dynamic private public partial static intrinsic internal native override protected AS3 final super this arguments null Infinity NaN undefined true false abstract as base bool break by byte case catch char checked class const continue decimal default delegate do double descending explicit event extern else enum false finally fixed float for foreach from goto group if implicit in int interface internal into is lock long new null namespace object operator out override orderby params private protected public readonly ref return switch struct sbyte sealed short sizeof stackalloc static string select this throw true try typeof uint ulong unchecked unsafe ushort using var virtual volatile void while where yield");
+            CodeTextBox.SetKeywords(1, "void Null ArgumentError arguments Array Boolean Class Date DefinitionError Error EvalError Function int Math Namespace Number Object RangeError ReferenceError RegExp SecurityError String SyntaxError TypeError uint XML XMLList Boolean Byte Char DateTime Decimal Double Int16 Int32 Int64 IntPtr SByte Single UInt16 UInt32 UInt64 UIntPtr Void Path File System Windows Forms ScintillaNET");
+
+            // init line numbering
+            var nums = CodeTextBox.Margins[1];
+            nums.Width = 30;
+            nums.Type = MarginType.Number;
+            nums.Sensitive = true;
+            nums.Mask = 0;
+
+            // Handle changing text in CodeTextBox
+            CodeTextBox.TextChanged += CodeTextBoxScriptTextChangedHandler;
+
+            // Handle drags
+            CodeTextBox.AllowDrop = true;
+            CodeTextBox.DragEnter += delegate (object sender, DragEventArgs e) {
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                    e.Effect = DragDropEffects.Copy;
+                else
+                    e.Effect = DragDropEffects.None;
+            };
+            CodeTextBox.DragDrop += CodeTextBoxScriptDragHandler;
+        }
+
         private Control GetControlByName(Control ParentCntl, string NameToSearch)
         {
             if (ParentCntl.Name == NameToSearch)
@@ -204,6 +255,11 @@ namespace TaRU_Jaster
         public void EnableSerialFunctionality()
         {
             return;
+        }
+
+        public static Color IntToColor(int rgb)
+        {
+            return Color.FromArgb(255, (byte)(rgb >> 16), (byte)(rgb >> 8), (byte)rgb);
         }
 
         private void ComStatusChangedHandler(object sender, EventArgs e)
@@ -253,7 +309,7 @@ namespace TaRU_Jaster
 
         private async void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
         {
-            await _jasterExecutor.RunCommands(_materialMultiLineTextBoxScript.Text);
+            await _jasterExecutor.RunCommands(CodeTextBox.Text);
         }
 
         private void _materialButtonStopScript_Click(object sender, EventArgs e)
@@ -287,31 +343,30 @@ namespace TaRU_Jaster
         /*
          * EVENT HANDLERS
          */
-
-        private void _materialMultiLineTextBoxScriptDragHandler(object sender, DragEventArgs e)
+        private void CodeTextBoxScriptDragHandler(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            if(files != null && files.Length == 1)
+            if (files != null && files.Length == 1)
             {
                 log_msg(Path.GetFileName(files[0]));
                 log_msg(Path.GetDirectoryName(files[0]));
-                _materialMultiLineTextBoxScript.Text = System.IO.File.ReadAllText(files[0]);
+                CodeTextBox.Text = System.IO.File.ReadAllText(files[0]);
                 _scriptFullPath = files[0];
                 _materialLabelScriptName.Text = Path.GetFileName(files[0]);
                 _scriptTextChanged = false;
             }
         }
 
-        private void _materialMultiLineTextBoxScriptTextChangedHandler(object sender, EventArgs e)
+        private void CodeTextBoxScriptTextChangedHandler(object sender, EventArgs e)
         {
             // special case for uninitialized scripts
-            if(_materialMultiLineTextBoxScript.Text.Length == 0 && _scriptFullPath.Length == 0)
+            if (CodeTextBox.Text.Length == 0 && _scriptFullPath.Length == 0)
             {
                 _scriptTextChanged = false;
                 _materialLabelScriptName.Text = "Unsaved script";
             }
 
-            else if(!_scriptTextChanged)
+            else if (!_scriptTextChanged)
             {
                 _scriptTextChanged = true;
                 _materialLabelScriptName.Text = _materialLabelScriptName.Text + " *";
