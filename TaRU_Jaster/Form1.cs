@@ -23,6 +23,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using ScintillaNET;
 
+
 namespace TaRU_Jaster
 {
     public partial class Form1 : MaterialForm
@@ -309,7 +310,17 @@ namespace TaRU_Jaster
 
         private async void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
         {
-            await _jasterExecutor.RunCommands(CodeTextBox.Text);
+            // await _jasterExecutor.RunCommands(CodeTextBox.Text);
+            HardyBasic.Interpreter hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text);
+            try
+            {
+                await hardyBasicInterpreter.Exec();
+            }
+            catch (Exception ec)
+            {
+                log_msg("BAD");
+                log_msg(ec.Message);
+            }
         }
 
         private void _materialButtonStopScript_Click(object sender, EventArgs e)

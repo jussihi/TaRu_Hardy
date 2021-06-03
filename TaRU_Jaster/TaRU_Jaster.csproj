@@ -197,6 +197,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Globals.cs" />
+    <Compile Include="HardyBasic\HardyBuiltIns.cs" />
+    <Compile Include="HardyBasic\Interpreter.cs" />
+    <Compile Include="HardyBasic\Lexer.cs" />
+    <Compile Include="HardyBasic\Marker.cs" />
+    <Compile Include="HardyBasic\Token.cs" />
+    <Compile Include="HardyBasic\Value.cs" />
+    <Compile Include="HardyExecutor.cs" />
     <Compile Include="HitsForm.cs">
       <SubType>Form</SubType>
     </Compile>
