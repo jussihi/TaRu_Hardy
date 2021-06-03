@@ -30,13 +30,16 @@ namespace TaRU_Jaster.HardyBasic
 
         private bool exit; // do we need to exit?
 
+        private HardyExecutor _HardyExecutor;
+
         private void __printLine(string w_input)
         {
             Global.g_form1.log_msg(w_input);
         }
 
-        public Interpreter(string input)
+        public Interpreter(string input, HardyExecutor w_executor)
         {
+            _HardyExecutor = w_executor;
             this.lex = new Lexer(input);
             this.vars = new Dictionary<string, Value>();
             this.labels = new Dictionary<string, Marker>();

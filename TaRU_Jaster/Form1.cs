@@ -35,19 +35,12 @@ namespace TaRU_Jaster
         struct TargetSettings
         {
             public MaterialButton buttonInstance;
-            public bool enabled;
-            public int sensitivity;
-            public int hitsToFall;
-            public bool lightOn;
-            public bool motionOn;
-            public bool up;
-            public float battery;
-            public DateTime lastUpdate;
+            public HardyExecutor.TargetStats stats;
         }
 
-        
 
-        private JasterThreadExecutor _jasterExecutor;
+        private HardyExecutor _HardyExecutor;
+        private COMHandler _COMHandler;
         private bool _scriptTextChanged;
         private string _scriptFullPath;
         private MaterialSkinManager _materialSkinManager;
@@ -74,14 +67,14 @@ namespace TaRU_Jaster
             // initialize the default target settings
             for (int i = 0; i < _targetSettings.Length; i++)
             {
-                _targetSettings[i].enabled = false;
-                _targetSettings[i].sensitivity = 0;
-                _targetSettings[i].hitsToFall = 0;
-                _targetSettings[i].motionOn = false;
-                _targetSettings[i].lightOn = false;
-                _targetSettings[i].up = false;
-                _targetSettings[i].battery = 0.0f;
-                _targetSettings[i].lastUpdate = DateTime.MinValue;
+                _targetSettings[i].stats.enabled = false;
+                _targetSettings[i].stats.sensitivity = 0;
+                _targetSettings[i].stats.hitsToFall = 0;
+                _targetSettings[i].stats.motionOn = false;
+                _targetSettings[i].stats.lightOn = false;
+                _targetSettings[i].stats.up = false;
+                _targetSettings[i].stats.battery = 0.0f;
+                _targetSettings[i].stats.lastUpdate = DateTime.MinValue;
             }
 
             // initialize target list sorter
@@ -137,14 +130,17 @@ namespace TaRU_Jaster
         private void Form1_Load(object sender, EventArgs e)
         {
             // initialize the Jaster Executor class
-            _jasterExecutor = new JasterThreadExecutor();
+            _COMHandler = new COMHandler();
+
+            // initialize Hardy Executor class
+            _HardyExecutor = new HardyExecutor(_COMHandler);
 
             // The script has not been changed, there's no name for the initial script
             _scriptTextChanged = false;
             _scriptFullPath = "";
 
             // initialize the serial port list, maybe have a handler do this every X seconds?
-            _materialComboBoxComPorts.Items.AddRange(_jasterExecutor.GetPortNames());
+            _materialComboBoxComPorts.Items.AddRange(_COMHandler.GetPortNames());
             if(_materialComboBoxComPorts.Items.Count > 0)
                 _materialComboBoxComPorts.SelectedIndex = 0;
 
@@ -152,7 +148,7 @@ namespace TaRU_Jaster
             DisableSerialFunctionality();
 
             // Set com status changed handler
-            _jasterExecutor.ComStatusChanged += ComStatusChangedHandler;
+            _COMHandler.ComStatusChanged += ComStatusChangedHandler;
 
             // Set the button instances to TargetSettings struct
             for (int i = 1; i <= 30; i++)
@@ -265,24 +261,24 @@ namespace TaRU_Jaster
 
         private void ComStatusChangedHandler(object sender, EventArgs e)
         {
-            switch(_jasterExecutor.pComStatus)
+            switch(_COMHandler.pComStatus)
             {
-                case JasterThreadExecutor.ComStatus.Connected:
+                case COMHandler.ComStatus.Connected:
                     materialLabel14.Text = "Connected";
                     pictureBox1.Image = imageList2.Images[0];
                     break;
 
-                case JasterThreadExecutor.ComStatus.Disconnected:
+                case COMHandler.ComStatus.Disconnected:
                     materialLabel14.Text = "Disconnected";
                     pictureBox1.Image = imageList2.Images[2];
                     break;
 
-                case JasterThreadExecutor.ComStatus.Sending:
+                case COMHandler.ComStatus.Sending:
                     materialLabel14.Text = "Sending";
                     pictureBox1.Image = imageList2.Images[1];
                     break;
 
-                case JasterThreadExecutor.ComStatus.Receiving:
+                case COMHandler.ComStatus.Receiving:
                     materialLabel14.Text = "Receiving";
                     pictureBox1.Image = imageList2.Images[1];
                     break;
@@ -291,7 +287,7 @@ namespace TaRU_Jaster
 
         private void _materialButtonComConnect_Click(object sender, EventArgs e)
         {
-            if (!_jasterExecutor.ConnectSerial(_materialComboBoxComPorts.Text))
+            if (!_COMHandler.ConnectSerial(_materialComboBoxComPorts.Text))
             {
                 // fail
                 MessageBox.Show("Could not connect to serial!");
@@ -300,7 +296,7 @@ namespace TaRU_Jaster
 
         private void _materialButtonComRefresh_Click(object sender, EventArgs e)
         {
-            string[] ports = _jasterExecutor.GetPortNames();
+            string[] ports = _COMHandler.GetPortNames();
             _materialComboBoxComPorts.Items.Clear();
             _materialComboBoxComPorts.Items.AddRange(ports);
             if(_materialComboBoxComPorts.Items.Count > 0)
@@ -311,7 +307,7 @@ namespace TaRU_Jaster
         private async void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
         {
             // await _jasterExecutor.RunCommands(CodeTextBox.Text);
-            HardyBasic.Interpreter hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text);
+            HardyBasic.Interpreter hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor);
             try
             {
                 await hardyBasicInterpreter.Exec();
@@ -340,11 +336,11 @@ namespace TaRU_Jaster
             }
 
             ListViewItem item = new ListViewItem((w_targetNo + 1).ToString());
-            item.SubItems.Add(_targetSettings[w_targetNo].lastUpdate == DateTime.MinValue ? "N/A" : _targetSettings[w_targetNo].lastUpdate.ToString());
-            item.SubItems.Add(_targetSettings[w_targetNo].lightOn ? "Yes" : "No");
-            item.SubItems.Add(_targetSettings[w_targetNo].hitsToFall.ToString());
-            item.SubItems.Add(_targetSettings[w_targetNo].battery.ToString());
-            item.SubItems.Add(_targetSettings[w_targetNo].sensitivity.ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].stats.lastUpdate == DateTime.MinValue ? "N/A" : _targetSettings[w_targetNo].stats.lastUpdate.ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].stats.lightOn ? "Yes" : "No");
+            item.SubItems.Add(_targetSettings[w_targetNo].stats.hitsToFall.ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].stats.battery.ToString());
+            item.SubItems.Add(_targetSettings[w_targetNo].stats.sensitivity.ToString());
             materialListView1.Items.Add(item);
 
             materialListView1.Sort();
@@ -438,276 +434,44 @@ namespace TaRU_Jaster
             Reset
         }
 
-
-        private async Task<bool> oneShotTargetsSimpleExecute(OneShotCommand w_command, byte w_param = 0xFF)
+        private List<int> GetSelectedTargets()
         {
-            // Initialize the needed byte buffers
-            byte[] command   = null;
-            byte[] address   = new byte[5];
-            byte[] nullBytes = null;
-
-            // Set up target list from currently activated targets
-            var targetList = new List<int>();
-
+            var ret = new List<int>();
             for (int i = 1; i < 31; i++)
             {
                 if (_targetSettings[i - 1].buttonInstance.UseAccentColor)
-                    targetList.Add(i);
+                    ret.Add(i);
             }
-
-            bool allTargets = (targetList.Count == 30 || targetList.Count == 0);
-            
-
-            // Set target array (unset if needed in command switch!)
-            foreach (int targetNo in targetList)
+            if (ret.Count == 0)
             {
-                address = addTargetNumberToAddress(targetNo, address);
+                ret.AddRange(Enumerable.Range(1, 30));
             }
-
-            // Set up the command-specific commands
-            switch (w_command)
-            {
-                case OneShotCommand.Up:
-                    if(allTargets)
-                    {
-                        command = new byte[] { 0x80 };
-                        address = null;
-                        break;
-                    }
-                    command   = new byte[] { 0x82 };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.Down:
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x81 };
-                        address = null;
-                        break;
-                    }
-                    command   = new byte[] { 0x83 };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetSensitivity:
-                    // Check that the sensitivity is within limits
-                    if(w_param > 99)
-                    {
-                        MessageBox.Show("Sensitivity must be between 0-99!");
-                        log_msg("Sensitivity value not set or invalid: " + w_param);
-                        return false;
-                    }
-                    if(allTargets)
-                    {
-                        command   = new byte[] { 0x92 };
-                        address   = null;
-                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
-                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
-                        break;
-                    }
-                    command   = new byte[] { 0x92 };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetHitsToFall:
-                    // Check that the hitstofall is within limits
-                    if (w_param > 99 || w_param == 0)
-                    {
-                        MessageBox.Show("Number of hits to fall must be between 1-99!");
-                        log_msg("Number of hits to fall value not set or invalid: " + w_param);
-                        return false;
-                    }
-                    if (allTargets)
-                    {
-                        command   = new byte[] { 0x8C };
-                        address   = null;
-                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
-                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
-                        break;
-                    }
-                    command   = new byte[] { 0x8C };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetLightsOn:
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x88 };
-                        address = null;
-                        break;
-                    }
-                    command   = new byte[] { 0x9C };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetLightsOff:
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x89 };
-                        address = null;
-                        break;
-                    }
-                    command   = new byte[] { 0x9D };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetMotionOn:
-                    if (allTargets)
-                    {
-                        command   = new byte[] { 0x9E };
-                        address   = null;
-                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
-                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
-                        break;
-                    }
-                    command   = new byte[] { 0x9E };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetMotionOff:
-                    if (allTargets)
-                    {
-                        command   = new byte[] { 0x9F };
-                        address   = null;
-                        nullBytes = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
-                                                 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F };
-                        break;
-                    }
-                    command   = new byte[] { 0x9F };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetProgramHitsToFall:
-                    // Check that the hitstofall is within limits
-                    if (w_param > 99 || w_param == 0)
-                    {
-                        MessageBox.Show("Number of hits to fall must be between 1-99!");
-                        log_msg("Number of hits to fall value not set or invalid: " + w_param);
-                        return false;
-                    }
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x8F };
-                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
-                        nullBytes = new byte[8];
-                        break;
-                    }
-                    command = new byte[] { 0x8F };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetProgramTimeUp:
-                    // Check that the hitstofall is within limits
-                    if (w_param > 99)
-                    {
-                        MessageBox.Show("Value of timeup must be between 0-99!");
-                        log_msg("Timeup value not set or invalid: " + w_param);
-                        return false;
-                    }
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x93 };
-                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
-                        nullBytes = new byte[8];
-                        break;
-                    }
-                    command = new byte[] { 0x93 };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.SetProgramTimeDown:
-                    // Check that the hitstofall is within limits
-                    if (w_param > 99)
-                    {
-                        MessageBox.Show("Value of timedown must be between 0-99!");
-                        log_msg("Timedown value not set or invalid: " + w_param);
-                        return false;
-                    }
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x94 };
-                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
-                        nullBytes = new byte[8];
-                        break;
-                    }
-                    command = new byte[] { 0x94 };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.StartProgram:
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x95 };
-                        address = new byte[] { 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
-                        nullBytes = new byte[8];
-                        break;
-                    }
-                    command = new byte[] { 0x95 };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.EndProgram:
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x8F };
-                        address = new byte[] { 0x01, 0x7F, 0x7F, 0x7F, 0x7F, 0x03 };
-                        nullBytes = new byte[8];
-                        break;
-                    }
-                    command = new byte[] { 0x96 };
-                    nullBytes = new byte[8];
-                    break;
-                case OneShotCommand.Reset:
-                    if (allTargets)
-                    {
-                        command = new byte[] { 0x91 };
-                        address = null;
-                        break;
-                    }
-                    command = new byte[] { 0x9B };
-                    nullBytes = new byte[8];
-                    break;
-            }
-
-            // compile the final command and send it out
-            if(command == null)
-            {
-                MessageBox.Show("No command given !");
-                log_msg("ERROR: No command given!");
-            }
-
-            // append param if it's present
-            if(w_param != 0xFF)
-            {
-                command = command.Concat(new byte[] { w_param }).ToArray();
-            }
-
-            // append address if it's present
-            if (address != null)
-            {
-                command = command.Concat(address).ToArray();
-            }
-
-            // append null bytes if it's present
-            if (nullBytes != null)
-            {
-                command = command.Concat(nullBytes).ToArray();
-            }
-
-            // Finally, execute the command
-            await _jasterExecutor.SendSerial(command);
-            return true;
+            return ret;
         }
+
+
 
         private async void _upSelectedTargetsSimple_Click(object sender, EventArgs e)
         {
-            await oneShotTargetsSimpleExecute(OneShotCommand.Up);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.Up);
             return;
         }
 
         private async void _downSelectedTargetsSimple_Click(object sender, EventArgs e)
         {
-            await oneShotTargetsSimpleExecute(OneShotCommand.Down);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.Down);
             return;
         }
 
         private async void _resetSelectedTargetsSimple_Click(object sender, EventArgs e)
         {
-            await oneShotTargetsSimpleExecute(OneShotCommand.Reset);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.Reset);
             return;
         }
 
         private async void _materialButtonGoQuickProgram_Click(object sender, EventArgs e)
         {
-            int hitsToFall = 0, timeUp = 0, timeDown = 0;
+            int hitsToFall, timeUp, timeDown;
 
             try
             {
@@ -747,15 +511,16 @@ namespace TaRU_Jaster
 
             // all values are validated, go on ...
 
-            await oneShotTargetsSimpleExecute(OneShotCommand.SetProgramHitsToFall, (byte)hitsToFall);
-            await oneShotTargetsSimpleExecute(OneShotCommand.SetProgramTimeUp, (byte)timeUp);
-            await oneShotTargetsSimpleExecute(OneShotCommand.SetProgramTimeDown, (byte)timeDown);
-            await oneShotTargetsSimpleExecute(OneShotCommand.StartProgram);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetProgramHitsToFall, (byte)hitsToFall);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetProgramTimeUp, (byte)timeUp);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetProgramTimeDown, (byte)timeDown);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.StartProgram);
+
         }
 
         private async void _materialButtonEndQuickProgram_Click(object sender, EventArgs e)
         {
-            await oneShotTargetsSimpleExecute(OneShotCommand.EndProgram);
+            await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.EndProgram);
         }
 
         private async void _materialButtonSetQuickConfig_Click(object sender, EventArgs e)
@@ -767,7 +532,7 @@ namespace TaRU_Jaster
                 sensitivity = int.Parse(materialTextBox1.Text);
                 if (sensitivity < 1 || sensitivity > 20)
                     throw new ArgumentException("Hits to fall must be between 0 and 99!");
-                await oneShotTargetsSimpleExecute(OneShotCommand.SetSensitivity, (byte)sensitivity);
+                await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetSensitivity, (byte)sensitivity);
             }
             catch (Exception ex)
             {
@@ -779,7 +544,7 @@ namespace TaRU_Jaster
                 hitsToFall = int.Parse(materialTextBox2.Text);
                 if (hitsToFall < 1 || hitsToFall > 20)
                     throw new ArgumentException("Hits to fall must be between 1 and 19!");
-                await oneShotTargetsSimpleExecute(OneShotCommand.SetHitsToFall, (byte)hitsToFall);
+                await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetHitsToFall, (byte)hitsToFall);
             }
             catch (Exception ex)
             {
@@ -789,20 +554,20 @@ namespace TaRU_Jaster
             switch(materialCheckbox2.Checked)
             {
                 case true:
-                    await oneShotTargetsSimpleExecute(OneShotCommand.SetLightsOn);
+                    await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetLightsOn);
                     break;
                 default:
-                    await oneShotTargetsSimpleExecute(OneShotCommand.SetLightsOff);
+                    await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetLightsOff);
                     break;
             }
 
             switch (materialCheckbox1.Checked)
             {
                 case true:
-                    await oneShotTargetsSimpleExecute(OneShotCommand.SetMotionOn);
+                    await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetMotionOn);
                     break;
                 default:
-                    await oneShotTargetsSimpleExecute(OneShotCommand.SetMotionOff);
+                    await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetMotionOff);
                     break;
             }
 
@@ -811,57 +576,22 @@ namespace TaRU_Jaster
 
         private async void _materialButtonAskStats_Click(object sender, EventArgs e)
         {
-            var targetList = new List<int>();
-
-            for (int i = 1; i < 31; i++)
-            {
-                if (_targetSettings[i - 1].buttonInstance.UseAccentColor)
-                    targetList.Add(i);
-            }
-
-            // Add all targets if none selected
-            if(targetList.Count == 0)
-            {
-                targetList.AddRange(Enumerable.Range(1, 30));
-            }
-
+            var targetList = GetSelectedTargets();
             int targetResponses = 0;
 
             foreach (int targetNo in targetList)
             {
-                byte[] command = { 0x90, 0x00 };
-                command[1] = (byte)targetNo;
-                
-                await _jasterExecutor.SendSerial(command);
-                byte[] res = await _jasterExecutor.ReadSerial(6);
-                if (res == null)
+                var stats = await _HardyExecutor.GetTargetStats(targetNo);
+                if (stats == null)
                     continue;
 
-                // Set states
-                bool help;
-                help = (res[0] & 0x20) == 0x20 ? (_targetSettings[targetNo - 1].up = true) : (_targetSettings[targetNo - 1].up = false);
-                help = (res[0] & 0x08) == 0x08 ? (_targetSettings[targetNo - 1].lightOn = true) : (_targetSettings[targetNo - 1].lightOn = false);
-
-                // Set hits to fall
-                _targetSettings[targetNo - 1].hitsToFall = res[1];
-
-                // Bytes 2-3 unknown ???
-
-                // Set battery level
-                _targetSettings[targetNo - 1].battery = ((float)((int)res[4]) / 10.0f) + 3.0f;
-
-                // Set sensitivity
-                _targetSettings[targetNo - 1].sensitivity = res[5];
-
-                // Set target enabled (since we were able to connect) and set latest timestamp
-                _targetSettings[targetNo - 1].enabled = true;
-                _targetSettings[targetNo - 1].lastUpdate = DateTime.Now;
+                _targetSettings[targetNo - 1].stats = stats.Value;
 
                 // Update target
                 UpdateTargetList(targetNo - 1);
                 targetResponses++;
 
-                log_msg("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
+                // log_msg("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
             }
 
             if(targetResponses > 0)
@@ -891,8 +621,8 @@ namespace TaRU_Jaster
                 byte[] command = { 0x86, 0x00 };
                 command[1] = (byte)targetNo;
 
-                await _jasterExecutor.SendSerial(command);
-                byte[] res = await _jasterExecutor.ReadSerial(6);
+                await _COMHandler.SendSerial(command);
+                byte[] res = await _COMHandler.ReadSerial(6);
                 if (res == null)
                     continue;
                 // TODO: do something with data
@@ -930,14 +660,14 @@ namespace TaRU_Jaster
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
         {
             w_targetNo = w_targetNo - 1;
-            if(_targetSettings[w_targetNo].enabled)
+            if(_targetSettings[w_targetNo].stats.enabled)
             {
                 toolTip1.Show("Target  " + (w_targetNo + 1).ToString() + "\n" +
-                    "Sensitivity: " + _targetSettings[w_targetNo].sensitivity.ToString() + "\n" +
-                    "Hits to fall: " + _targetSettings[w_targetNo].hitsToFall.ToString() + "\n" +
-                    "Light on: " + _targetSettings[w_targetNo].lightOn.ToString() + "\n" +
-                    "Motion on: " + _targetSettings[w_targetNo].motionOn.ToString() + "\n" +
-                    "State: " + (_targetSettings[w_targetNo].up ? "up" : "down"), 
+                    "Sensitivity: " + _targetSettings[w_targetNo].stats.sensitivity.ToString() + "\n" +
+                    "Hits to fall: " + _targetSettings[w_targetNo].stats.hitsToFall.ToString() + "\n" +
+                    "Light on: " + _targetSettings[w_targetNo].stats.lightOn.ToString() + "\n" +
+                    "Motion on: " + _targetSettings[w_targetNo].stats.motionOn.ToString() + "\n" +
+                    "State: " + (_targetSettings[w_targetNo].stats.up ? "up" : "down"), 
                     _targetSettings[w_targetNo].buttonInstance);
                 return;
             }
