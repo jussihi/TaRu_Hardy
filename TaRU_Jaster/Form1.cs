@@ -121,6 +121,8 @@ namespace TaRU_Jaster
 
             InitializeCodeBox();
 
+            this.MinimumSize = new Size(683, 694);
+
         }
 
         public void log_msg(string msg)
