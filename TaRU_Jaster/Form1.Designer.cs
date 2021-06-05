@@ -142,6 +142,12 @@ namespace TaRU_Jaster
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialButton6 = new MaterialSkin.Controls.MaterialButton();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -163,6 +169,11 @@ namespace TaRU_Jaster
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel11.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // _textBoxLog
@@ -1611,17 +1622,8 @@ namespace TaRU_Jaster
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.CodeTextBox);
-            this.tabPage2.Controls.Add(this._materialLabelEditingFile);
-            this.tabPage2.Controls.Add(this._materialLabelScriptName);
-            this.tabPage2.Controls.Add(this._materialSwitchResetResultsScriptStart);
+            this.tabPage2.Controls.Add(this.tableLayoutPanel14);
             this.tabPage2.Controls.Add(this._materialButtonGetResults);
-            this.tabPage2.Controls.Add(this._materialButtonLoadScript);
-            this.tabPage2.Controls.Add(this._materialButtonSaveScriptAs);
-            this.tabPage2.Controls.Add(this._materialButtonSaveScript);
-            this.tabPage2.Controls.Add(this._materialButtonStopScript);
-            this.tabPage2.Controls.Add(this._materialButtonStartPauseScript);
-            this.tabPage2.Controls.Add(this._materialSwitchAutoResults);
             this.tabPage2.ImageKey = "edit.png";
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
@@ -1635,12 +1637,13 @@ namespace TaRU_Jaster
             this.CodeTextBox.AdditionalCaretForeColor = System.Drawing.Color.Silver;
             this.CodeTextBox.AllowDrop = true;
             this.CodeTextBox.AutoCMaxHeight = 9;
+            this.CodeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CodeTextBox.HScrollBar = false;
             this.CodeTextBox.IndentationGuides = ScintillaNET.IndentView.LookBoth;
             this.CodeTextBox.Lexer = ScintillaNET.Lexer.VbScript;
-            this.CodeTextBox.Location = new System.Drawing.Point(9, 39);
+            this.CodeTextBox.Location = new System.Drawing.Point(3, 3);
             this.CodeTextBox.Name = "CodeTextBox";
-            this.CodeTextBox.Size = new System.Drawing.Size(485, 502);
+            this.CodeTextBox.Size = new System.Drawing.Size(419, 369);
             this.CodeTextBox.TabIndex = 11;
             this.CodeTextBox.TabWidth = 2;
             // 
@@ -1649,7 +1652,7 @@ namespace TaRU_Jaster
             this._materialLabelEditingFile.AutoSize = true;
             this._materialLabelEditingFile.Depth = 0;
             this._materialLabelEditingFile.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this._materialLabelEditingFile.Location = new System.Drawing.Point(6, 3);
+            this._materialLabelEditingFile.Location = new System.Drawing.Point(3, 0);
             this._materialLabelEditingFile.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialLabelEditingFile.Name = "_materialLabelEditingFile";
             this._materialLabelEditingFile.Size = new System.Drawing.Size(80, 19);
@@ -1661,7 +1664,7 @@ namespace TaRU_Jaster
             this._materialLabelScriptName.AutoSize = true;
             this._materialLabelScriptName.Depth = 0;
             this._materialLabelScriptName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this._materialLabelScriptName.Location = new System.Drawing.Point(92, 3);
+            this._materialLabelScriptName.Location = new System.Drawing.Point(93, 0);
             this._materialLabelScriptName.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialLabelScriptName.Name = "_materialLabelScriptName";
             this._materialLabelScriptName.Size = new System.Drawing.Size(105, 19);
@@ -1670,18 +1673,18 @@ namespace TaRU_Jaster
             // 
             // _materialSwitchResetResultsScriptStart
             // 
-            this._materialSwitchResetResultsScriptStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialSwitchResetResultsScriptStart.AutoSize = true;
             this._materialSwitchResetResultsScriptStart.Checked = true;
             this._materialSwitchResetResultsScriptStart.CheckState = System.Windows.Forms.CheckState.Checked;
             this._materialSwitchResetResultsScriptStart.Depth = 0;
-            this._materialSwitchResetResultsScriptStart.Location = new System.Drawing.Point(339, 286);
+            this._materialSwitchResetResultsScriptStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._materialSwitchResetResultsScriptStart.Location = new System.Drawing.Point(0, 184);
             this._materialSwitchResetResultsScriptStart.Margin = new System.Windows.Forms.Padding(0);
             this._materialSwitchResetResultsScriptStart.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchResetResultsScriptStart.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialSwitchResetResultsScriptStart.Name = "_materialSwitchResetResultsScriptStart";
             this._materialSwitchResetResultsScriptStart.Ripple = true;
-            this._materialSwitchResetResultsScriptStart.Size = new System.Drawing.Size(202, 37);
+            this._materialSwitchResetResultsScriptStart.Size = new System.Drawing.Size(214, 46);
             this._materialSwitchResetResultsScriptStart.TabIndex = 8;
             this._materialSwitchResetResultsScriptStart.Text = "Reset results at start";
             this._materialSwitchResetResultsScriptStart.UseVisualStyleBackColor = true;
@@ -1708,18 +1711,18 @@ namespace TaRU_Jaster
             // 
             // _materialButtonLoadScript
             // 
-            this._materialButtonLoadScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialButtonLoadScript.AutoSize = false;
             this._materialButtonLoadScript.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._materialButtonLoadScript.Depth = 0;
+            this._materialButtonLoadScript.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonLoadScript.DrawShadows = true;
             this._materialButtonLoadScript.HighEmphasis = true;
             this._materialButtonLoadScript.Icon = null;
-            this._materialButtonLoadScript.Location = new System.Drawing.Point(343, 135);
+            this._materialButtonLoadScript.Location = new System.Drawing.Point(4, 98);
             this._materialButtonLoadScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonLoadScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonLoadScript.Name = "_materialButtonLoadScript";
-            this._materialButtonLoadScript.Size = new System.Drawing.Size(178, 36);
+            this._materialButtonLoadScript.Size = new System.Drawing.Size(206, 34);
             this._materialButtonLoadScript.TabIndex = 6;
             this._materialButtonLoadScript.Text = "Load";
             this._materialButtonLoadScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1728,18 +1731,18 @@ namespace TaRU_Jaster
             // 
             // _materialButtonSaveScriptAs
             // 
-            this._materialButtonSaveScriptAs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialButtonSaveScriptAs.AutoSize = false;
             this._materialButtonSaveScriptAs.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._materialButtonSaveScriptAs.Depth = 0;
+            this._materialButtonSaveScriptAs.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSaveScriptAs.DrawShadows = true;
             this._materialButtonSaveScriptAs.HighEmphasis = true;
             this._materialButtonSaveScriptAs.Icon = null;
-            this._materialButtonSaveScriptAs.Location = new System.Drawing.Point(343, 87);
+            this._materialButtonSaveScriptAs.Location = new System.Drawing.Point(4, 52);
             this._materialButtonSaveScriptAs.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScriptAs.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScriptAs.Name = "_materialButtonSaveScriptAs";
-            this._materialButtonSaveScriptAs.Size = new System.Drawing.Size(178, 36);
+            this._materialButtonSaveScriptAs.Size = new System.Drawing.Size(206, 34);
             this._materialButtonSaveScriptAs.TabIndex = 5;
             this._materialButtonSaveScriptAs.Text = "Save As";
             this._materialButtonSaveScriptAs.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1748,18 +1751,18 @@ namespace TaRU_Jaster
             // 
             // _materialButtonSaveScript
             // 
-            this._materialButtonSaveScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialButtonSaveScript.AutoSize = false;
             this._materialButtonSaveScript.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._materialButtonSaveScript.Depth = 0;
+            this._materialButtonSaveScript.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonSaveScript.DrawShadows = true;
             this._materialButtonSaveScript.HighEmphasis = true;
             this._materialButtonSaveScript.Icon = null;
-            this._materialButtonSaveScript.Location = new System.Drawing.Point(343, 39);
+            this._materialButtonSaveScript.Location = new System.Drawing.Point(4, 6);
             this._materialButtonSaveScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScript.Name = "_materialButtonSaveScript";
-            this._materialButtonSaveScript.Size = new System.Drawing.Size(178, 36);
+            this._materialButtonSaveScript.Size = new System.Drawing.Size(206, 34);
             this._materialButtonSaveScript.TabIndex = 4;
             this._materialButtonSaveScript.Text = "Save";
             this._materialButtonSaveScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1768,18 +1771,18 @@ namespace TaRU_Jaster
             // 
             // _materialButtonStopScript
             // 
-            this._materialButtonStopScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialButtonStopScript.AutoSize = false;
             this._materialButtonStopScript.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._materialButtonStopScript.Depth = 0;
+            this._materialButtonStopScript.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonStopScript.DrawShadows = true;
             this._materialButtonStopScript.HighEmphasis = true;
             this._materialButtonStopScript.Icon = null;
-            this._materialButtonStopScript.Location = new System.Drawing.Point(343, 427);
+            this._materialButtonStopScript.Location = new System.Drawing.Point(4, 328);
             this._materialButtonStopScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStopScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStopScript.Name = "_materialButtonStopScript";
-            this._materialButtonStopScript.Size = new System.Drawing.Size(178, 36);
+            this._materialButtonStopScript.Size = new System.Drawing.Size(206, 35);
             this._materialButtonStopScript.TabIndex = 3;
             this._materialButtonStopScript.Text = "Stop";
             this._materialButtonStopScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1789,18 +1792,18 @@ namespace TaRU_Jaster
             // 
             // _materialButtonStartPauseScript
             // 
-            this._materialButtonStartPauseScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialButtonStartPauseScript.AutoSize = false;
             this._materialButtonStartPauseScript.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._materialButtonStartPauseScript.Depth = 0;
+            this._materialButtonStartPauseScript.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialButtonStartPauseScript.DrawShadows = true;
             this._materialButtonStartPauseScript.HighEmphasis = true;
             this._materialButtonStartPauseScript.Icon = null;
-            this._materialButtonStartPauseScript.Location = new System.Drawing.Point(343, 379);
+            this._materialButtonStartPauseScript.Location = new System.Drawing.Point(4, 282);
             this._materialButtonStartPauseScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStartPauseScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStartPauseScript.Name = "_materialButtonStartPauseScript";
-            this._materialButtonStartPauseScript.Size = new System.Drawing.Size(178, 36);
+            this._materialButtonStartPauseScript.Size = new System.Drawing.Size(206, 34);
             this._materialButtonStartPauseScript.TabIndex = 2;
             this._materialButtonStartPauseScript.Text = "Start";
             this._materialButtonStartPauseScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1810,16 +1813,16 @@ namespace TaRU_Jaster
             // 
             // _materialSwitchAutoResults
             // 
-            this._materialSwitchAutoResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialSwitchAutoResults.AutoSize = true;
             this._materialSwitchAutoResults.Depth = 0;
-            this._materialSwitchAutoResults.Location = new System.Drawing.Point(339, 323);
+            this._materialSwitchAutoResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._materialSwitchAutoResults.Location = new System.Drawing.Point(0, 230);
             this._materialSwitchAutoResults.Margin = new System.Windows.Forms.Padding(0);
             this._materialSwitchAutoResults.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchAutoResults.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialSwitchAutoResults.Name = "_materialSwitchAutoResults";
             this._materialSwitchAutoResults.Ripple = true;
-            this._materialSwitchAutoResults.Size = new System.Drawing.Size(196, 37);
+            this._materialSwitchAutoResults.Size = new System.Drawing.Size(214, 46);
             this._materialSwitchAutoResults.TabIndex = 0;
             this._materialSwitchAutoResults.Text = "Auto-collect results ";
             this._materialSwitchAutoResults.UseVisualStyleBackColor = true;
@@ -1834,7 +1837,7 @@ namespace TaRU_Jaster
             this.tabPage3.Location = new System.Drawing.Point(4, 39);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(870, 556);
+            this.tabPage3.Size = new System.Drawing.Size(657, 407);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             // 
@@ -1865,13 +1868,13 @@ namespace TaRU_Jaster
             this.materialListView1.Depth = 0;
             this.materialListView1.FullRowSelect = true;
             this.materialListView1.HideSelection = false;
-            this.materialListView1.Location = new System.Drawing.Point(6, 250);
+            this.materialListView1.Location = new System.Drawing.Point(6, 247);
             this.materialListView1.MinimumSize = new System.Drawing.Size(200, 100);
             this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialListView1.Name = "materialListView1";
             this.materialListView1.OwnerDraw = true;
-            this.materialListView1.Size = new System.Drawing.Size(858, 319);
+            this.materialListView1.Size = new System.Drawing.Size(645, 154);
             this.materialListView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.materialListView1.TabIndex = 4;
             this.materialListView1.UseCompatibleStateImageBehavior = false;
@@ -1918,12 +1921,12 @@ namespace TaRU_Jaster
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(402, 17);
+            this.materialCard1.Location = new System.Drawing.Point(234, 17);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(454, 216);
+            this.materialCard1.Size = new System.Drawing.Size(409, 216);
             this.materialCard1.TabIndex = 1;
             // 
             // _materialButtonComRefresh
@@ -1934,7 +1937,7 @@ namespace TaRU_Jaster
             this._materialButtonComRefresh.DrawShadows = true;
             this._materialButtonComRefresh.HighEmphasis = true;
             this._materialButtonComRefresh.Icon = null;
-            this._materialButtonComRefresh.Location = new System.Drawing.Point(278, 142);
+            this._materialButtonComRefresh.Location = new System.Drawing.Point(233, 139);
             this._materialButtonComRefresh.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonComRefresh.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonComRefresh.Name = "_materialButtonComRefresh";
@@ -1954,7 +1957,7 @@ namespace TaRU_Jaster
             this._materialButtonComConnect.DrawShadows = true;
             this._materialButtonComConnect.HighEmphasis = true;
             this._materialButtonComConnect.Icon = null;
-            this._materialButtonComConnect.Location = new System.Drawing.Point(278, 68);
+            this._materialButtonComConnect.Location = new System.Drawing.Point(233, 68);
             this._materialButtonComConnect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonComConnect.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonComConnect.Name = "_materialButtonComConnect";
@@ -1971,7 +1974,7 @@ namespace TaRU_Jaster
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(33, 85);
+            this.materialLabel2.Location = new System.Drawing.Point(17, 85);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(69, 19);
@@ -1992,11 +1995,11 @@ namespace TaRU_Jaster
             this._materialComboBoxComPorts.FormattingEnabled = true;
             this._materialComboBoxComPorts.IntegralHeight = false;
             this._materialComboBoxComPorts.ItemHeight = 43;
-            this._materialComboBoxComPorts.Location = new System.Drawing.Point(126, 68);
+            this._materialComboBoxComPorts.Location = new System.Drawing.Point(102, 68);
             this._materialComboBoxComPorts.MaxDropDownItems = 4;
             this._materialComboBoxComPorts.MouseState = MaterialSkin.MouseState.OUT;
             this._materialComboBoxComPorts.Name = "_materialComboBoxComPorts";
-            this._materialComboBoxComPorts.Size = new System.Drawing.Size(130, 49);
+            this._materialComboBoxComPorts.Size = new System.Drawing.Size(112, 49);
             this._materialComboBoxComPorts.TabIndex = 1;
             // 
             // materialLabel1
@@ -2032,6 +2035,7 @@ namespace TaRU_Jaster
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel16, 0, 2);
             this.tableLayoutPanel10.Controls.Add(this.materialTabControl1, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this._textBoxLog, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2053,7 +2057,7 @@ namespace TaRU_Jaster
             this.materialLabel14.AutoSize = true;
             this.materialLabel14.Depth = 0;
             this.materialLabel14.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel14.Location = new System.Drawing.Point(577, 666);
+            this.materialLabel14.Location = new System.Drawing.Point(561, 666);
             this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
             this.materialLabel14.Size = new System.Drawing.Size(97, 19);
@@ -2066,7 +2070,7 @@ namespace TaRU_Jaster
             this.materialLabel15.AutoSize = true;
             this.materialLabel15.Depth = 0;
             this.materialLabel15.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel15.Location = new System.Drawing.Point(535, 666);
+            this.materialLabel15.Location = new System.Drawing.Point(522, 666);
             this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel15.Name = "materialLabel15";
             this.materialLabel15.Size = new System.Drawing.Size(36, 19);
@@ -2078,7 +2082,7 @@ namespace TaRU_Jaster
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::TaRU_Jaster.Properties.Resources.cancel;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(506, 663);
+            this.pictureBox1.Location = new System.Drawing.Point(494, 663);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -2131,13 +2135,116 @@ namespace TaRU_Jaster
             this.checkBox2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel12.Controls.Add(this.CodeTextBox, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel13, 1, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 33);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(645, 375);
+            this.tableLayoutPanel12.TabIndex = 12;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Controls.Add(this._materialButtonSaveScript, 0, 0);
+            this.tableLayoutPanel13.Controls.Add(this._materialButtonLoadScript, 0, 2);
+            this.tableLayoutPanel13.Controls.Add(this._materialButtonSaveScriptAs, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this._materialButtonStopScript, 0, 7);
+            this.tableLayoutPanel13.Controls.Add(this._materialButtonStartPauseScript, 0, 6);
+            this.tableLayoutPanel13.Controls.Add(this._materialSwitchAutoResults, 0, 5);
+            this.tableLayoutPanel13.Controls.Add(this._materialSwitchResetResultsScriptStart, 0, 4);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(428, 3);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 8;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(214, 369);
+            this.tableLayoutPanel13.TabIndex = 12;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 1;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel15, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.tableLayoutPanel12, 0, 1);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 2;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(651, 401);
+            this.tableLayoutPanel14.TabIndex = 13;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.Controls.Add(this._materialLabelEditingFile, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this._materialLabelScriptName, 1, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 1;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(645, 24);
+            this.tableLayoutPanel15.TabIndex = 0;
+            // 
+            // materialButton6
+            // 
+            this.materialButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton6.Depth = 0;
+            this.materialButton6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialButton6.DrawShadows = true;
+            this.materialButton6.HighEmphasis = true;
+            this.materialButton6.Icon = null;
+            this.materialButton6.Location = new System.Drawing.Point(0, 0);
+            this.materialButton6.Margin = new System.Windows.Forms.Padding(0);
+            this.materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton6.Name = "materialButton6";
+            this.materialButton6.Size = new System.Drawing.Size(150, 32);
+            this.materialButton6.TabIndex = 6;
+            this.materialButton6.Text = "Hide logs";
+            this.materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton6.UseAccentColor = false;
+            this.materialButton6.UseVisualStyleBackColor = true;
+            this.materialButton6.Click += new System.EventHandler(this.materialButton6_Click);
+            // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 1;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.Controls.Add(this.materialButton6, 0, 0);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(8, 666);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 1;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(150, 32);
+            this.tableLayoutPanel16.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(683, 694);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.materialLabel15);
             this.Controls.Add(this.materialLabel14);
+            this.Controls.Add(this.materialLabel15);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tableLayoutPanel10);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
@@ -2169,7 +2276,6 @@ namespace TaRU_Jaster
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.materialCard1.ResumeLayout(false);
@@ -2179,6 +2285,14 @@ namespace TaRU_Jaster
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel15.PerformLayout();
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.tableLayoutPanel16.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2297,6 +2411,12 @@ namespace TaRU_Jaster
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private MaterialSkin.Controls.MaterialButton materialButton6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
     }
 }
 

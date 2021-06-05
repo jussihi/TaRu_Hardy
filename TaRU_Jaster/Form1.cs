@@ -46,6 +46,7 @@ namespace TaRU_Jaster
         private MaterialSkinManager _materialSkinManager;
         private TargetSettings[] _targetSettings;
         private ListViewColumnSorter _lvwColumnSorter;
+        private bool _showLogs;
 
 
         public Form1()
@@ -122,6 +123,8 @@ namespace TaRU_Jaster
             InitializeCodeBox();
 
             this.MinimumSize = new Size(683, 694);
+
+            _showLogs = true;
 
         }
 
@@ -1000,5 +1003,19 @@ namespace TaRU_Jaster
             materialListView1.Sort();
         }
 
+        private void materialButton6_Click(object sender, EventArgs e)
+        {
+            if(_showLogs)
+            {
+                tableLayoutPanel10.RowStyles[0].Height = 100f;
+                tableLayoutPanel10.RowStyles[1].Height = 0f;
+                _showLogs = false;
+                return;
+            }
+            tableLayoutPanel10.RowStyles[0].Height = 70f;
+            tableLayoutPanel10.RowStyles[1].Height = 30f;
+            _showLogs = true;
+            return;
+        }
     }
 }
