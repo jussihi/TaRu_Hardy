@@ -47,7 +47,7 @@ namespace TaRU_Jaster
             _COMHandler = w_COMHandler;
         }
 
-        public async void CommandAllJastersReset()
+        public async Task CommandAllJastersReset()
         {
             Global.g_form1.log_msg("RESET all Jasters ...");
 
@@ -55,7 +55,7 @@ namespace TaRU_Jaster
             await _COMHandler.SendSerial(jastersResetBuffer);
         }
 
-        public async void CommandAllJastersUp()
+        public async Task CommandAllJastersUp()
         {
             Global.g_form1.log_msg("UP all Jasters ...");
 
@@ -63,7 +63,7 @@ namespace TaRU_Jaster
             await _COMHandler.SendSerial(jastersUpBuffer);
         }
 
-        public async void CommandAllJastersDown()
+        public async Task CommandAllJastersDown()
         {
             Global.g_form1.log_msg("DOWN all Jasters ...");
 
@@ -102,9 +102,8 @@ namespace TaRU_Jaster
                 case OneShotCommand.Up:
                     if (allTargets)
                     {
-                        command = new byte[] { 0x80 };
-                        address = null;
-                        break;
+                        await CommandAllJastersUp();
+                        return true;
                     }
                     command = new byte[] { 0x82 };
                     nullBytes = new byte[8];
@@ -112,9 +111,8 @@ namespace TaRU_Jaster
                 case OneShotCommand.Down:
                     if (allTargets)
                     {
-                        command = new byte[] { 0x81 };
-                        address = null;
-                        break;
+                        await CommandAllJastersDown();
+                        return true;
                     }
                     command = new byte[] { 0x83 };
                     nullBytes = new byte[8];
@@ -275,9 +273,8 @@ namespace TaRU_Jaster
                 case OneShotCommand.Reset:
                     if (allTargets)
                     {
-                        command = new byte[] { 0x91 };
-                        address = null;
-                        break;
+                        await CommandAllJastersReset();
+                        return true;
                     }
                     command = new byte[] { 0x9B };
                     nullBytes = new byte[8];

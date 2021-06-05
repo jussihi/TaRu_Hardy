@@ -8,6 +8,9 @@ namespace TaRU_Jaster.HardyBasic
 {
     class HardyBuiltIns
     {
+        public static HardyExecutor _HardyExecutor;
+        public static List<int> _targets;
+
         public static void InstallAll(Interpreter interpreter)
         {
             interpreter.AddFunction("str", Str);
@@ -17,6 +20,10 @@ namespace TaRU_Jaster.HardyBasic
             interpreter.AddFunction("max", Max);
             interpreter.AddFunction("not", Not);
             interpreter.AddFunction("rnd", Rnd);
+            interpreter.AddFunction("sleep", ExecutorSleep);
+            interpreter.AddFunction("reset", Reset);
+            interpreter.AddFunction("up", Up);
+            interpreter.AddFunction("down", Down);
         }
 
         public static async Task<Value> Str(Interpreter interpreter, List<Value> args)
@@ -87,6 +94,56 @@ namespace TaRU_Jaster.HardyBasic
             return new Value(rand_num);
         }
 
-        
+        private static List<int> ParseTargets(List<Value> args)
+        {
+            List<int> ret = new List<int>();
+
+            if (args.Count == 0)
+            {
+                ret.AddRange(Enumerable.Range(1, 30));
+                return ret;
+            }
+
+            foreach (Value target in args)
+            {
+                ret.Add(Convert.ToInt32(target.Real));
+            }
+            return ret;
+        }
+
+        public static async Task<Value> ExecutorSleep(Interpreter interpreter, List<Value> args)
+        {
+            if (args.Count != 1)
+                throw new ArgumentException("SLEEP expects exactly one integer value!");
+
+
+            await Task.Delay(Convert.ToInt32(args[0].Real));
+
+            return Value.Zero;
+        }
+
+        public static async Task<Value> Reset(Interpreter interpreter, List<Value> args)
+        {
+            List<int> targets = ParseTargets(args);
+
+            await _HardyExecutor.OneShotTargetsSimpleExecute(targets, HardyExecutor.OneShotCommand.Reset);
+            return Value.Zero;
+        }
+
+        public static async Task<Value> Up(Interpreter interpreter, List<Value> args)
+        {
+            List<int> targets = ParseTargets(args);
+
+            await _HardyExecutor.OneShotTargetsSimpleExecute(targets, HardyExecutor.OneShotCommand.Up);
+            return Value.Zero;
+        }
+
+        public static async Task<Value> Down(Interpreter interpreter, List<Value> args)
+        {
+            List<int> targets = ParseTargets(args);
+
+            await _HardyExecutor.OneShotTargetsSimpleExecute(targets, HardyExecutor.OneShotCommand.Down);
+            return Value.Zero;
+        }
     }
 }

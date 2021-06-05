@@ -21,8 +21,8 @@ namespace TaRU_Jaster.HardyBasic
         private Dictionary<string, Marker> labels; // already seen labels 
         private Dictionary<string, Marker> loops; // for loops
 
-        public delegate Task<Value> BasicFunction(Interpreter interpreter, List<Value> args);
-        private Dictionary<string, BasicFunction> funcs; // all maped functions
+        public delegate Func<Interpreter, List<Value>, Task<Value>> AsyncBasicFunction();
+        private Dictionary<string, Func<Interpreter, List<Value>, Task<Value>>> funcs;
 
         private int ifcounter; // counter used for matching "if" with "else"
 
@@ -30,23 +30,27 @@ namespace TaRU_Jaster.HardyBasic
 
         private bool exit; // do we need to exit?
 
-        private HardyExecutor _HardyExecutor;
+        
 
         private void __printLine(string w_input)
         {
             Global.g_form1.log_msg(w_input);
         }
 
-        public Interpreter(string input, HardyExecutor w_executor)
+        public Interpreter(string input, HardyExecutor w_executor, List<int> w_targets)
         {
-            _HardyExecutor = w_executor;
+            // Initialize lexer and dictionaries
             this.lex = new Lexer(input);
             this.vars = new Dictionary<string, Value>();
             this.labels = new Dictionary<string, Marker>();
             this.loops = new Dictionary<string, Marker>();
-            this.funcs = new Dictionary<string, BasicFunction>();
+            this.funcs = new Dictionary<string, Func<Interpreter, List<Value>, Task<Value>>>();
             this.ifcounter = 0;
-            HardyBuiltIns.InstallAll(this); // map all builtins functions
+
+            // Initialize the HardyBuiltIns and map its functions
+            HardyBuiltIns._HardyExecutor = w_executor;
+            HardyBuiltIns._targets = w_targets;
+            HardyBuiltIns.InstallAll(this);
         }
 
         public Value GetVar(string name)
@@ -67,7 +71,7 @@ namespace TaRU_Jaster.HardyBasic
             return lex.GetLine(lineMarker);
         }
 
-        public void AddFunction(string name, BasicFunction function)
+        public void AddFunction(string name, Func<Interpreter, List<Value>, Task<Value>> function)
         {
             if (!funcs.ContainsKey(name)) funcs.Add(name, function);
             else funcs[name] = function;
@@ -133,18 +137,17 @@ namespace TaRU_Jaster.HardyBasic
             GetNextToken();
             switch (keyword)
             {
-                case Token.Print: Print(); break;
+                case Token.Print: await Print(); break;
                 case Token.Input: Input(); break;
                 case Token.Goto: await Goto(); break;
-                case Token.If: If(); break;
+                case Token.If: await If(); break;
                 case Token.Else: Else(); break;
                 case Token.EndIf: break;
-                case Token.For: For(); break;
+                case Token.For: await For(); break;
                 case Token.Next: Next(); break;
-                case Token.Let: Let(); break;
+                case Token.Let: await Let(); break;
                 case Token.End: End(); break;
-                case Token.Assert: Assert(); break;
-                case Token.Sleep: await BasicSleep(); break;
+                case Token.Assert: await Assert(); break;
                 case Token.Identifier:
                     if (lastToken == Token.Equal) Let();
                     else if (lastToken == Token.Colon) Label();
@@ -154,6 +157,29 @@ namespace TaRU_Jaster.HardyBasic
                     exit = true;
                     break;
                 default:
+                    // case if HardyBuiltins is used
+                    if (funcs.ContainsKey(lex.Identifier))
+                    {
+                        string name = lex.Identifier;
+                        List<Value> args = new List<Value>();
+                        Match(Token.LParen);
+
+                    start:
+                        if (GetNextToken() != Token.RParen)
+                        {
+                            args.Add(await Expr());
+                            if (lastToken == Token.Comma)
+                                goto start;
+                        }
+
+                        await funcs[name](null, args);
+                        GetNextToken();
+                        break;
+                    }
+                    else
+                    {
+                        Error("Undeclared variable " + lex.Identifier);
+                    }
                     Error("Expected keyword!");
                     break;
             }
@@ -165,12 +191,12 @@ namespace TaRU_Jaster.HardyBasic
             }
         }
 
-        void Print()
+        async Task Print()
         {
             if (!HasPrint)
                 Error("Print command not allowed");
 
-            __printLine(Expr().ToString());
+            __printLine((await Expr()).ToString());
         }
 
         void Input()
@@ -225,10 +251,10 @@ namespace TaRU_Jaster.HardyBasic
             lastToken = Token.NewLine;
         }
 
-        void If()
+        async Task If()
         {
             // check if argument is equal to 0
-            bool result = (Expr().BinOp(new Value(0), Token.Equal).Real == 1);
+            bool result = ((await Expr()).BinOp(new Value(0), Token.Equal).Real == 1);
 
             Match(Token.Then);
             GetNextToken();
@@ -302,7 +328,7 @@ namespace TaRU_Jaster.HardyBasic
             exit = true;
         }
 
-        void Let()
+        async Task Let()
         {
             if (lastToken != Token.Equal)
             {
@@ -315,10 +341,10 @@ namespace TaRU_Jaster.HardyBasic
 
             GetNextToken();
 
-            SetVar(id, Expr());
+            SetVar(id, await Expr());
         }
 
-        void For()
+        async Task For()
         {
             Match(Token.Identifier);
             string var = lex.Identifier;
@@ -327,7 +353,7 @@ namespace TaRU_Jaster.HardyBasic
             Match(Token.Equal);
 
             GetNextToken();
-            Value v = Expr();
+            Value v = await Expr();
 
             // save for loop marker
             if (loops.ContainsKey(var))
@@ -343,7 +369,7 @@ namespace TaRU_Jaster.HardyBasic
             Match(Token.To);
 
             GetNextToken();
-            v = Expr();
+            v = await Expr();
 
             if (vars[var].BinOp(v, Token.More).Real == 1)
             {
@@ -371,9 +397,9 @@ namespace TaRU_Jaster.HardyBasic
             lastToken = Token.NewLine;
         }
 
-        void Assert()
+        async Task Assert()
         {
-            bool result = (Expr().BinOp(new Value(0), Token.Equal).Real == 1);
+            bool result = ((await Expr()).BinOp(new Value(0), Token.Equal).Real == 1);
 
             if (result)
             {
@@ -381,12 +407,9 @@ namespace TaRU_Jaster.HardyBasic
             }
         }
 
-        async Task BasicSleep()
-        {
-            await Task.Delay(Convert.ToInt32(Expr().Real));
-        }
 
-        Value Expr(int min = 0)
+
+        async Task<Value> Expr(int min = 0)
         {
             // originally we were using shunting-yard algorithm, but now we parse it recursively 
             Dictionary<Token, int> precedens = new Dictionary<Token, int>()
@@ -400,7 +423,7 @@ namespace TaRU_Jaster.HardyBasic
                 { Token.Caret, 4 }
             };
 
-            Value lhs = Primary();
+            Value lhs = await Primary();
 
             while (true)
             {
@@ -412,14 +435,14 @@ namespace TaRU_Jaster.HardyBasic
                 int assoc = 0; // 0 left, 1 right; Operator associativity
                 int nextmin = assoc == 0 ? prec : prec + 1;
                 GetNextToken();
-                Value rhs = Expr(nextmin);
+                Value rhs = await Expr(nextmin);
                 lhs = lhs.BinOp(rhs, op);
             }
 
             return lhs;
         }
 
-        Value Primary()
+        async Task<Value> Primary()
         {
             Value prim = Value.Zero;
 
@@ -446,15 +469,12 @@ namespace TaRU_Jaster.HardyBasic
                 start:
                     if (GetNextToken() != Token.RParen)
                     {
-                        args.Add(Expr());
+                        args.Add(await Expr());
                         if (lastToken == Token.Comma)
                             goto start;
                     }
 
-
-                    Task<Value> a = funcs[name](null, args);
-                    a.Wait();
-                    prim = a.Result;
+                    prim = await funcs[name](null, args);
                 }
                 else
                 {
@@ -466,7 +486,7 @@ namespace TaRU_Jaster.HardyBasic
             {
                 // '(' expr ')'
                 GetNextToken();
-                prim = Expr();
+                prim = await Expr();
                 Match(Token.RParen);
                 GetNextToken();
             }
@@ -476,7 +496,8 @@ namespace TaRU_Jaster.HardyBasic
                 // '-' | '+' primary
                 Token op = lastToken;
                 GetNextToken();
-                prim = Primary().UnaryOp(op);
+                Value help = await Primary();
+                prim = help.UnaryOp(op);
             }
             else
             {

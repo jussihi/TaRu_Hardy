@@ -25,7 +25,6 @@ namespace TaRU_Jaster.HardyBasic
         Rem,
         End,
         Assert,
-        Sleep,
 
         NewLine,
         Colon,

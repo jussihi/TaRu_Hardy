@@ -306,8 +306,8 @@ namespace TaRU_Jaster
 
         private async void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
         {
-            // await _jasterExecutor.RunCommands(CodeTextBox.Text);
-            HardyBasic.Interpreter hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor);
+            // TODO: Check the target list!!!
+            HardyBasic.Interpreter hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
             try
             {
                 await hardyBasicInterpreter.Exec();
@@ -626,7 +626,7 @@ namespace TaRU_Jaster
                 if (res == null)
                     continue;
                 // TODO: do something with data
-                log_msg("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
+                log_msg("Successfully received serial data from target " + targetNo + ": " + Utils.ByteArrayToString(res));
 
                 HitsForm.TargetHits entry = new HitsForm.TargetHits {  
                                                 targetNo     = targetNo, 
@@ -647,14 +647,6 @@ namespace TaRU_Jaster
             HitsForm f = new HitsForm();
             f.SetTargetHitsList(targetHitsList);
             f.Show();
-        }
-
-        private static string ByteArrayToString(byte[] ba)
-        {
-            StringBuilder hex = new StringBuilder(ba.Length * 2);
-            foreach (byte b in ba)
-                hex.AppendFormat("0x{0:x2} ", b);
-            return hex.ToString();
         }
 
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
