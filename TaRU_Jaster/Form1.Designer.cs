@@ -45,8 +45,6 @@ namespace TaRU_Jaster
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialCheckbox2 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
@@ -141,6 +139,9 @@ namespace TaRU_Jaster
             this.materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -161,6 +162,7 @@ namespace TaRU_Jaster
             this.materialCard1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // _textBoxLog
@@ -168,30 +170,28 @@ namespace TaRU_Jaster
             this._textBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._textBoxLog.Location = new System.Drawing.Point(3, 608);
+            this._textBoxLog.Location = new System.Drawing.Point(7, 463);
             this._textBoxLog.Multiline = true;
             this._textBoxLog.Name = "_textBoxLog";
             this._textBoxLog.ReadOnly = true;
             this._textBoxLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._textBoxLog.Size = new System.Drawing.Size(878, 254);
+            this._textBoxLog.Size = new System.Drawing.Size(665, 189);
             this._textBoxLog.TabIndex = 4;
             // 
             // materialTabControl1
             // 
-            this.materialTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Controls.Add(this.tabPage3);
             this.materialTabControl1.Depth = 0;
+            this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl1.ImageList = this.imageList1;
-            this.materialTabControl1.Location = new System.Drawing.Point(3, 3);
+            this.materialTabControl1.Location = new System.Drawing.Point(7, 7);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(878, 599);
+            this.materialTabControl1.Size = new System.Drawing.Size(665, 450);
             this.materialTabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -200,9 +200,10 @@ namespace TaRU_Jaster
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabPage1.ImageKey = "avatar.png";
             this.tabPage1.Location = new System.Drawing.Point(4, 39);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(870, 556);
+            this.tabPage1.Size = new System.Drawing.Size(657, 407);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -215,11 +216,12 @@ namespace TaRU_Jaster
             this.tableLayoutPanel1.Controls.Add(this.materialCard2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 98.37134F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.628664F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 550);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 401);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // materialCard3
@@ -230,12 +232,12 @@ namespace TaRU_Jaster
             this.materialCard3.Depth = 0;
             this.materialCard3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(532, 14);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard3.Location = new System.Drawing.Point(396, 3);
+            this.materialCard3.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard3.Name = "materialCard3";
             this.materialCard3.Padding = new System.Windows.Forms.Padding(3);
-            this.materialCard3.Size = new System.Drawing.Size(318, 513);
+            this.materialCard3.Size = new System.Drawing.Size(249, 388);
             this.materialCard3.TabIndex = 3;
             // 
             // tableLayoutPanel6
@@ -251,7 +253,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.03189F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.96811F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(312, 507);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(243, 382);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // materialCard4
@@ -261,12 +263,12 @@ namespace TaRU_Jaster
             this.materialCard4.Depth = 0;
             this.materialCard4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialCard4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard4.Location = new System.Drawing.Point(14, 14);
-            this.materialCard4.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard4.Location = new System.Drawing.Point(6, 3);
+            this.materialCard4.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(3);
-            this.materialCard4.Size = new System.Drawing.Size(284, 230);
+            this.materialCard4.Size = new System.Drawing.Size(231, 188);
             this.materialCard4.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -281,18 +283,19 @@ namespace TaRU_Jaster
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.25F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.75F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(278, 224);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(225, 182);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // materialLabel5
             // 
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
             this.materialLabel5.Location = new System.Drawing.Point(3, 0);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(146, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(129, 17);
             this.materialLabel5.TabIndex = 0;
             this.materialLabel5.Text = "Target configuration";
             // 
@@ -303,24 +306,24 @@ namespace TaRU_Jaster
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.93103F));
             this.tableLayoutPanel8.Controls.Add(this.materialLabel8, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.materialLabel6, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.checkBox1, 1, 2);
             this.tableLayoutPanel8.Controls.Add(this.materialLabel7, 0, 3);
-            this.tableLayoutPanel8.Controls.Add(this.materialCheckbox2, 1, 2);
-            this.tableLayoutPanel8.Controls.Add(this.materialCheckbox1, 1, 3);
             this.tableLayoutPanel8.Controls.Add(this.materialLabel9, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.materialTextBox1, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.materialTextBox2, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this._materialButtonSetQuickConfig, 1, 4);
             this.tableLayoutPanel8.Controls.Add(this.materialButton7, 0, 4);
+            this.tableLayoutPanel8.Controls.Add(this.checkBox2, 1, 3);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 28);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 5;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(272, 193);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(219, 156);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // materialLabel8
@@ -328,11 +331,12 @@ namespace TaRU_Jaster
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel8.Location = new System.Drawing.Point(3, 38);
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel8.Location = new System.Drawing.Point(3, 34);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(135, 38);
+            this.materialLabel8.Size = new System.Drawing.Size(108, 34);
             this.materialLabel8.TabIndex = 13;
             this.materialLabel8.Text = "Hits to fall";
             this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -341,12 +345,14 @@ namespace TaRU_Jaster
             // 
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
             this.materialLabel6.Location = new System.Drawing.Point(3, 76);
+            this.materialLabel6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(135, 38);
+            this.materialLabel6.Size = new System.Drawing.Size(108, 17);
             this.materialLabel6.TabIndex = 11;
             this.materialLabel6.Text = "Light on";
             this.materialLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -355,56 +361,29 @@ namespace TaRU_Jaster
             // 
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
-            this.materialLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel7.Location = new System.Drawing.Point(3, 114);
+            this.materialLabel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel7.Location = new System.Drawing.Point(3, 104);
+            this.materialLabel7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(135, 38);
+            this.materialLabel7.Size = new System.Drawing.Size(108, 17);
             this.materialLabel7.TabIndex = 12;
             this.materialLabel7.Text = "Motion on";
             this.materialLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // materialCheckbox2
-            // 
-            this.materialCheckbox2.AutoSize = true;
-            this.materialCheckbox2.Depth = 0;
-            this.materialCheckbox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialCheckbox2.Location = new System.Drawing.Point(141, 76);
-            this.materialCheckbox2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckbox2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckbox2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckbox2.Name = "materialCheckbox2";
-            this.materialCheckbox2.Ripple = true;
-            this.materialCheckbox2.Size = new System.Drawing.Size(131, 38);
-            this.materialCheckbox2.TabIndex = 10;
-            this.materialCheckbox2.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckbox1
-            // 
-            this.materialCheckbox1.AutoSize = true;
-            this.materialCheckbox1.Depth = 0;
-            this.materialCheckbox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialCheckbox1.Location = new System.Drawing.Point(141, 114);
-            this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckbox1.Name = "materialCheckbox1";
-            this.materialCheckbox1.Ripple = true;
-            this.materialCheckbox1.Size = new System.Drawing.Size(131, 38);
-            this.materialCheckbox1.TabIndex = 8;
-            this.materialCheckbox1.UseVisualStyleBackColor = true;
             // 
             // materialLabel9
             // 
             this.materialLabel9.AutoSize = true;
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
             this.materialLabel9.Location = new System.Drawing.Point(3, 0);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(135, 38);
+            this.materialLabel9.Size = new System.Drawing.Size(108, 34);
             this.materialLabel9.TabIndex = 14;
             this.materialLabel9.Text = "Target sensitivity";
             this.materialLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -415,14 +394,15 @@ namespace TaRU_Jaster
             this.materialTextBox1.Depth = 0;
             this.materialTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox1.Location = new System.Drawing.Point(144, 3);
+            this.materialTextBox1.Location = new System.Drawing.Point(117, 3);
             this.materialTextBox1.MaxLength = 50;
             this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox1.Multiline = false;
             this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(125, 36);
+            this.materialTextBox1.Size = new System.Drawing.Size(99, 36);
             this.materialTextBox1.TabIndex = 15;
             this.materialTextBox1.Text = "";
+            this.materialTextBox1.UseAccent = false;
             this.materialTextBox1.UseTallSize = false;
             // 
             // materialTextBox2
@@ -431,12 +411,12 @@ namespace TaRU_Jaster
             this.materialTextBox2.Depth = 0;
             this.materialTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox2.Location = new System.Drawing.Point(144, 41);
+            this.materialTextBox2.Location = new System.Drawing.Point(117, 37);
             this.materialTextBox2.MaxLength = 50;
             this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox2.Multiline = false;
             this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.Size = new System.Drawing.Size(125, 36);
+            this.materialTextBox2.Size = new System.Drawing.Size(99, 36);
             this.materialTextBox2.TabIndex = 16;
             this.materialTextBox2.Text = "";
             this.materialTextBox2.UseTallSize = false;
@@ -449,11 +429,11 @@ namespace TaRU_Jaster
             this._materialButtonSetQuickConfig.DrawShadows = true;
             this._materialButtonSetQuickConfig.HighEmphasis = true;
             this._materialButtonSetQuickConfig.Icon = null;
-            this._materialButtonSetQuickConfig.Location = new System.Drawing.Point(145, 158);
+            this._materialButtonSetQuickConfig.Location = new System.Drawing.Point(118, 130);
             this._materialButtonSetQuickConfig.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSetQuickConfig.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSetQuickConfig.Name = "_materialButtonSetQuickConfig";
-            this._materialButtonSetQuickConfig.Size = new System.Drawing.Size(123, 29);
+            this._materialButtonSetQuickConfig.Size = new System.Drawing.Size(97, 20);
             this._materialButtonSetQuickConfig.TabIndex = 17;
             this._materialButtonSetQuickConfig.Text = "SET";
             this._materialButtonSetQuickConfig.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -469,11 +449,11 @@ namespace TaRU_Jaster
             this.materialButton7.DrawShadows = true;
             this.materialButton7.HighEmphasis = true;
             this.materialButton7.Icon = null;
-            this.materialButton7.Location = new System.Drawing.Point(4, 158);
+            this.materialButton7.Location = new System.Drawing.Point(4, 130);
             this.materialButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton7.Name = "materialButton7";
-            this.materialButton7.Size = new System.Drawing.Size(74, 29);
+            this.materialButton7.Size = new System.Drawing.Size(74, 20);
             this.materialButton7.TabIndex = 18;
             this.materialButton7.Text = "Fetch?";
             this.materialButton7.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -483,16 +463,16 @@ namespace TaRU_Jaster
             // materialCard5
             // 
             this.materialCard5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard5.Controls.Add(this.tableLayoutPanel9);
+            this.materialCard5.Controls.Add(this.tableLayoutPanel11);
             this.materialCard5.Depth = 0;
             this.materialCard5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialCard5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard5.Location = new System.Drawing.Point(14, 272);
-            this.materialCard5.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard5.Location = new System.Drawing.Point(6, 197);
+            this.materialCard5.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard5.Name = "materialCard5";
             this.materialCard5.Padding = new System.Windows.Forms.Padding(3);
-            this.materialCard5.Size = new System.Drawing.Size(284, 221);
+            this.materialCard5.Size = new System.Drawing.Size(231, 182);
             this.materialCard5.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -500,25 +480,24 @@ namespace TaRU_Jaster
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Controls.Add(this._materialButtonGoQuickProgram, 1, 4);
-            this.tableLayoutPanel9.Controls.Add(this.materialLabel10, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.materialLabel11, 0, 2);
-            this.tableLayoutPanel9.Controls.Add(this.materialLabel12, 0, 3);
-            this.tableLayoutPanel9.Controls.Add(this.materialTextBox3, 1, 1);
-            this.tableLayoutPanel9.Controls.Add(this.materialTextBox4, 1, 2);
-            this.tableLayoutPanel9.Controls.Add(this.materialTextBox5, 1, 3);
-            this.tableLayoutPanel9.Controls.Add(this.materialLabel13, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this._materialButtonEndQuickProgram, 0, 4);
+            this.tableLayoutPanel9.Controls.Add(this._materialButtonGoQuickProgram, 1, 3);
+            this.tableLayoutPanel9.Controls.Add(this.materialLabel10, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.materialLabel11, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.materialLabel12, 0, 2);
+            this.tableLayoutPanel9.Controls.Add(this.materialTextBox3, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.materialTextBox4, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.materialTextBox5, 1, 2);
+            this.tableLayoutPanel9.Controls.Add(this._materialButtonEndQuickProgram, 0, 3);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 29);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 5;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(278, 215);
+            this.tableLayoutPanel9.RowCount = 4;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(219, 144);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // _materialButtonGoQuickProgram
@@ -528,11 +507,11 @@ namespace TaRU_Jaster
             this._materialButtonGoQuickProgram.DrawShadows = true;
             this._materialButtonGoQuickProgram.HighEmphasis = true;
             this._materialButtonGoQuickProgram.Icon = null;
-            this._materialButtonGoQuickProgram.Location = new System.Drawing.Point(143, 178);
+            this._materialButtonGoQuickProgram.Location = new System.Drawing.Point(113, 114);
             this._materialButtonGoQuickProgram.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonGoQuickProgram.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonGoQuickProgram.Name = "_materialButtonGoQuickProgram";
-            this._materialButtonGoQuickProgram.Size = new System.Drawing.Size(41, 31);
+            this._materialButtonGoQuickProgram.Size = new System.Drawing.Size(41, 24);
             this._materialButtonGoQuickProgram.TabIndex = 0;
             this._materialButtonGoQuickProgram.Text = "GO";
             this._materialButtonGoQuickProgram.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -545,11 +524,12 @@ namespace TaRU_Jaster
             this.materialLabel10.AutoSize = true;
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.Location = new System.Drawing.Point(3, 43);
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel10.Location = new System.Drawing.Point(3, 0);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(133, 43);
+            this.materialLabel10.Size = new System.Drawing.Size(103, 36);
             this.materialLabel10.TabIndex = 1;
             this.materialLabel10.Text = "Hits to fall";
             this.materialLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -559,11 +539,12 @@ namespace TaRU_Jaster
             this.materialLabel11.AutoSize = true;
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel11.Location = new System.Drawing.Point(3, 86);
+            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel11.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel11.Location = new System.Drawing.Point(3, 36);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
-            this.materialLabel11.Size = new System.Drawing.Size(133, 43);
+            this.materialLabel11.Size = new System.Drawing.Size(103, 36);
             this.materialLabel11.TabIndex = 2;
             this.materialLabel11.Text = "Target up (sec.)";
             this.materialLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -573,11 +554,12 @@ namespace TaRU_Jaster
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.Location = new System.Drawing.Point(3, 129);
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel12.Location = new System.Drawing.Point(3, 72);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(133, 43);
+            this.materialLabel12.Size = new System.Drawing.Size(103, 36);
             this.materialLabel12.TabIndex = 3;
             this.materialLabel12.Text = "Target down (sec.)";
             this.materialLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -588,12 +570,12 @@ namespace TaRU_Jaster
             this.materialTextBox3.Depth = 0;
             this.materialTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTextBox3.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox3.Location = new System.Drawing.Point(142, 46);
+            this.materialTextBox3.Location = new System.Drawing.Point(112, 3);
             this.materialTextBox3.MaxLength = 50;
             this.materialTextBox3.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox3.Multiline = false;
             this.materialTextBox3.Name = "materialTextBox3";
-            this.materialTextBox3.Size = new System.Drawing.Size(133, 36);
+            this.materialTextBox3.Size = new System.Drawing.Size(104, 36);
             this.materialTextBox3.TabIndex = 5;
             this.materialTextBox3.Text = "";
             this.materialTextBox3.UseTallSize = false;
@@ -604,12 +586,12 @@ namespace TaRU_Jaster
             this.materialTextBox4.Depth = 0;
             this.materialTextBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTextBox4.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox4.Location = new System.Drawing.Point(142, 89);
+            this.materialTextBox4.Location = new System.Drawing.Point(112, 39);
             this.materialTextBox4.MaxLength = 50;
             this.materialTextBox4.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox4.Multiline = false;
             this.materialTextBox4.Name = "materialTextBox4";
-            this.materialTextBox4.Size = new System.Drawing.Size(133, 36);
+            this.materialTextBox4.Size = new System.Drawing.Size(104, 36);
             this.materialTextBox4.TabIndex = 6;
             this.materialTextBox4.Text = "";
             this.materialTextBox4.UseTallSize = false;
@@ -620,12 +602,12 @@ namespace TaRU_Jaster
             this.materialTextBox5.Depth = 0;
             this.materialTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTextBox5.Font = new System.Drawing.Font("Roboto", 12F);
-            this.materialTextBox5.Location = new System.Drawing.Point(142, 132);
+            this.materialTextBox5.Location = new System.Drawing.Point(112, 75);
             this.materialTextBox5.MaxLength = 50;
             this.materialTextBox5.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox5.Multiline = false;
             this.materialTextBox5.Name = "materialTextBox5";
-            this.materialTextBox5.Size = new System.Drawing.Size(133, 36);
+            this.materialTextBox5.Size = new System.Drawing.Size(104, 36);
             this.materialTextBox5.TabIndex = 7;
             this.materialTextBox5.Text = "";
             this.materialTextBox5.UseTallSize = false;
@@ -634,11 +616,12 @@ namespace TaRU_Jaster
             // 
             this.materialLabel13.AutoSize = true;
             this.materialLabel13.Depth = 0;
-            this.materialLabel13.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel13.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel13.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
             this.materialLabel13.Location = new System.Drawing.Point(3, 0);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
-            this.materialLabel13.Size = new System.Drawing.Size(105, 19);
+            this.materialLabel13.Size = new System.Drawing.Size(93, 17);
             this.materialLabel13.TabIndex = 8;
             this.materialLabel13.Text = "Quick program";
             // 
@@ -649,11 +632,11 @@ namespace TaRU_Jaster
             this._materialButtonEndQuickProgram.DrawShadows = true;
             this._materialButtonEndQuickProgram.HighEmphasis = true;
             this._materialButtonEndQuickProgram.Icon = null;
-            this._materialButtonEndQuickProgram.Location = new System.Drawing.Point(4, 178);
+            this._materialButtonEndQuickProgram.Location = new System.Drawing.Point(4, 114);
             this._materialButtonEndQuickProgram.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonEndQuickProgram.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonEndQuickProgram.Name = "_materialButtonEndQuickProgram";
-            this._materialButtonEndQuickProgram.Size = new System.Drawing.Size(50, 31);
+            this._materialButtonEndQuickProgram.Size = new System.Drawing.Size(50, 24);
             this._materialButtonEndQuickProgram.TabIndex = 9;
             this._materialButtonEndQuickProgram.Text = "END";
             this._materialButtonEndQuickProgram.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -670,12 +653,12 @@ namespace TaRU_Jaster
             this.materialCard2.Depth = 0;
             this.materialCard2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(14, 14);
-            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Location = new System.Drawing.Point(6, 3);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
-            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(490, 513);
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(4);
+            this.materialCard2.Size = new System.Drawing.Size(378, 388);
             this.materialCard2.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -687,14 +670,14 @@ namespace TaRU_Jaster
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.materialLabel3, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(14, 14);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(462, 485);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(370, 380);
             this.tableLayoutPanel3.TabIndex = 40;
             // 
             // tableLayoutPanel4
@@ -706,11 +689,11 @@ namespace TaRU_Jaster
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this._deselectAllTargetsSimple, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 371);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 291);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(456, 52);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(364, 39);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // _deselectAllTargetsSimple
@@ -722,11 +705,11 @@ namespace TaRU_Jaster
             this._deselectAllTargetsSimple.DrawShadows = true;
             this._deselectAllTargetsSimple.HighEmphasis = true;
             this._deselectAllTargetsSimple.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._deselectAllTargetsSimple.Location = new System.Drawing.Point(232, 4);
+            this._deselectAllTargetsSimple.Location = new System.Drawing.Point(186, 4);
             this._deselectAllTargetsSimple.Margin = new System.Windows.Forms.Padding(4);
             this._deselectAllTargetsSimple.MouseState = MaterialSkin.MouseState.HOVER;
             this._deselectAllTargetsSimple.Name = "_deselectAllTargetsSimple";
-            this._deselectAllTargetsSimple.Size = new System.Drawing.Size(220, 44);
+            this._deselectAllTargetsSimple.Size = new System.Drawing.Size(174, 31);
             this._deselectAllTargetsSimple.TabIndex = 39;
             this._deselectAllTargetsSimple.Text = "Deselect all";
             this._deselectAllTargetsSimple.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -776,7 +759,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel2.Controls.Add(this._materialButtonSelectTargetSimple16, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this._materialButtonSelectTargetSimple15, 4, 2);
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 32);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 25);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -785,7 +768,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(456, 333);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(364, 260);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // _materialButtonSelectTargetSimple2
@@ -797,11 +780,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple2.DrawShadows = true;
             this._materialButtonSelectTargetSimple2.HighEmphasis = true;
             this._materialButtonSelectTargetSimple2.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple2.Location = new System.Drawing.Point(95, 6);
-            this._materialButtonSelectTargetSimple2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple2.Location = new System.Drawing.Point(74, 4);
+            this._materialButtonSelectTargetSimple2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple2.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple2.Name = "_materialButtonSelectTargetSimple2";
-            this._materialButtonSelectTargetSimple2.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple2.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple2.TabIndex = 7;
             this._materialButtonSelectTargetSimple2.Text = "2";
             this._materialButtonSelectTargetSimple2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -820,11 +803,12 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple30.DrawShadows = true;
             this._materialButtonSelectTargetSimple30.HighEmphasis = true;
             this._materialButtonSelectTargetSimple30.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple30.Location = new System.Drawing.Point(368, 281);
-            this._materialButtonSelectTargetSimple30.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple30.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._materialButtonSelectTargetSimple30.Location = new System.Drawing.Point(290, 219);
+            this._materialButtonSelectTargetSimple30.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple30.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple30.Name = "_materialButtonSelectTargetSimple30";
-            this._materialButtonSelectTargetSimple30.Size = new System.Drawing.Size(84, 46);
+            this._materialButtonSelectTargetSimple30.Size = new System.Drawing.Size(72, 37);
             this._materialButtonSelectTargetSimple30.TabIndex = 38;
             this._materialButtonSelectTargetSimple30.Text = "30";
             this._materialButtonSelectTargetSimple30.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -843,11 +827,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple3.DrawShadows = true;
             this._materialButtonSelectTargetSimple3.HighEmphasis = true;
             this._materialButtonSelectTargetSimple3.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple3.Location = new System.Drawing.Point(186, 6);
-            this._materialButtonSelectTargetSimple3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple3.Location = new System.Drawing.Point(146, 4);
+            this._materialButtonSelectTargetSimple3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple3.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple3.Name = "_materialButtonSelectTargetSimple3";
-            this._materialButtonSelectTargetSimple3.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple3.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple3.TabIndex = 11;
             this._materialButtonSelectTargetSimple3.Text = "3";
             this._materialButtonSelectTargetSimple3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -866,11 +850,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple29.DrawShadows = true;
             this._materialButtonSelectTargetSimple29.HighEmphasis = true;
             this._materialButtonSelectTargetSimple29.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple29.Location = new System.Drawing.Point(277, 281);
-            this._materialButtonSelectTargetSimple29.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple29.Location = new System.Drawing.Point(218, 219);
+            this._materialButtonSelectTargetSimple29.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple29.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple29.Name = "_materialButtonSelectTargetSimple29";
-            this._materialButtonSelectTargetSimple29.Size = new System.Drawing.Size(83, 46);
+            this._materialButtonSelectTargetSimple29.Size = new System.Drawing.Size(68, 37);
             this._materialButtonSelectTargetSimple29.TabIndex = 37;
             this._materialButtonSelectTargetSimple29.Text = "29";
             this._materialButtonSelectTargetSimple29.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -889,11 +873,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple4.DrawShadows = true;
             this._materialButtonSelectTargetSimple4.HighEmphasis = true;
             this._materialButtonSelectTargetSimple4.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple4.Location = new System.Drawing.Point(277, 6);
-            this._materialButtonSelectTargetSimple4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple4.Location = new System.Drawing.Point(218, 4);
+            this._materialButtonSelectTargetSimple4.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple4.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple4.Name = "_materialButtonSelectTargetSimple4";
-            this._materialButtonSelectTargetSimple4.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple4.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple4.TabIndex = 12;
             this._materialButtonSelectTargetSimple4.Text = "4";
             this._materialButtonSelectTargetSimple4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -912,11 +896,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple28.DrawShadows = true;
             this._materialButtonSelectTargetSimple28.HighEmphasis = true;
             this._materialButtonSelectTargetSimple28.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple28.Location = new System.Drawing.Point(186, 281);
-            this._materialButtonSelectTargetSimple28.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple28.Location = new System.Drawing.Point(146, 219);
+            this._materialButtonSelectTargetSimple28.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple28.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple28.Name = "_materialButtonSelectTargetSimple28";
-            this._materialButtonSelectTargetSimple28.Size = new System.Drawing.Size(83, 46);
+            this._materialButtonSelectTargetSimple28.Size = new System.Drawing.Size(68, 37);
             this._materialButtonSelectTargetSimple28.TabIndex = 36;
             this._materialButtonSelectTargetSimple28.Text = "28";
             this._materialButtonSelectTargetSimple28.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -935,11 +919,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple5.DrawShadows = true;
             this._materialButtonSelectTargetSimple5.HighEmphasis = true;
             this._materialButtonSelectTargetSimple5.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple5.Location = new System.Drawing.Point(368, 6);
-            this._materialButtonSelectTargetSimple5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple5.Location = new System.Drawing.Point(290, 4);
+            this._materialButtonSelectTargetSimple5.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple5.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple5.Name = "_materialButtonSelectTargetSimple5";
-            this._materialButtonSelectTargetSimple5.Size = new System.Drawing.Size(84, 43);
+            this._materialButtonSelectTargetSimple5.Size = new System.Drawing.Size(72, 35);
             this._materialButtonSelectTargetSimple5.TabIndex = 13;
             this._materialButtonSelectTargetSimple5.Text = "5";
             this._materialButtonSelectTargetSimple5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -958,11 +942,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple27.DrawShadows = true;
             this._materialButtonSelectTargetSimple27.HighEmphasis = true;
             this._materialButtonSelectTargetSimple27.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple27.Location = new System.Drawing.Point(95, 281);
-            this._materialButtonSelectTargetSimple27.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple27.Location = new System.Drawing.Point(74, 219);
+            this._materialButtonSelectTargetSimple27.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple27.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple27.Name = "_materialButtonSelectTargetSimple27";
-            this._materialButtonSelectTargetSimple27.Size = new System.Drawing.Size(83, 46);
+            this._materialButtonSelectTargetSimple27.Size = new System.Drawing.Size(68, 37);
             this._materialButtonSelectTargetSimple27.TabIndex = 34;
             this._materialButtonSelectTargetSimple27.Text = "27";
             this._materialButtonSelectTargetSimple27.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -981,11 +965,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple26.DrawShadows = true;
             this._materialButtonSelectTargetSimple26.HighEmphasis = true;
             this._materialButtonSelectTargetSimple26.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple26.Location = new System.Drawing.Point(4, 281);
-            this._materialButtonSelectTargetSimple26.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple26.Location = new System.Drawing.Point(2, 219);
+            this._materialButtonSelectTargetSimple26.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple26.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple26.Name = "_materialButtonSelectTargetSimple26";
-            this._materialButtonSelectTargetSimple26.Size = new System.Drawing.Size(83, 46);
+            this._materialButtonSelectTargetSimple26.Size = new System.Drawing.Size(68, 37);
             this._materialButtonSelectTargetSimple26.TabIndex = 35;
             this._materialButtonSelectTargetSimple26.Text = "26";
             this._materialButtonSelectTargetSimple26.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1004,11 +988,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple1.DrawShadows = true;
             this._materialButtonSelectTargetSimple1.HighEmphasis = true;
             this._materialButtonSelectTargetSimple1.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple1.Location = new System.Drawing.Point(4, 6);
-            this._materialButtonSelectTargetSimple1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple1.Location = new System.Drawing.Point(2, 4);
+            this._materialButtonSelectTargetSimple1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple1.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple1.Name = "_materialButtonSelectTargetSimple1";
-            this._materialButtonSelectTargetSimple1.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple1.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple1.TabIndex = 10;
             this._materialButtonSelectTargetSimple1.Text = "1";
             this._materialButtonSelectTargetSimple1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1027,11 +1011,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple6.DrawShadows = true;
             this._materialButtonSelectTargetSimple6.HighEmphasis = true;
             this._materialButtonSelectTargetSimple6.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple6.Location = new System.Drawing.Point(4, 61);
-            this._materialButtonSelectTargetSimple6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple6.Location = new System.Drawing.Point(2, 47);
+            this._materialButtonSelectTargetSimple6.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple6.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple6.Name = "_materialButtonSelectTargetSimple6";
-            this._materialButtonSelectTargetSimple6.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple6.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple6.TabIndex = 15;
             this._materialButtonSelectTargetSimple6.Text = "6";
             this._materialButtonSelectTargetSimple6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1050,11 +1034,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple25.DrawShadows = true;
             this._materialButtonSelectTargetSimple25.HighEmphasis = true;
             this._materialButtonSelectTargetSimple25.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple25.Location = new System.Drawing.Point(368, 226);
-            this._materialButtonSelectTargetSimple25.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple25.Location = new System.Drawing.Point(290, 176);
+            this._materialButtonSelectTargetSimple25.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple25.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple25.Name = "_materialButtonSelectTargetSimple25";
-            this._materialButtonSelectTargetSimple25.Size = new System.Drawing.Size(84, 43);
+            this._materialButtonSelectTargetSimple25.Size = new System.Drawing.Size(72, 35);
             this._materialButtonSelectTargetSimple25.TabIndex = 33;
             this._materialButtonSelectTargetSimple25.Text = "25";
             this._materialButtonSelectTargetSimple25.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1073,11 +1057,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple7.DrawShadows = true;
             this._materialButtonSelectTargetSimple7.HighEmphasis = true;
             this._materialButtonSelectTargetSimple7.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple7.Location = new System.Drawing.Point(95, 61);
-            this._materialButtonSelectTargetSimple7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple7.Location = new System.Drawing.Point(74, 47);
+            this._materialButtonSelectTargetSimple7.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple7.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple7.Name = "_materialButtonSelectTargetSimple7";
-            this._materialButtonSelectTargetSimple7.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple7.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple7.TabIndex = 14;
             this._materialButtonSelectTargetSimple7.Text = "7";
             this._materialButtonSelectTargetSimple7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1096,11 +1080,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple24.DrawShadows = true;
             this._materialButtonSelectTargetSimple24.HighEmphasis = true;
             this._materialButtonSelectTargetSimple24.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple24.Location = new System.Drawing.Point(277, 226);
-            this._materialButtonSelectTargetSimple24.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple24.Location = new System.Drawing.Point(218, 176);
+            this._materialButtonSelectTargetSimple24.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple24.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple24.Name = "_materialButtonSelectTargetSimple24";
-            this._materialButtonSelectTargetSimple24.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple24.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple24.TabIndex = 32;
             this._materialButtonSelectTargetSimple24.Text = "24";
             this._materialButtonSelectTargetSimple24.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1119,11 +1103,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple8.DrawShadows = true;
             this._materialButtonSelectTargetSimple8.HighEmphasis = true;
             this._materialButtonSelectTargetSimple8.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple8.Location = new System.Drawing.Point(186, 61);
-            this._materialButtonSelectTargetSimple8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple8.Location = new System.Drawing.Point(146, 47);
+            this._materialButtonSelectTargetSimple8.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple8.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple8.Name = "_materialButtonSelectTargetSimple8";
-            this._materialButtonSelectTargetSimple8.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple8.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple8.TabIndex = 16;
             this._materialButtonSelectTargetSimple8.Text = "8";
             this._materialButtonSelectTargetSimple8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1142,11 +1126,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple23.DrawShadows = true;
             this._materialButtonSelectTargetSimple23.HighEmphasis = true;
             this._materialButtonSelectTargetSimple23.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple23.Location = new System.Drawing.Point(186, 226);
-            this._materialButtonSelectTargetSimple23.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple23.Location = new System.Drawing.Point(146, 176);
+            this._materialButtonSelectTargetSimple23.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple23.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple23.Name = "_materialButtonSelectTargetSimple23";
-            this._materialButtonSelectTargetSimple23.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple23.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple23.TabIndex = 31;
             this._materialButtonSelectTargetSimple23.Text = "23";
             this._materialButtonSelectTargetSimple23.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1165,11 +1149,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple9.DrawShadows = true;
             this._materialButtonSelectTargetSimple9.HighEmphasis = true;
             this._materialButtonSelectTargetSimple9.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple9.Location = new System.Drawing.Point(277, 61);
-            this._materialButtonSelectTargetSimple9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple9.Location = new System.Drawing.Point(218, 47);
+            this._materialButtonSelectTargetSimple9.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple9.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple9.Name = "_materialButtonSelectTargetSimple9";
-            this._materialButtonSelectTargetSimple9.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple9.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple9.TabIndex = 17;
             this._materialButtonSelectTargetSimple9.Text = "9";
             this._materialButtonSelectTargetSimple9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1188,11 +1172,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple22.DrawShadows = true;
             this._materialButtonSelectTargetSimple22.HighEmphasis = true;
             this._materialButtonSelectTargetSimple22.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple22.Location = new System.Drawing.Point(95, 226);
-            this._materialButtonSelectTargetSimple22.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple22.Location = new System.Drawing.Point(74, 176);
+            this._materialButtonSelectTargetSimple22.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple22.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple22.Name = "_materialButtonSelectTargetSimple22";
-            this._materialButtonSelectTargetSimple22.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple22.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple22.TabIndex = 29;
             this._materialButtonSelectTargetSimple22.Text = "22";
             this._materialButtonSelectTargetSimple22.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1211,11 +1195,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple21.DrawShadows = true;
             this._materialButtonSelectTargetSimple21.HighEmphasis = true;
             this._materialButtonSelectTargetSimple21.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple21.Location = new System.Drawing.Point(4, 226);
-            this._materialButtonSelectTargetSimple21.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple21.Location = new System.Drawing.Point(2, 176);
+            this._materialButtonSelectTargetSimple21.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple21.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple21.Name = "_materialButtonSelectTargetSimple21";
-            this._materialButtonSelectTargetSimple21.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple21.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple21.TabIndex = 30;
             this._materialButtonSelectTargetSimple21.Text = "21";
             this._materialButtonSelectTargetSimple21.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1234,11 +1218,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple10.DrawShadows = true;
             this._materialButtonSelectTargetSimple10.HighEmphasis = true;
             this._materialButtonSelectTargetSimple10.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple10.Location = new System.Drawing.Point(368, 61);
-            this._materialButtonSelectTargetSimple10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple10.Location = new System.Drawing.Point(290, 47);
+            this._materialButtonSelectTargetSimple10.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple10.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple10.Name = "_materialButtonSelectTargetSimple10";
-            this._materialButtonSelectTargetSimple10.Size = new System.Drawing.Size(84, 43);
+            this._materialButtonSelectTargetSimple10.Size = new System.Drawing.Size(72, 35);
             this._materialButtonSelectTargetSimple10.TabIndex = 18;
             this._materialButtonSelectTargetSimple10.Text = "10";
             this._materialButtonSelectTargetSimple10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1257,11 +1241,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple11.DrawShadows = true;
             this._materialButtonSelectTargetSimple11.HighEmphasis = true;
             this._materialButtonSelectTargetSimple11.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple11.Location = new System.Drawing.Point(4, 116);
-            this._materialButtonSelectTargetSimple11.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple11.Location = new System.Drawing.Point(2, 90);
+            this._materialButtonSelectTargetSimple11.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple11.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple11.Name = "_materialButtonSelectTargetSimple11";
-            this._materialButtonSelectTargetSimple11.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple11.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple11.TabIndex = 20;
             this._materialButtonSelectTargetSimple11.Text = "11";
             this._materialButtonSelectTargetSimple11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1280,11 +1264,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple20.DrawShadows = true;
             this._materialButtonSelectTargetSimple20.HighEmphasis = true;
             this._materialButtonSelectTargetSimple20.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple20.Location = new System.Drawing.Point(368, 171);
-            this._materialButtonSelectTargetSimple20.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple20.Location = new System.Drawing.Point(290, 133);
+            this._materialButtonSelectTargetSimple20.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple20.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple20.Name = "_materialButtonSelectTargetSimple20";
-            this._materialButtonSelectTargetSimple20.Size = new System.Drawing.Size(84, 43);
+            this._materialButtonSelectTargetSimple20.Size = new System.Drawing.Size(72, 35);
             this._materialButtonSelectTargetSimple20.TabIndex = 28;
             this._materialButtonSelectTargetSimple20.Text = "20";
             this._materialButtonSelectTargetSimple20.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1303,11 +1287,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple12.DrawShadows = true;
             this._materialButtonSelectTargetSimple12.HighEmphasis = true;
             this._materialButtonSelectTargetSimple12.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple12.Location = new System.Drawing.Point(95, 116);
-            this._materialButtonSelectTargetSimple12.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple12.Location = new System.Drawing.Point(74, 90);
+            this._materialButtonSelectTargetSimple12.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple12.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple12.Name = "_materialButtonSelectTargetSimple12";
-            this._materialButtonSelectTargetSimple12.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple12.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple12.TabIndex = 19;
             this._materialButtonSelectTargetSimple12.Text = "12";
             this._materialButtonSelectTargetSimple12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1326,11 +1310,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple19.DrawShadows = true;
             this._materialButtonSelectTargetSimple19.HighEmphasis = true;
             this._materialButtonSelectTargetSimple19.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple19.Location = new System.Drawing.Point(277, 171);
-            this._materialButtonSelectTargetSimple19.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple19.Location = new System.Drawing.Point(218, 133);
+            this._materialButtonSelectTargetSimple19.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple19.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple19.Name = "_materialButtonSelectTargetSimple19";
-            this._materialButtonSelectTargetSimple19.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple19.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple19.TabIndex = 27;
             this._materialButtonSelectTargetSimple19.Text = "19";
             this._materialButtonSelectTargetSimple19.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1349,11 +1333,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple13.DrawShadows = true;
             this._materialButtonSelectTargetSimple13.HighEmphasis = true;
             this._materialButtonSelectTargetSimple13.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple13.Location = new System.Drawing.Point(186, 116);
-            this._materialButtonSelectTargetSimple13.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple13.Location = new System.Drawing.Point(146, 90);
+            this._materialButtonSelectTargetSimple13.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple13.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple13.Name = "_materialButtonSelectTargetSimple13";
-            this._materialButtonSelectTargetSimple13.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple13.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple13.TabIndex = 21;
             this._materialButtonSelectTargetSimple13.Text = "13";
             this._materialButtonSelectTargetSimple13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1372,11 +1356,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple18.DrawShadows = true;
             this._materialButtonSelectTargetSimple18.HighEmphasis = true;
             this._materialButtonSelectTargetSimple18.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple18.Location = new System.Drawing.Point(186, 171);
-            this._materialButtonSelectTargetSimple18.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple18.Location = new System.Drawing.Point(146, 133);
+            this._materialButtonSelectTargetSimple18.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple18.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple18.Name = "_materialButtonSelectTargetSimple18";
-            this._materialButtonSelectTargetSimple18.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple18.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple18.TabIndex = 26;
             this._materialButtonSelectTargetSimple18.Text = "18";
             this._materialButtonSelectTargetSimple18.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1395,11 +1379,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple14.DrawShadows = true;
             this._materialButtonSelectTargetSimple14.HighEmphasis = true;
             this._materialButtonSelectTargetSimple14.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple14.Location = new System.Drawing.Point(277, 116);
-            this._materialButtonSelectTargetSimple14.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple14.Location = new System.Drawing.Point(218, 90);
+            this._materialButtonSelectTargetSimple14.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple14.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple14.Name = "_materialButtonSelectTargetSimple14";
-            this._materialButtonSelectTargetSimple14.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple14.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple14.TabIndex = 22;
             this._materialButtonSelectTargetSimple14.Text = "14";
             this._materialButtonSelectTargetSimple14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1418,11 +1402,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple17.DrawShadows = true;
             this._materialButtonSelectTargetSimple17.HighEmphasis = true;
             this._materialButtonSelectTargetSimple17.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple17.Location = new System.Drawing.Point(95, 171);
-            this._materialButtonSelectTargetSimple17.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple17.Location = new System.Drawing.Point(74, 133);
+            this._materialButtonSelectTargetSimple17.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple17.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple17.Name = "_materialButtonSelectTargetSimple17";
-            this._materialButtonSelectTargetSimple17.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple17.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple17.TabIndex = 24;
             this._materialButtonSelectTargetSimple17.Text = "17";
             this._materialButtonSelectTargetSimple17.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1441,11 +1425,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple16.DrawShadows = true;
             this._materialButtonSelectTargetSimple16.HighEmphasis = true;
             this._materialButtonSelectTargetSimple16.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple16.Location = new System.Drawing.Point(4, 171);
-            this._materialButtonSelectTargetSimple16.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple16.Location = new System.Drawing.Point(2, 133);
+            this._materialButtonSelectTargetSimple16.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple16.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple16.Name = "_materialButtonSelectTargetSimple16";
-            this._materialButtonSelectTargetSimple16.Size = new System.Drawing.Size(83, 43);
+            this._materialButtonSelectTargetSimple16.Size = new System.Drawing.Size(68, 35);
             this._materialButtonSelectTargetSimple16.TabIndex = 25;
             this._materialButtonSelectTargetSimple16.Text = "16";
             this._materialButtonSelectTargetSimple16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1464,11 +1448,11 @@ namespace TaRU_Jaster
             this._materialButtonSelectTargetSimple15.DrawShadows = true;
             this._materialButtonSelectTargetSimple15.HighEmphasis = true;
             this._materialButtonSelectTargetSimple15.Icon = global::TaRU_Jaster.Properties.Resources.avatar;
-            this._materialButtonSelectTargetSimple15.Location = new System.Drawing.Point(368, 116);
-            this._materialButtonSelectTargetSimple15.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonSelectTargetSimple15.Location = new System.Drawing.Point(290, 90);
+            this._materialButtonSelectTargetSimple15.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this._materialButtonSelectTargetSimple15.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSelectTargetSimple15.Name = "_materialButtonSelectTargetSimple15";
-            this._materialButtonSelectTargetSimple15.Size = new System.Drawing.Size(84, 43);
+            this._materialButtonSelectTargetSimple15.Size = new System.Drawing.Size(72, 35);
             this._materialButtonSelectTargetSimple15.TabIndex = 23;
             this._materialButtonSelectTargetSimple15.Text = "15";
             this._materialButtonSelectTargetSimple15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1492,11 +1476,11 @@ namespace TaRU_Jaster
             this.tableLayoutPanel5.Controls.Add(this.materialButton2, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.materialButton1, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 429);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 336);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(456, 53);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(364, 41);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // materialButton5
@@ -1507,11 +1491,11 @@ namespace TaRU_Jaster
             this.materialButton5.DrawShadows = true;
             this.materialButton5.HighEmphasis = true;
             this.materialButton5.Icon = null;
-            this.materialButton5.Location = new System.Drawing.Point(368, 4);
+            this.materialButton5.Location = new System.Drawing.Point(292, 4);
             this.materialButton5.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton5.Name = "materialButton5";
-            this.materialButton5.Size = new System.Drawing.Size(84, 45);
+            this.materialButton5.Size = new System.Drawing.Size(68, 33);
             this.materialButton5.TabIndex = 5;
             this.materialButton5.Text = "Stat";
             this.materialButton5.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1527,11 +1511,11 @@ namespace TaRU_Jaster
             this.materialButton4.DrawShadows = true;
             this.materialButton4.HighEmphasis = true;
             this.materialButton4.Icon = null;
-            this.materialButton4.Location = new System.Drawing.Point(277, 4);
+            this.materialButton4.Location = new System.Drawing.Point(220, 4);
             this.materialButton4.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton4.Name = "materialButton4";
-            this.materialButton4.Size = new System.Drawing.Size(83, 45);
+            this.materialButton4.Size = new System.Drawing.Size(64, 33);
             this.materialButton4.TabIndex = 4;
             this.materialButton4.Text = "Hits";
             this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1547,11 +1531,11 @@ namespace TaRU_Jaster
             this.materialButton3.DrawShadows = true;
             this.materialButton3.HighEmphasis = true;
             this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(186, 4);
+            this.materialButton3.Location = new System.Drawing.Point(148, 4);
             this.materialButton3.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton3.Name = "materialButton3";
-            this.materialButton3.Size = new System.Drawing.Size(83, 45);
+            this.materialButton3.Size = new System.Drawing.Size(64, 33);
             this.materialButton3.TabIndex = 3;
             this.materialButton3.Text = "Reset";
             this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1567,11 +1551,11 @@ namespace TaRU_Jaster
             this.materialButton2.DrawShadows = true;
             this.materialButton2.HighEmphasis = true;
             this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(95, 4);
+            this.materialButton2.Location = new System.Drawing.Point(76, 4);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
-            this.materialButton2.Size = new System.Drawing.Size(83, 45);
+            this.materialButton2.Size = new System.Drawing.Size(64, 33);
             this.materialButton2.TabIndex = 2;
             this.materialButton2.Text = "Down";
             this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1591,7 +1575,7 @@ namespace TaRU_Jaster
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Size = new System.Drawing.Size(83, 45);
+            this.materialButton1.Size = new System.Drawing.Size(64, 33);
             this.materialButton1.TabIndex = 1;
             this.materialButton1.Text = "Up";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1608,7 +1592,7 @@ namespace TaRU_Jaster
             this.materialLabel3.Location = new System.Drawing.Point(3, 0);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(456, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(364, 19);
             this.materialLabel3.TabIndex = 2;
             this.materialLabel3.Text = "Target Select";
             // 
@@ -1617,7 +1601,7 @@ namespace TaRU_Jaster
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(17, 14);
+            this.materialLabel4.Location = new System.Drawing.Point(7, 4);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(116, 19);
@@ -1642,7 +1626,7 @@ namespace TaRU_Jaster
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(870, 556);
+            this.tabPage2.Size = new System.Drawing.Size(657, 407);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -1691,7 +1675,7 @@ namespace TaRU_Jaster
             this._materialSwitchResetResultsScriptStart.Checked = true;
             this._materialSwitchResetResultsScriptStart.CheckState = System.Windows.Forms.CheckState.Checked;
             this._materialSwitchResetResultsScriptStart.Depth = 0;
-            this._materialSwitchResetResultsScriptStart.Location = new System.Drawing.Point(552, 286);
+            this._materialSwitchResetResultsScriptStart.Location = new System.Drawing.Point(339, 286);
             this._materialSwitchResetResultsScriptStart.Margin = new System.Windows.Forms.Padding(0);
             this._materialSwitchResetResultsScriptStart.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchResetResultsScriptStart.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1711,7 +1695,7 @@ namespace TaRU_Jaster
             this._materialButtonGetResults.DrawShadows = true;
             this._materialButtonGetResults.HighEmphasis = true;
             this._materialButtonGetResults.Icon = null;
-            this._materialButtonGetResults.Location = new System.Drawing.Point(556, 475);
+            this._materialButtonGetResults.Location = new System.Drawing.Point(343, 475);
             this._materialButtonGetResults.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonGetResults.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonGetResults.Name = "_materialButtonGetResults";
@@ -1731,7 +1715,7 @@ namespace TaRU_Jaster
             this._materialButtonLoadScript.DrawShadows = true;
             this._materialButtonLoadScript.HighEmphasis = true;
             this._materialButtonLoadScript.Icon = null;
-            this._materialButtonLoadScript.Location = new System.Drawing.Point(556, 135);
+            this._materialButtonLoadScript.Location = new System.Drawing.Point(343, 135);
             this._materialButtonLoadScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonLoadScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonLoadScript.Name = "_materialButtonLoadScript";
@@ -1751,7 +1735,7 @@ namespace TaRU_Jaster
             this._materialButtonSaveScriptAs.DrawShadows = true;
             this._materialButtonSaveScriptAs.HighEmphasis = true;
             this._materialButtonSaveScriptAs.Icon = null;
-            this._materialButtonSaveScriptAs.Location = new System.Drawing.Point(556, 87);
+            this._materialButtonSaveScriptAs.Location = new System.Drawing.Point(343, 87);
             this._materialButtonSaveScriptAs.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScriptAs.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScriptAs.Name = "_materialButtonSaveScriptAs";
@@ -1771,7 +1755,7 @@ namespace TaRU_Jaster
             this._materialButtonSaveScript.DrawShadows = true;
             this._materialButtonSaveScript.HighEmphasis = true;
             this._materialButtonSaveScript.Icon = null;
-            this._materialButtonSaveScript.Location = new System.Drawing.Point(556, 39);
+            this._materialButtonSaveScript.Location = new System.Drawing.Point(343, 39);
             this._materialButtonSaveScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScript.Name = "_materialButtonSaveScript";
@@ -1791,7 +1775,7 @@ namespace TaRU_Jaster
             this._materialButtonStopScript.DrawShadows = true;
             this._materialButtonStopScript.HighEmphasis = true;
             this._materialButtonStopScript.Icon = null;
-            this._materialButtonStopScript.Location = new System.Drawing.Point(556, 427);
+            this._materialButtonStopScript.Location = new System.Drawing.Point(343, 427);
             this._materialButtonStopScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStopScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStopScript.Name = "_materialButtonStopScript";
@@ -1812,7 +1796,7 @@ namespace TaRU_Jaster
             this._materialButtonStartPauseScript.DrawShadows = true;
             this._materialButtonStartPauseScript.HighEmphasis = true;
             this._materialButtonStartPauseScript.Icon = null;
-            this._materialButtonStartPauseScript.Location = new System.Drawing.Point(556, 379);
+            this._materialButtonStartPauseScript.Location = new System.Drawing.Point(343, 379);
             this._materialButtonStartPauseScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStartPauseScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStartPauseScript.Name = "_materialButtonStartPauseScript";
@@ -1829,7 +1813,7 @@ namespace TaRU_Jaster
             this._materialSwitchAutoResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._materialSwitchAutoResults.AutoSize = true;
             this._materialSwitchAutoResults.Depth = 0;
-            this._materialSwitchAutoResults.Location = new System.Drawing.Point(552, 323);
+            this._materialSwitchAutoResults.Location = new System.Drawing.Point(339, 323);
             this._materialSwitchAutoResults.Margin = new System.Windows.Forms.Padding(0);
             this._materialSwitchAutoResults.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchAutoResults.MouseState = MaterialSkin.MouseState.HOVER;
@@ -2046,20 +2030,21 @@ namespace TaRU_Jaster
             // 
             // tableLayoutPanel10
             // 
-            this.tableLayoutPanel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Controls.Add(this.materialTabControl1, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this._textBoxLog, 0, 1);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(-1, 25);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.Padding = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel10.RowCount = 3;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(884, 865);
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(679, 690);
             this.tableLayoutPanel10.TabIndex = 8;
             // 
             // materialLabel14
@@ -2068,7 +2053,7 @@ namespace TaRU_Jaster
             this.materialLabel14.AutoSize = true;
             this.materialLabel14.Depth = 0;
             this.materialLabel14.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel14.Location = new System.Drawing.Point(781, 894);
+            this.materialLabel14.Location = new System.Drawing.Point(577, 666);
             this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
             this.materialLabel14.Size = new System.Drawing.Size(97, 19);
@@ -2081,7 +2066,7 @@ namespace TaRU_Jaster
             this.materialLabel15.AutoSize = true;
             this.materialLabel15.Depth = 0;
             this.materialLabel15.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel15.Location = new System.Drawing.Point(739, 894);
+            this.materialLabel15.Location = new System.Drawing.Point(535, 666);
             this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel15.Name = "materialLabel15";
             this.materialLabel15.Size = new System.Drawing.Size(36, 19);
@@ -2093,7 +2078,7 @@ namespace TaRU_Jaster
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::TaRU_Jaster.Properties.Resources.cancel;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(710, 891);
+            this.pictureBox1.Location = new System.Drawing.Point(506, 663);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -2106,10 +2091,50 @@ namespace TaRU_Jaster
             this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 1;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel9, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.materialLabel13, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(225, 176);
+            this.tableLayoutPanel11.TabIndex = 1;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkBox1.Location = new System.Drawing.Point(117, 72);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(99, 21);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.checkBox2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.checkBox2.Location = new System.Drawing.Point(117, 100);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(99, 21);
+            this.checkBox2.TabIndex = 19;
+            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(885, 920);
+            this.ClientSize = new System.Drawing.Size(683, 694);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialLabel15);
             this.Controls.Add(this.materialLabel14);
@@ -2117,6 +2142,7 @@ namespace TaRU_Jaster
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TaRu Hardy Controller";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2151,6 +2177,8 @@ namespace TaRU_Jaster
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2233,8 +2261,6 @@ namespace TaRU_Jaster
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
-        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox2;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
@@ -2268,6 +2294,9 @@ namespace TaRU_Jaster
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Label label1;
         private ScintillaNET.Scintilla CodeTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

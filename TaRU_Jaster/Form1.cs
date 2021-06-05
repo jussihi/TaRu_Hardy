@@ -58,6 +58,7 @@ namespace TaRU_Jaster
             _materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             _materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
+
             // Update globals so this form's public functions can be called universally
             Global.g_form1 = this;
 
@@ -175,6 +176,9 @@ namespace TaRU_Jaster
             // Set initial status for connection
             materialLabel14.Text = "Disconnected";
             pictureBox1.Image = imageList2.Images[2];
+
+            // Set materialskin fonts
+            materialLabel5.Font = new Font("Arial", 12);
         }
 
         private void InitializeCodeBox()
@@ -551,7 +555,7 @@ namespace TaRU_Jaster
                 log_msg("WARNING: trying to parse integer value hits to fall, exception: " + ex.Message + ". Not setting value.");
             }
             
-            switch(materialCheckbox2.Checked)
+            switch(checkBox1.Checked)
             {
                 case true:
                     await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetLightsOn);
@@ -561,7 +565,7 @@ namespace TaRU_Jaster
                     break;
             }
 
-            switch (materialCheckbox1.Checked)
+            switch (checkBox2.Checked)
             {
                 case true:
                     await _HardyExecutor.OneShotTargetsSimpleExecute(GetSelectedTargets(), HardyExecutor.OneShotCommand.SetMotionOn);
