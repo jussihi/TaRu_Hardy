@@ -30,6 +30,7 @@ namespace TaRU_Jaster.HardyBasic
         Colon,
         Semicolon,
         Comma,
+        Comment,
 
         Plus,
         Minus,

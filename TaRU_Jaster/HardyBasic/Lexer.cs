@@ -107,6 +107,13 @@ namespace TaRU_Jaster.HardyBasic
                 }
             }
 
+            if(lastChar == '#')
+            {
+                while (lastChar != '\n') GetChar();
+                GetChar();
+                return GetToken();
+            }
+
             if (char.IsDigit(lastChar))
             {
                 string num = "";

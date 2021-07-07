@@ -47,7 +47,7 @@ namespace TaRU_Jaster
         private TargetSettings[] _targetSettings;
         private ListViewColumnSorter _lvwColumnSorter;
         private bool _showLogs;
-
+         
 
         public Form1()
         {
@@ -190,7 +190,7 @@ namespace TaRU_Jaster
         {
             // Initialize the code box
             CodeTextBox.Styles[Style.Default].Font = "Consolas";
-            CodeTextBox.Styles[Style.Default].Size = 12;
+            CodeTextBox.Styles[Style.Default].Size = 11;
             //CodeTextBox.Styles[Style.Default].BackColor = IntToColor(0x212121);
             //CodeTextBox.Styles[Style.Default].ForeColor = IntToColor(0xFFFFFF);
 
@@ -212,10 +212,10 @@ namespace TaRU_Jaster
             CodeTextBox.Styles[Style.Cpp.CommentDocKeywordError].ForeColor = IntToColor(0xFF0000);
             CodeTextBox.Styles[Style.Cpp.GlobalClass].ForeColor = IntToColor(0x48A8EE);
 
-            CodeTextBox.Lexer = Lexer.Cpp;
+            CodeTextBox.Lexer = Lexer.Sql;
 
-            CodeTextBox.SetKeywords(0, "class extends implements import interface new case do while else if for in switch throw get set function var try catch finally while with default break continue delete return each const namespace package include use is as instanceof typeof author copy default deprecated eventType example exampleText exception haxe inheritDoc internal link mtasc mxmlc param private return see serial serialData serialField since throws usage version langversion playerversion productversion dynamic private public partial static intrinsic internal native override protected AS3 final super this arguments null Infinity NaN undefined true false abstract as base bool break by byte case catch char checked class const continue decimal default delegate do double descending explicit event extern else enum false finally fixed float for foreach from goto group if implicit in int interface internal into is lock long new null namespace object operator out override orderby params private protected public readonly ref return switch struct sbyte sealed short sizeof stackalloc static string select this throw true try typeof uint ulong unchecked unsafe ushort using var virtual volatile void while where yield");
-            CodeTextBox.SetKeywords(1, "void Null ArgumentError arguments Array Boolean Class Date DefinitionError Error EvalError Function int Math Namespace Number Object RangeError ReferenceError RegExp SecurityError String SyntaxError TypeError uint XML XMLList Boolean Byte Char DateTime Decimal Double Int16 Int32 Int64 IntPtr SByte Single UInt16 UInt32 UInt64 UIntPtr Void Path File System Windows Forms ScintillaNET");
+
+            CodeTextBox.SetKeywords(0, "let for to goto rnd sleep up down reset str num abs min max rnd if endif print end assert next");
 
             // init line numbering
             var nums = CodeTextBox.Margins[1];
@@ -1017,5 +1017,65 @@ namespace TaRU_Jaster
             _showLogs = true;
             return;
         }
+
+        private void SaveFileAs()
+        {
+            SaveFileDialog SaveFileDialog1 = new SaveFileDialog();
+            SaveFileDialog1.Title = "Save Hardy Controller Script";
+            SaveFileDialog1.DefaultExt = "thcs";
+            SaveFileDialog1.Filter = "TaRu Hardy Controller script (*.thcs)|*.thcs";
+
+            // If the save is OK, write file to disk
+            if (SaveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(SaveFileDialog1.FileName, CodeTextBox.Text);
+                _scriptFullPath = SaveFileDialog1.FileName;
+                _materialLabelScriptName.Text = Path.GetFileName(SaveFileDialog1.FileName);
+                SetScriptTextUnchanged();
+            }
+        }
+
+        private void SetScriptTextUnchanged()
+        {
+            _scriptTextChanged = false;
+            if(_materialLabelScriptName.Text[_materialLabelScriptName.Text.Length - 1] == '*')
+            {
+                _materialLabelScriptName.Text = _materialLabelScriptName.Text.Remove(_materialLabelScriptName.Text.Length - 2, 2);
+            }
+        }
+
+        private void _materialButtonSaveScriptAs_Click(object sender, EventArgs e)
+        {
+            SaveFileAs();
+        }
+
+        private void _materialButtonSaveScript_Click(object sender, EventArgs e)
+        {
+            if(_scriptFullPath.Length == 0)
+            {
+                SaveFileAs();
+                return;
+            }
+            File.WriteAllText(_scriptFullPath, CodeTextBox.Text);
+            SetScriptTextUnchanged();
+        }
+
+        private void _materialButtonLoadScript_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OpenFileDialog1 = new OpenFileDialog();
+            OpenFileDialog1.Title = "Load Hardy Controller Script";
+            OpenFileDialog1.DefaultExt = "thcs";
+            OpenFileDialog1.Filter = "TaRu Hardy Controller script (*.thcs)|*.thcs";
+
+            // If the save is OK, write file to disk
+            if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                CodeTextBox.Text = File.ReadAllText(OpenFileDialog1.FileName);
+                _scriptFullPath = OpenFileDialog1.FileName;
+                _materialLabelScriptName.Text = Path.GetFileName(OpenFileDialog1.FileName);
+                SetScriptTextUnchanged();
+            }
+        }
+
     }
 }

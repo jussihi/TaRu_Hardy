@@ -149,7 +149,7 @@ namespace TaRU_Jaster.HardyBasic
                 case Token.End: End(); break;
                 case Token.Assert: await Assert(); break;
                 case Token.Identifier:
-                    if (lastToken == Token.Equal) Let();
+                    if (lastToken == Token.Equal) await Let();
                     else if (lastToken == Token.Colon) Label();
                     else goto default;
                     break;
