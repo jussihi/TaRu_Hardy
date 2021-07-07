@@ -20,6 +20,7 @@ namespace TaRU_Jaster.HardyBasic
             interpreter.AddFunction("max", Max);
             interpreter.AddFunction("not", Not);
             interpreter.AddFunction("rnd", Rnd);
+            interpreter.AddFunction("genrnd", GenerateRandoms);
             interpreter.AddFunction("sleep", ExecutorSleep);
             interpreter.AddFunction("reset", Reset);
             interpreter.AddFunction("up", Up);
@@ -106,7 +107,18 @@ namespace TaRU_Jaster.HardyBasic
 
             foreach (Value target in args)
             {
-                ret.Add(Convert.ToInt32(target.Real));
+                if(target.Type == ValueType.Real)
+                {
+                    ret.Add(Convert.ToInt32(target.Real));
+                }
+                else if(target.Type == ValueType.Array)
+                {
+                    foreach(int i in target.Array)
+                    {
+                        ret.Add(i);
+                    }
+                }
+                
             }
             return ret;
         }
@@ -145,5 +157,61 @@ namespace TaRU_Jaster.HardyBasic
             await _HardyExecutor.OneShotTargetsSimpleExecute(targets, HardyExecutor.OneShotCommand.Down);
             return Value.Zero;
         }
+
+        public static async Task<Value> GenerateRandoms(Interpreter interpreter, List<Value> args)
+        {
+            // TODO: not implemented
+            if (args.Count == 1 && args[0].Type == ValueType.Real)
+            {
+                int picked = 0;
+                List<int> randoms = new List<int>();
+                Random r = new Random();
+
+                while (picked < args[0].Real)
+                {
+                    int rInt = r.Next(0, 100);
+                    if (!randoms.Contains(rInt))
+                    {
+                        randoms.Add(rInt);
+                        picked++;
+                    }
+                }
+
+                return new Value(randoms);
+            }
+            else if(args.Count == 3 && args[0].Type == ValueType.Real
+                &&  args[1].Type == ValueType.Real && args[2].Type == ValueType.Real)
+            {
+                if(args[1].Real > args[2].Real)
+                {
+                    throw new ArgumentException("GENRND third argument can't be smaller than second!");
+                }
+                if (args[1].Real < 0.0 || args[2].Real < 0.0)
+                {
+                    throw new ArgumentException("GENRND can only create unsigned integers!");
+                }
+                if (args[0].Real < 1.0)
+                {
+                    throw new ArgumentException("GENRND needs positive list length (first parameter)!");
+                }
+                int picked = 0;
+                List<int> randoms = new List<int>();
+                Random r = new Random();
+
+                while (picked < args[0].Real)
+                {
+                    int rInt = r.Next(Convert.ToInt32(args[1].Real), Convert.ToInt32(args[2].Real));
+                    if (!randoms.Contains(rInt))
+                    {
+                        randoms.Add(rInt);
+                        picked++;
+                    }
+                }
+
+                return new Value(randoms);
+            }
+            throw new ArgumentException("GENRND expects exactly one or three integer value(s)!");
+        }
+
     }
 }

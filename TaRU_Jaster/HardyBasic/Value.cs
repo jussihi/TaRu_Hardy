@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TaRU_Jaster.HardyBasic
 {
     public enum ValueType
     {
         Real, // it's double
-        String
+        String,
+        Array // array of integers
     }
 
     public struct Value
@@ -15,6 +17,8 @@ namespace TaRU_Jaster.HardyBasic
 
         public double Real { get; set; }
         public string String { get; set; }
+
+        public List<double> Array { get; set; }
 
         public Value(double real) : this()
         {
@@ -27,6 +31,17 @@ namespace TaRU_Jaster.HardyBasic
         {
             this.Type = ValueType.String;
             this.String = str;
+        }
+
+        public Value(List<int> array)
+            : this()
+        {
+            this.Type = ValueType.Array;
+            this.Array = new List<double>();
+            foreach(int i in array)
+            {
+                this.Array.Add(i);
+            }
         }
 
         public Value Convert(ValueType type)
@@ -125,6 +140,17 @@ namespace TaRU_Jaster.HardyBasic
         {
             if (this.Type == ValueType.Real)
                 return this.Real.ToString();
+            else if(this.Type == ValueType.Array)
+            {
+                string ret = "[";
+                foreach(int i in this.Array)
+                {
+                    ret += i.ToString() + ", ";
+                }
+                ret = ret.Remove(ret.Length - 2, 2);
+                ret += "]";
+                return ret;
+            }
             return this.String;
         }
     }

@@ -180,6 +180,32 @@ namespace TaRU_Jaster.HardyBasic
                     Value = new Value(str);
                     tok = Token.Value;
                     break;
+                case '[':
+                    List<int> arr = new List<int>();
+                    string parser = "";
+                    while (GetChar() != ']')
+                    {
+                        if(char.IsDigit(lastChar))
+                        {
+                            parser += lastChar;
+                        }
+                        else
+                        {
+                            if(parser.Length > 0)
+                            {
+                                arr.Add(Convert.ToInt32(parser));
+                                parser = "";
+                            }
+                        }
+                    }
+                    if (parser.Length > 0)
+                    {
+                        arr.Add(Convert.ToInt32(parser));
+                        parser = "";
+                    }
+                    Value = new Value(arr);
+                    tok = Token.Value;
+                    break;
                 case (char)0:
                     return Token.EOF;
             }
