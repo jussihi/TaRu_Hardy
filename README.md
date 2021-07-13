@@ -2,9 +2,6 @@
 
 *A better solution for controlling Hardy targets.*
 
-## Changelog
-
-TBD
 
 ### What works:
 
@@ -13,17 +10,15 @@ TBD
  - Quick programming with setup of: hits to fall, target up, target down, start and end program
  - The above commands with both arbitrary selected targets or with all targets (special command for all targets)
  - Script manager! (saving, loading, creating and running of scripts)
- - Initial COM port connection
- - Rudimentary logging system
+ - COM connection establishment and disconnect functionality
+ - Multi-level logging system 
  - Fetching of target configuration, shown on the preferences tab as a list
  - Fetching of target HITS
  - Show COM port status with a GREEN/YELLOW/RED light (Connected, Busy writing/reading, Disconnected)
 
 ### What does not work:
 
- - COM port reconnection in case of changed port/failed connection
 
 ### Future functionality:
 
- - Line numbers to script editor
  - Something else?
