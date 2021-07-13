@@ -198,6 +198,7 @@ namespace TaRU_Jaster
             this._textBoxLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._textBoxLog.Size = new System.Drawing.Size(665, 189);
             this._textBoxLog.TabIndex = 4;
+            this._textBoxLog.FontChanged += new System.EventHandler(this.logBoxFontChanged);
             // 
             // materialTabControl1
             // 

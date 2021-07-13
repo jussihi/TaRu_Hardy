@@ -39,6 +39,9 @@ namespace TaRU_Jaster
             // 
             // materialListView1
             // 
+            this.materialListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialListView1.AutoSizeTable = false;
             this.materialListView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -50,13 +53,13 @@ namespace TaRU_Jaster
             this.materialListView1.Depth = 0;
             this.materialListView1.FullRowSelect = true;
             this.materialListView1.HideSelection = false;
-            this.materialListView1.Location = new System.Drawing.Point(12, 74);
+            this.materialListView1.Location = new System.Drawing.Point(3, 101);
             this.materialListView1.MinimumSize = new System.Drawing.Size(200, 100);
             this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialListView1.Name = "materialListView1";
             this.materialListView1.OwnerDraw = true;
-            this.materialListView1.Size = new System.Drawing.Size(776, 373);
+            this.materialListView1.Size = new System.Drawing.Size(794, 346);
             this.materialListView1.TabIndex = 0;
             this.materialListView1.UseCompatibleStateImageBehavior = false;
             this.materialListView1.View = System.Windows.Forms.View.Details;
@@ -64,17 +67,17 @@ namespace TaRU_Jaster
             // columnHeader1
             // 
             this.columnHeader1.Text = "Target number";
-            this.columnHeader1.Width = 116;
+            this.columnHeader1.Width = 132;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Overall hits";
-            this.columnHeader2.Width = 89;
+            this.columnHeader2.Width = 114;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Rise Count";
-            this.columnHeader3.Width = 91;
+            this.columnHeader3.Width = 119;
             // 
             // columnHeader4
             // 

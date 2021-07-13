@@ -137,6 +137,8 @@ namespace TaRU_Jaster
             // Output to the log if loglevel is lower or equal to logged event
             if(w_level >= logLevel)
                 _textBoxLog.AppendText("[ " + DateTime.Now.ToString("HH:mm:ss.fff") + " ] " + Logger._error_desc[w_level] + w_msg + "\r\n");
+            
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -1104,6 +1106,22 @@ namespace TaRU_Jaster
         {
             logLevel = this.materialComboBox1.SelectedIndex;
             LOG("Log level changed!", EMERG);
+        }
+
+        private void logBoxFontChanged(object sender, EventArgs e)
+        {
+            // Re-set the font, stupid MaterialSkin tries to force it otherwise
+            if (this._textBoxLog.Font.Name == null || this._textBoxLog.Font.Name != "Lucida Console")
+            {
+                this._textBoxLog.Font = new Font("Lucida Console", 10.0f);
+            }
+
+            // Scroll to the end of the box
+            if (_textBoxLog.Visible)
+            {
+                _textBoxLog.SelectionStart = _textBoxLog.TextLength;
+                _textBoxLog.ScrollToCaret();
+            }
         }
     }
 }
