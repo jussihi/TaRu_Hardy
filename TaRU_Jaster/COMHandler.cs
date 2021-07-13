@@ -86,6 +86,26 @@ namespace TaRU_Jaster
             }
         }
 
+        public bool DisonnectSerial()
+        {
+            try
+            {
+                if (_serialPort.IsOpen)
+                {
+                    _serialPort.DiscardInBuffer();
+                    _serialPort.DiscardInBuffer();
+                    _serialPort.Close();
+                }
+                pComStatus = ComStatus.Disconnected;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                LOG("Failed closing port " + _serialPort.PortName + "! error message: " + ex.Message, ERR);
+                return false;
+            }
+        }
+
         public bool IsSerialOpen()
         {
             return _serialPort.IsOpen;

@@ -289,11 +289,13 @@ namespace TaRU_Jaster
                 case COMHandler.ComStatus.Connected:
                     materialLabel14.Text = "Connected";
                     pictureBox1.Image = imageList2.Images[0];
+                    _materialButtonComConnect.Text = "Disconnect";
                     break;
 
                 case COMHandler.ComStatus.Disconnected:
                     materialLabel14.Text = "Disconnected";
                     pictureBox1.Image = imageList2.Images[2];
+                    _materialButtonComConnect.Text = "Connect";
                     break;
 
                 case COMHandler.ComStatus.Sending:
@@ -310,11 +312,23 @@ namespace TaRU_Jaster
 
         private void _materialButtonComConnect_Click(object sender, EventArgs e)
         {
-            if (!_COMHandler.ConnectSerial(_materialComboBoxComPorts.Text))
+            switch(_COMHandler.pComStatus)
             {
-                // fail
-                MessageBox.Show("Could not connect to serial!");
+                case COMHandler.ComStatus.Disconnected:
+                    if (!_COMHandler.ConnectSerial(_materialComboBoxComPorts.Text))
+                    {
+                        // fail
+                        MessageBox.Show("Could not connect to serial!");
+                    }
+                    break;
+                default:
+                    if (!_COMHandler.DisonnectSerial())
+                    {
+                        MessageBox.Show("Could not disconnect serial!");
+                    }
+                    break;
             }
+            
         }
 
         private void _materialButtonComRefresh_Click(object sender, EventArgs e)
