@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
+using static TaRU_Jaster.Logger;
+
 
 namespace TaRU_Jaster.HardyBasic
 {
@@ -34,11 +36,17 @@ namespace TaRU_Jaster.HardyBasic
 
         private void __printLine(string w_input)
         {
-            Global.g_form1.log_msg(w_input);
+            LOG(w_input, OUT);
         }
 
         public Interpreter(string input, HardyExecutor w_executor, List<int> w_targets)
         {
+            // sanity check input
+            if(input == null || input.Length == 0)
+            {
+                throw new ArgumentException("The script can't be empty");
+            }
+
             // Initialize lexer and dictionaries
             this.lex = new Lexer(input);
             this.vars = new Dictionary<string, Value>();

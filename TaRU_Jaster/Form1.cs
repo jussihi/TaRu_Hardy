@@ -23,6 +23,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using ScintillaNET;
 
+using static TaRU_Jaster.Logger;
+
 
 namespace TaRU_Jaster
 {
@@ -47,6 +49,7 @@ namespace TaRU_Jaster
         private TargetSettings[] _targetSettings;
         private ListViewColumnSorter _lvwColumnSorter;
         private bool _showLogs;
+        private int logLevel;
          
 
         public Form1()
@@ -126,11 +129,22 @@ namespace TaRU_Jaster
 
             _showLogs = true;
 
+            this._textBoxLog.Font = new Font("Lucida Console", 10.0f);
+
+            // Default logging level is "INFO"
+            logLevel = 1;
+            this.materialComboBox1.SelectedIndex = 1;
         }
 
-        public void log_msg(string msg)
+        public void log_msg(string w_msg, int w_level)
         {
-            _textBoxLog.AppendText("[ " + DateTime.Now.ToString("HH:mm:ss.fff") + " ]  " + msg + "\r\n");
+            // Trim newline
+            if(w_msg[w_msg.Length - 1] == '\n')
+                w_msg = w_msg.Remove(w_msg.Length - 1, 1);
+
+            // Output to the log if loglevel is lower or equal to logged event
+            if(w_level >= logLevel)
+                _textBoxLog.AppendText("[ " + DateTime.Now.ToString("HH:mm:ss.fff") + " ] " + Logger._error_desc[w_level] + w_msg + "\r\n");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -165,7 +179,7 @@ namespace TaRU_Jaster
                     MaterialButton b = c as MaterialButton;
                     if (b == null)
                     {
-                        log_msg("ERROR: could not find Button for target " + i);
+                        LOG("Could not find Button for target " + i + "!", ERR);
                         continue;
                     }
                     _targetSettings[i - 1].buttonInstance = b;
@@ -254,7 +268,7 @@ namespace TaRU_Jaster
 
         public void DisableSerialFunctionality()
         {
-            log_msg("Connect to serial for full functionality! Serial can be connected on settings page.");
+            LOG("Connect to serial for full functionality! Serial can be connected on settings page.", INFO);
             return;
         }
 
@@ -310,21 +324,22 @@ namespace TaRU_Jaster
             _materialComboBoxComPorts.Items.AddRange(ports);
             if(_materialComboBoxComPorts.Items.Count > 0)
                 _materialComboBoxComPorts.SelectedIndex = 0;
-            log_msg("Found " + ports.Length + " COM port(s).");
+            LOG("Found " + ports.Length + " COM port(s).", INFO);
         }
 
         private async void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
         {
+
+            HardyBasic.Interpreter hardyBasicInterpreter;
             // TODO: Check the target list!!!
-            HardyBasic.Interpreter hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
             try
             {
+                hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
                 await hardyBasicInterpreter.Exec();
             }
-            catch (Exception ec)
+            catch (Exception ex)
             {
-                log_msg("BAD");
-                log_msg(ec.Message);
+                LOG("An error occured while executing script, error message: " + ex.Message, ERR);
             }
         }
 
@@ -364,8 +379,7 @@ namespace TaRU_Jaster
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             if (files != null && files.Length == 1)
             {
-                log_msg(Path.GetFileName(files[0]));
-                log_msg(Path.GetDirectoryName(files[0]));
+                LOG("Loading file " + Path.GetFileName(files[0]) + " to the editor.");
                 CodeTextBox.Text = System.IO.File.ReadAllText(files[0]);
                 _scriptFullPath = files[0];
                 _materialLabelScriptName.Text = Path.GetFileName(files[0]);
@@ -490,7 +504,7 @@ namespace TaRU_Jaster
             }
             catch(Exception ex)
             {
-                log_msg("ERROR: trying to parse integer value hits to fall, exception: " + ex.Message);
+                LOG("Failed to parse integer value hits to fall, exception: " + ex.Message, ERR);
                 return;
             }
 
@@ -502,7 +516,7 @@ namespace TaRU_Jaster
             }
             catch (Exception ex)
             {
-                log_msg("ERROR: trying to parse integer value time up, exception: " + ex.Message);
+                LOG("Failed to parse integer value time up, exception: " + ex.Message, ERR);
                 return;
             }
 
@@ -514,7 +528,7 @@ namespace TaRU_Jaster
             }
             catch (Exception ex)
             {
-                log_msg("ERROR: trying to parse integer value time down, exception: " + ex.Message);
+                LOG("Failed to parse integer value time down, exception: " + ex.Message, ERR);
                 return;
             }
 
@@ -545,7 +559,7 @@ namespace TaRU_Jaster
             }
             catch (Exception ex)
             {
-                log_msg("WARNING: trying to parse integer value sensitivity, exception: " + ex.Message + ". Not setting value.");
+                LOG("Trying to parse integer value sensitivity, exception: " + ex.Message + ". Not setting value.", WARN);
             }
 
             try
@@ -557,7 +571,7 @@ namespace TaRU_Jaster
             }
             catch (Exception ex)
             {
-                log_msg("WARNING: trying to parse integer value hits to fall, exception: " + ex.Message + ". Not setting value.");
+                LOG("Trying to parse integer value hits to fall, exception: " + ex.Message + ". Not setting value.", WARN);
             }
             
             switch(checkBox1.Checked)
@@ -599,8 +613,6 @@ namespace TaRU_Jaster
                 // Update target
                 UpdateTargetList(targetNo - 1);
                 targetResponses++;
-
-                // log_msg("Successfully received serial data from target " + targetNo + ": " + ByteArrayToString(res));
             }
 
             if(targetResponses > 0)
@@ -635,7 +647,7 @@ namespace TaRU_Jaster
                 if (res == null)
                     continue;
                 // TODO: do something with data
-                log_msg("Successfully received serial data from target " + targetNo + ": " + Utils.ByteArrayToString(res));
+                LOG("Successfully received serial data from target " + targetNo + ": " + Utils.ByteArrayToString(res));
 
                 HitsForm.TargetHits entry = new HitsForm.TargetHits {  
                                                 targetNo     = targetNo, 
@@ -1077,5 +1089,15 @@ namespace TaRU_Jaster
             }
         }
 
+        private void _materialButtonClearLogs_Click(object sender, EventArgs e)
+        {
+            this._textBoxLog.Clear();
+        }
+
+        private void logLevelChanged(object sender, EventArgs e)
+        {
+            logLevel = this.materialComboBox1.SelectedIndex;
+            LOG("Log level changed!", EMERG);
+        }
     }
 }

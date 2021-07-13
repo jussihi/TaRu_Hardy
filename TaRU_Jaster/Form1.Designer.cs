@@ -150,6 +150,10 @@ namespace TaRU_Jaster
             this.materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            this._materialButtonClearLogs = new MaterialSkin.Controls.MaterialButton();
+            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -178,6 +182,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.materialCard6.SuspendLayout();
             this.SuspendLayout();
             // 
             // _textBoxLog
@@ -185,6 +190,7 @@ namespace TaRU_Jaster
             this._textBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this._textBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this._textBoxLog.Location = new System.Drawing.Point(7, 463);
             this._textBoxLog.Multiline = true;
             this._textBoxLog.Name = "_textBoxLog";
@@ -2032,11 +2038,13 @@ namespace TaRU_Jaster
             // 
             // tableLayoutPanel18
             // 
-            this.tableLayoutPanel18.ColumnCount = 2;
+            this.tableLayoutPanel18.ColumnCount = 3;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel18.Controls.Add(this.materialCard6, 1, 0);
             this.tableLayoutPanel18.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.materialCard1, 1, 0);
+            this.tableLayoutPanel18.Controls.Add(this.materialCard1, 2, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
@@ -2057,7 +2065,6 @@ namespace TaRU_Jaster
             // 
             // materialCard1
             // 
-            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialCard1.Controls.Add(this._materialButtonComRefresh);
             this.materialCard1.Controls.Add(this._materialButtonComConnect);
@@ -2066,12 +2073,12 @@ namespace TaRU_Jaster
             this.materialCard1.Controls.Add(this.materialLabel1);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(222, 14);
+            this.materialCard1.Location = new System.Drawing.Point(344, 14);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(409, 196);
+            this.materialCard1.Size = new System.Drawing.Size(243, 196);
             this.materialCard1.TabIndex = 1;
             // 
             // _materialButtonComRefresh
@@ -2082,13 +2089,13 @@ namespace TaRU_Jaster
             this._materialButtonComRefresh.DrawShadows = true;
             this._materialButtonComRefresh.HighEmphasis = true;
             this._materialButtonComRefresh.Icon = null;
-            this._materialButtonComRefresh.Location = new System.Drawing.Point(233, 139);
+            this._materialButtonComRefresh.Location = new System.Drawing.Point(131, 139);
             this._materialButtonComRefresh.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonComRefresh.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonComRefresh.Name = "_materialButtonComRefresh";
-            this._materialButtonComRefresh.Size = new System.Drawing.Size(158, 48);
+            this._materialButtonComRefresh.Size = new System.Drawing.Size(102, 48);
             this._materialButtonComRefresh.TabIndex = 3;
-            this._materialButtonComRefresh.Text = "REfresh ports";
+            this._materialButtonComRefresh.Text = "Refresh";
             this._materialButtonComRefresh.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this._materialButtonComRefresh.UseAccentColor = false;
             this._materialButtonComRefresh.UseVisualStyleBackColor = true;
@@ -2102,11 +2109,11 @@ namespace TaRU_Jaster
             this._materialButtonComConnect.DrawShadows = true;
             this._materialButtonComConnect.HighEmphasis = true;
             this._materialButtonComConnect.Icon = null;
-            this._materialButtonComConnect.Location = new System.Drawing.Point(233, 68);
+            this._materialButtonComConnect.Location = new System.Drawing.Point(18, 139);
             this._materialButtonComConnect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonComConnect.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonComConnect.Name = "_materialButtonComConnect";
-            this._materialButtonComConnect.Size = new System.Drawing.Size(158, 48);
+            this._materialButtonComConnect.Size = new System.Drawing.Size(105, 48);
             this._materialButtonComConnect.TabIndex = 2;
             this._materialButtonComConnect.Text = "Connect";
             this._materialButtonComConnect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -2140,7 +2147,7 @@ namespace TaRU_Jaster
             this._materialComboBoxComPorts.FormattingEnabled = true;
             this._materialComboBoxComPorts.IntegralHeight = false;
             this._materialComboBoxComPorts.ItemHeight = 43;
-            this._materialComboBoxComPorts.Location = new System.Drawing.Point(102, 68);
+            this._materialComboBoxComPorts.Location = new System.Drawing.Point(92, 71);
             this._materialComboBoxComPorts.MaxDropDownItems = 4;
             this._materialComboBoxComPorts.MouseState = MaterialSkin.MouseState.OUT;
             this._materialComboBoxComPorts.Name = "_materialComboBoxComPorts";
@@ -2272,6 +2279,83 @@ namespace TaRU_Jaster
             this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // materialCard6
+            // 
+            this.materialCard6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard6.Controls.Add(this._materialButtonClearLogs);
+            this.materialCard6.Controls.Add(this.materialComboBox1);
+            this.materialCard6.Controls.Add(this.materialLabel17);
+            this.materialCard6.Depth = 0;
+            this.materialCard6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard6.Location = new System.Drawing.Point(164, 14);
+            this.materialCard6.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard6.Name = "materialCard6";
+            this.materialCard6.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard6.Size = new System.Drawing.Size(152, 196);
+            this.materialCard6.TabIndex = 4;
+            // 
+            // _materialButtonClearLogs
+            // 
+            this._materialButtonClearLogs.AutoSize = false;
+            this._materialButtonClearLogs.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._materialButtonClearLogs.Depth = 0;
+            this._materialButtonClearLogs.DrawShadows = true;
+            this._materialButtonClearLogs.HighEmphasis = true;
+            this._materialButtonClearLogs.Icon = null;
+            this._materialButtonClearLogs.Location = new System.Drawing.Point(17, 139);
+            this._materialButtonClearLogs.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this._materialButtonClearLogs.MouseState = MaterialSkin.MouseState.HOVER;
+            this._materialButtonClearLogs.Name = "_materialButtonClearLogs";
+            this._materialButtonClearLogs.Size = new System.Drawing.Size(124, 48);
+            this._materialButtonClearLogs.TabIndex = 3;
+            this._materialButtonClearLogs.Text = "Clear logs";
+            this._materialButtonClearLogs.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this._materialButtonClearLogs.UseAccentColor = false;
+            this._materialButtonClearLogs.UseVisualStyleBackColor = true;
+            this._materialButtonClearLogs.Click += new System.EventHandler(this._materialButtonClearLogs_Click);
+            // 
+            // materialComboBox1
+            // 
+            this.materialComboBox1.AutoResize = false;
+            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBox1.Depth = 0;
+            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBox1.DropDownHeight = 174;
+            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBox1.DropDownWidth = 121;
+            this.materialComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBox1.FormattingEnabled = true;
+            this.materialComboBox1.IntegralHeight = false;
+            this.materialComboBox1.ItemHeight = 43;
+            this.materialComboBox1.Items.AddRange(new object[] {
+            "Debug",
+            "Info",
+            "Warning",
+            "Error",
+            "Critical"});
+            this.materialComboBox1.Location = new System.Drawing.Point(17, 71);
+            this.materialComboBox1.MaxDropDownItems = 4;
+            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBox1.Name = "materialComboBox1";
+            this.materialComboBox1.Size = new System.Drawing.Size(112, 49);
+            this.materialComboBox1.TabIndex = 1;
+            this.materialComboBox1.SelectedIndexChanged += new System.EventHandler(this.logLevelChanged);
+            // 
+            // materialLabel17
+            // 
+            this.materialLabel17.AutoSize = true;
+            this.materialLabel17.Depth = 0;
+            this.materialLabel17.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel17.Location = new System.Drawing.Point(17, 14);
+            this.materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel17.Name = "materialLabel17";
+            this.materialLabel17.Size = new System.Drawing.Size(64, 19);
+            this.materialLabel17.TabIndex = 0;
+            this.materialLabel17.Text = "Log level";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2329,6 +2413,8 @@ namespace TaRU_Jaster
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.materialCard6.ResumeLayout(false);
+            this.materialCard6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2455,6 +2541,10 @@ namespace TaRU_Jaster
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private MaterialSkin.Controls.MaterialCard materialCard6;
+        private MaterialSkin.Controls.MaterialButton _materialButtonClearLogs;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel17;
     }
 }
 

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
 
+using static TaRU_Jaster.Logger;
+
 namespace TaRU_Jaster
 {
     public class COMHandler
@@ -46,7 +48,7 @@ namespace TaRU_Jaster
         {
             _serialPort = new SerialPort();
             _serialPort.ErrorReceived += HandleSerialError;
-            Global.g_form1.log_msg("Hardy Commander Executor initialized!");
+            LOG("Hardy Commander Executor initialized!", DEBUG);
 
             _comStatus = ComStatus.Disconnected;
             _serialTimeOut = 500;
@@ -79,7 +81,7 @@ namespace TaRU_Jaster
             }
             catch (Exception ex)
             {
-                Global.g_form1.log_msg("ERROR opening port " + _serialPort.PortName + "! error message: " + ex.Message);
+                LOG("Failed opening port " + _serialPort.PortName + "! error message: " + ex.Message, ERR);
                 return false;
             }
         }
@@ -115,16 +117,15 @@ namespace TaRU_Jaster
                 }
                 else
                 {
-                    Global.g_form1.log_msg("ERROR while sending on COM port! " +
-                    "The port is not open!");
+                    LOG("ERROR while sending on COM port! " + "The port is not open!", ERR);
                     pComStatus = ComStatus.Disconnected;
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                Global.g_form1.log_msg("ERROR while sending on COM port " +
-                    _serialPort.PortName + "! error message: " + ex.Message);
+                LOG("Failed sending data on COM port " +
+                    _serialPort.PortName + "! error message: " + ex.Message, ERR);
                 pComStatus = ComStatus.Disconnected;
                 return false;
             }
@@ -153,30 +154,30 @@ namespace TaRU_Jaster
                         while (ReceiveCount < w_len)
                         {
                             ReceiveCount += await _serialPort.BaseStream.ReadAsync(data, ReceiveCount, w_len - ReceiveCount);
-                            Global.g_form1.log_msg("RECV: Currently received: " + ReceiveCount + "bytes");
+                            LOG("RECV: Currently received: " + ReceiveCount + "bytes");
                             await Task.Delay(20);
                             if (ReceiveCount < w_len)
-                                Global.g_form1.log_msg("RECV: Not satisfied, reading more ...");
+                                LOG("RECV: Not satisfied, reading more ...");
                         }
                     });
                     var isReceived = await Task.WhenAny(receiveTask, Task.Delay(w_timeout)) == receiveTask;
-                    Global.g_form1.log_msg("RECV: Received total of: " + ReceiveCount + "bytes");
+                    LOG("RECV: Received total of: " + ReceiveCount + "bytes");
                     pComStatus = ComStatus.Connected;
                     if (!isReceived) return null;
                     return data;
                 }
                 else
                 {
-                    Global.g_form1.log_msg("ERROR while reading on COM port! " +
-                    "The port is not open!");
+                    LOG("Failed reading on COM port! " +
+                    "The port is not open!", ERR);
                     pComStatus = ComStatus.Disconnected;
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                Global.g_form1.log_msg("ERROR while reading on COM port " +
-                    _serialPort.PortName + "! error message: " + ex.Message);
+                LOG("Failed reading on COM port " +
+                    _serialPort.PortName + "! error message: " + ex.Message, ERR);
                 pComStatus = ComStatus.Disconnected;
                 return null;
             }
@@ -184,14 +185,14 @@ namespace TaRU_Jaster
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            Global.g_form1.log_msg("DATA received! Currently " +
+            LOG("DATA received! Currently " +
                     _serialPort.BytesToRead + " bytes of data in buffer.");
         }
 
         private void HandleSerialError(object sender, SerialErrorReceivedEventArgs e)
         {
             pComStatus = ComStatus.Disconnected;
-            Global.g_form1.log_msg("ERROR SERIAL ERROR " + e.EventType.ToString() + "!");
+            LOG("SERIAL FAILURE " + e.EventType.ToString() + "!", ERR);
         }
 
     }

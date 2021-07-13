@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using static TaRU_Jaster.Logger;
+
 namespace TaRU_Jaster
 {
     public class HardyExecutor
@@ -49,7 +51,7 @@ namespace TaRU_Jaster
 
         public async Task CommandAllJastersReset()
         {
-            Global.g_form1.log_msg("RESET all Jasters ...");
+            LOG("RESET all Jasters ...", INFO);
 
             byte[] jastersResetBuffer = { 0x91 };
             await _COMHandler.SendSerial(jastersResetBuffer);
@@ -57,7 +59,7 @@ namespace TaRU_Jaster
 
         public async Task CommandAllJastersUp()
         {
-            Global.g_form1.log_msg("UP all Jasters ...");
+            LOG("UP all Jasters ...", INFO);
 
             byte[] jastersUpBuffer = { 0x80 };
             await _COMHandler.SendSerial(jastersUpBuffer);
@@ -65,7 +67,7 @@ namespace TaRU_Jaster
 
         public async Task CommandAllJastersDown()
         {
-            Global.g_form1.log_msg("DOWN all Jasters ...");
+            LOG("DOWN all Jasters ...", INFO);
 
             byte[] jastersDownBuffer = { 0x81 };
             await _COMHandler.SendSerial(jastersDownBuffer);
@@ -121,7 +123,7 @@ namespace TaRU_Jaster
                     // Check that the sensitivity is within limits
                     if (w_param > 99)
                     {
-                        Global.g_form1.log_msg("Sensitivity value not set or invalid: " + w_param);
+                        LOG("Sensitivity value not set or invalid: " + w_param, WARN);
                         return false;
                     }
                     if (allTargets)
@@ -139,7 +141,7 @@ namespace TaRU_Jaster
                     // Check that the hitstofall is within limits
                     if (w_param > 99 || w_param == 0)
                     {
-                        Global.g_form1.log_msg("Number of hits to fall value not set or invalid: " + w_param);
+                        LOG("Number of hits to fall value not set or invalid: " + w_param, WARN);
                         return false;
                     }
                     if (allTargets)
@@ -201,7 +203,7 @@ namespace TaRU_Jaster
                     // Check that the hitstofall is within limits
                     if (w_param > 99 || w_param == 0)
                     {
-                        Global.g_form1.log_msg("Number of hits to fall value not set or invalid: " + w_param);
+                        LOG("Number of hits to fall value not set or invalid: " + w_param, WARN);
                         return false;
                     }
                     if (allTargets)
@@ -218,7 +220,7 @@ namespace TaRU_Jaster
                     // Check that the hitstofall is within limits
                     if (w_param > 99)
                     {
-                        Global.g_form1.log_msg("Timeup value not set or invalid: " + w_param);
+                        LOG("Timeup value not set or invalid: " + w_param, WARN);
                         return false;
                     }
                     if (allTargets)
@@ -235,7 +237,7 @@ namespace TaRU_Jaster
                     // Check that the hitstofall is within limits
                     if (w_param > 99)
                     {
-                        Global.g_form1.log_msg("Timedown value not set or invalid: " + w_param);
+                        LOG("Timedown value not set or invalid: " + w_param, WARN);
                         return false;
                     }
                     if (allTargets)
@@ -284,7 +286,7 @@ namespace TaRU_Jaster
             // compile the final command and send it out
             if (command == null)
             {
-                Global.g_form1.log_msg("ERROR: No command given!");
+                LOG("No command given!", ERR);
             }
 
             // append param if it's present
