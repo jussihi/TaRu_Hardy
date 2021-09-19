@@ -624,7 +624,14 @@ namespace TaRU_Jaster
             }
 
             if(targetResponses > 0)
-                materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
+            {
+                StatsForm f = new StatsForm();
+                List<HardyExecutor.TargetStats> statsFormList = _targetSettings.Select(x => x.stats).ToList();
+                f.SetTargetStatsList(statsFormList);
+                f.Show();
+                // materialTabControl1.SelectedTab = materialTabControl1.TabPages["tabPage3"];
+            }
+            
         }
 
         private async void _materialButtonAskHits_Click(object sender, EventArgs e)
