@@ -50,7 +50,6 @@ namespace TaRU_Jaster
             this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
             this._materialButtonSetQuickConfig = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton7 = new MaterialSkin.Controls.MaterialButton();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.materialCard5 = new MaterialSkin.Controls.MaterialCard();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -334,7 +333,6 @@ namespace TaRU_Jaster
             this.tableLayoutPanel8.Controls.Add(this.materialTextBox1, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.materialTextBox2, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this._materialButtonSetQuickConfig, 1, 4);
-            this.tableLayoutPanel8.Controls.Add(this.materialButton7, 0, 4);
             this.tableLayoutPanel8.Controls.Add(this.checkBox2, 1, 3);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 23);
@@ -474,25 +472,6 @@ namespace TaRU_Jaster
             this._materialButtonSetQuickConfig.UseAccentColor = false;
             this._materialButtonSetQuickConfig.UseVisualStyleBackColor = true;
             this._materialButtonSetQuickConfig.Click += new System.EventHandler(this._materialButtonSetQuickConfig_Click);
-            // 
-            // materialButton7
-            // 
-            this.materialButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton7.Depth = 0;
-            this.materialButton7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.materialButton7.DrawShadows = true;
-            this.materialButton7.HighEmphasis = true;
-            this.materialButton7.Icon = null;
-            this.materialButton7.Location = new System.Drawing.Point(4, 130);
-            this.materialButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton7.Name = "materialButton7";
-            this.materialButton7.Size = new System.Drawing.Size(74, 20);
-            this.materialButton7.TabIndex = 18;
-            this.materialButton7.Text = "Fetch?";
-            this.materialButton7.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton7.UseAccentColor = false;
-            this.materialButton7.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
@@ -2506,7 +2485,6 @@ namespace TaRU_Jaster
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialButton _materialButtonSetQuickConfig;
-        private MaterialSkin.Controls.MaterialButton materialButton7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private MaterialSkin.Controls.MaterialButton _materialButtonGoQuickProgram;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
