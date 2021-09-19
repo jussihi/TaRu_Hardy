@@ -1029,11 +1029,13 @@ namespace TaRU_Jaster
             {
                 tableLayoutPanel10.RowStyles[0].Height = 100f;
                 tableLayoutPanel10.RowStyles[1].Height = 0f;
+                materialButton6.Text = "SHOW LOGS";
                 _showLogs = false;
                 return;
             }
             tableLayoutPanel10.RowStyles[0].Height = 70f;
             tableLayoutPanel10.RowStyles[1].Height = 30f;
+            materialButton6.Text = "HIDE LOGS";
             _showLogs = true;
             return;
         }

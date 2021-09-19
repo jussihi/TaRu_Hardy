@@ -384,9 +384,9 @@ namespace TaRU_Jaster
             this.checkBox1.AutoSize = true;
             this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.checkBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.checkBox1.Location = new System.Drawing.Point(117, 72);
+            this.checkBox1.Location = new System.Drawing.Point(117, 79);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(99, 21);
+            this.checkBox1.Size = new System.Drawing.Size(99, 14);
             this.checkBox1.TabIndex = 5;
             this.checkBox1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -500,9 +500,9 @@ namespace TaRU_Jaster
             this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.checkBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.checkBox2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.checkBox2.Location = new System.Drawing.Point(117, 100);
+            this.checkBox2.Location = new System.Drawing.Point(117, 107);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(99, 21);
+            this.checkBox2.Size = new System.Drawing.Size(99, 14);
             this.checkBox2.TabIndex = 19;
             this.checkBox2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -2136,7 +2136,7 @@ namespace TaRU_Jaster
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 160);
+            this.label1.Size = new System.Drawing.Size(121, 91);
             this.label1.TabIndex = 5;
             this.label1.Text = "Copyright © 2021\r\n\r\nJussi Hietanen\r\nHannu Valkonen\r\nKari Wuokko\r\n\r\nTariolan Reser" +
     "viupseerit\r\n";
