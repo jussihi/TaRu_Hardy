@@ -1741,7 +1741,7 @@ namespace TaRU_Jaster
             // 
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel12.Controls.Add(this.CodeTextBox, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel13, 1, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1763,7 +1763,7 @@ namespace TaRU_Jaster
             this.CodeTextBox.Lexer = ScintillaNET.Lexer.Sql;
             this.CodeTextBox.Location = new System.Drawing.Point(3, 3);
             this.CodeTextBox.Name = "CodeTextBox";
-            this.CodeTextBox.Size = new System.Drawing.Size(419, 369);
+            this.CodeTextBox.Size = new System.Drawing.Size(389, 369);
             this.CodeTextBox.TabIndex = 11;
             this.CodeTextBox.TabWidth = 2;
             // 
@@ -1779,7 +1779,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel13.Controls.Add(this._materialSwitchAutoResults, 0, 5);
             this.tableLayoutPanel13.Controls.Add(this._materialSwitchResetResultsScriptStart, 0, 4);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(428, 3);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(398, 3);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 8;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -1790,7 +1790,7 @@ namespace TaRU_Jaster
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(214, 369);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(244, 369);
             this.tableLayoutPanel13.TabIndex = 12;
             // 
             // _materialButtonSaveScript
@@ -1806,7 +1806,7 @@ namespace TaRU_Jaster
             this._materialButtonSaveScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScript.Name = "_materialButtonSaveScript";
-            this._materialButtonSaveScript.Size = new System.Drawing.Size(206, 34);
+            this._materialButtonSaveScript.Size = new System.Drawing.Size(236, 34);
             this._materialButtonSaveScript.TabIndex = 4;
             this._materialButtonSaveScript.Text = "Save";
             this._materialButtonSaveScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1827,7 +1827,7 @@ namespace TaRU_Jaster
             this._materialButtonLoadScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonLoadScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonLoadScript.Name = "_materialButtonLoadScript";
-            this._materialButtonLoadScript.Size = new System.Drawing.Size(206, 34);
+            this._materialButtonLoadScript.Size = new System.Drawing.Size(236, 34);
             this._materialButtonLoadScript.TabIndex = 6;
             this._materialButtonLoadScript.Text = "Load";
             this._materialButtonLoadScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1848,7 +1848,7 @@ namespace TaRU_Jaster
             this._materialButtonSaveScriptAs.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonSaveScriptAs.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonSaveScriptAs.Name = "_materialButtonSaveScriptAs";
-            this._materialButtonSaveScriptAs.Size = new System.Drawing.Size(206, 34);
+            this._materialButtonSaveScriptAs.Size = new System.Drawing.Size(236, 34);
             this._materialButtonSaveScriptAs.TabIndex = 5;
             this._materialButtonSaveScriptAs.Text = "Save As";
             this._materialButtonSaveScriptAs.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1869,7 +1869,7 @@ namespace TaRU_Jaster
             this._materialButtonStopScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStopScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStopScript.Name = "_materialButtonStopScript";
-            this._materialButtonStopScript.Size = new System.Drawing.Size(206, 35);
+            this._materialButtonStopScript.Size = new System.Drawing.Size(236, 35);
             this._materialButtonStopScript.TabIndex = 3;
             this._materialButtonStopScript.Text = "Stop";
             this._materialButtonStopScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1890,7 +1890,7 @@ namespace TaRU_Jaster
             this._materialButtonStartPauseScript.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this._materialButtonStartPauseScript.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialButtonStartPauseScript.Name = "_materialButtonStartPauseScript";
-            this._materialButtonStartPauseScript.Size = new System.Drawing.Size(206, 34);
+            this._materialButtonStartPauseScript.Size = new System.Drawing.Size(236, 34);
             this._materialButtonStartPauseScript.TabIndex = 2;
             this._materialButtonStartPauseScript.Text = "Start";
             this._materialButtonStartPauseScript.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1909,7 +1909,7 @@ namespace TaRU_Jaster
             this._materialSwitchAutoResults.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialSwitchAutoResults.Name = "_materialSwitchAutoResults";
             this._materialSwitchAutoResults.Ripple = true;
-            this._materialSwitchAutoResults.Size = new System.Drawing.Size(214, 46);
+            this._materialSwitchAutoResults.Size = new System.Drawing.Size(244, 46);
             this._materialSwitchAutoResults.TabIndex = 0;
             this._materialSwitchAutoResults.Text = "Auto-collect results ";
             this._materialSwitchAutoResults.UseVisualStyleBackColor = true;
@@ -1927,7 +1927,7 @@ namespace TaRU_Jaster
             this._materialSwitchResetResultsScriptStart.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialSwitchResetResultsScriptStart.Name = "_materialSwitchResetResultsScriptStart";
             this._materialSwitchResetResultsScriptStart.Ripple = true;
-            this._materialSwitchResetResultsScriptStart.Size = new System.Drawing.Size(214, 46);
+            this._materialSwitchResetResultsScriptStart.Size = new System.Drawing.Size(244, 46);
             this._materialSwitchResetResultsScriptStart.TabIndex = 8;
             this._materialSwitchResetResultsScriptStart.Text = "Reset results at start";
             this._materialSwitchResetResultsScriptStart.UseVisualStyleBackColor = true;
