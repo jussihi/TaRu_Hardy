@@ -49,7 +49,7 @@ namespace TaRU_Jaster
                 item.SubItems.Add(target.overallHits.ToString());
                 item.SubItems.Add(target.riseCount.ToString());
                 item.SubItems.Add(target.hitFallCount.ToString());
-                item.SubItems.Add((target.hitFallCount / target.riseCount).ToString() + "%");
+                item.SubItems.Add((target.hitFallCount * 100 / target.riseCount).ToString() + "%");
                 materialListView1.Items.Add(item);
             }
         }
