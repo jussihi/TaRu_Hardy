@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 
 /* MaterialSkin */
 using MaterialSkin;
@@ -42,7 +43,8 @@ namespace TaRU_Jaster
         private ListViewColumnSorter _lvwColumnSorter;
         private bool _showLogs;
         private int logLevel;
-         
+        private int _executorRunning = 0;
+
 
         public Form1()
         {
@@ -337,17 +339,24 @@ namespace TaRU_Jaster
 
         private async void _materialButtonStartPauseScript_Click(object sender, EventArgs e)
         {
-
-            HardyBasic.Interpreter hardyBasicInterpreter;
-            // TODO: Check the target list!!!
-            try
+            if(0 == Interlocked.Exchange(ref _executorRunning, 1))
             {
-                hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
-                await hardyBasicInterpreter.Exec();
+                HardyBasic.Interpreter hardyBasicInterpreter;
+                // TODO: Check the target list!!!
+                try
+                {
+                    hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
+                    await hardyBasicInterpreter.Exec();
+                }
+                catch (Exception ex)
+                {
+                    LOG("An error occured while executing script, error message: " + ex.Message, ERR);
+                }
+                Interlocked.Exchange(ref _executorRunning, 0);
             }
-            catch (Exception ex)
+            else
             {
-                LOG("An error occured while executing script, error message: " + ex.Message, ERR);
+                LOG("Another executor instance is already running! Please close it by pressing STOP.", ERR);
             }
         }
 
