@@ -313,7 +313,8 @@ namespace TaRU_Jaster
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel5.Location = new System.Drawing.Point(3, 0);
+            this.materialLabel5.Location = new System.Drawing.Point(3, 3);
+            this.materialLabel5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(129, 17);
@@ -678,7 +679,8 @@ namespace TaRU_Jaster
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel13.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel13.Location = new System.Drawing.Point(3, 0);
+            this.materialLabel13.Location = new System.Drawing.Point(3, 3);
+            this.materialLabel13.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
             this.materialLabel13.Size = new System.Drawing.Size(93, 17);
