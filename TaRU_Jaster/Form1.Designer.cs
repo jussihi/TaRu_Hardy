@@ -1884,11 +1884,12 @@ namespace TaRU_Jaster
             this._materialSwitchAutoResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialSwitchAutoResults.Location = new System.Drawing.Point(0, 230);
             this._materialSwitchAutoResults.Margin = new System.Windows.Forms.Padding(0);
+            this._materialSwitchAutoResults.MaximumSize = new System.Drawing.Size(0, 40);
             this._materialSwitchAutoResults.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchAutoResults.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialSwitchAutoResults.Name = "_materialSwitchAutoResults";
             this._materialSwitchAutoResults.Ripple = true;
-            this._materialSwitchAutoResults.Size = new System.Drawing.Size(244, 46);
+            this._materialSwitchAutoResults.Size = new System.Drawing.Size(244, 40);
             this._materialSwitchAutoResults.TabIndex = 0;
             this._materialSwitchAutoResults.Text = "Auto-collect results ";
             this._materialSwitchAutoResults.UseVisualStyleBackColor = true;
@@ -1902,11 +1903,12 @@ namespace TaRU_Jaster
             this._materialSwitchResetResultsScriptStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this._materialSwitchResetResultsScriptStart.Location = new System.Drawing.Point(0, 184);
             this._materialSwitchResetResultsScriptStart.Margin = new System.Windows.Forms.Padding(0);
+            this._materialSwitchResetResultsScriptStart.MaximumSize = new System.Drawing.Size(0, 40);
             this._materialSwitchResetResultsScriptStart.MouseLocation = new System.Drawing.Point(-1, -1);
             this._materialSwitchResetResultsScriptStart.MouseState = MaterialSkin.MouseState.HOVER;
             this._materialSwitchResetResultsScriptStart.Name = "_materialSwitchResetResultsScriptStart";
             this._materialSwitchResetResultsScriptStart.Ripple = true;
-            this._materialSwitchResetResultsScriptStart.Size = new System.Drawing.Size(244, 46);
+            this._materialSwitchResetResultsScriptStart.Size = new System.Drawing.Size(244, 40);
             this._materialSwitchResetResultsScriptStart.TabIndex = 8;
             this._materialSwitchResetResultsScriptStart.Text = "Reset results at start";
             this._materialSwitchResetResultsScriptStart.UseVisualStyleBackColor = true;

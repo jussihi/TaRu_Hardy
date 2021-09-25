@@ -81,22 +81,27 @@ namespace TaRU_Jaster
             // columnHeader1
             // 
             this.columnHeader1.Text = "Target";
+            this.columnHeader1.Width = 80;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Light on";
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Hits to fall";
+            this.columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Battery (voltage)";
+            this.columnHeader5.Width = 80;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Sensitivity";
+            this.columnHeader6.Width = 100;
             // 
             // StatsForm
             // 
