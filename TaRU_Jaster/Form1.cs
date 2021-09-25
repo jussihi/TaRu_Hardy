@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 
 /* MaterialSkin */
 using MaterialSkin;
@@ -344,6 +345,13 @@ namespace TaRU_Jaster
                 // TODO: Check the target list!!!
                 try
                 {
+                    await _HardyExecutor.CommandAllJastersDown();
+                    if (_materialSwitchResetResultsScriptStart.Checked)
+                    {
+                        await Task.Delay(1000);
+                        await _HardyExecutor.CommandAllJastersReset();
+                    }
+                    await Task.Delay(3000);
                     _HardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
                     await _HardyBasicInterpreter.Exec();
                 }
@@ -351,6 +359,13 @@ namespace TaRU_Jaster
                 {
                     LOG("An error occured while executing script, error message: " + ex.Message, ERR);
                 }
+                if(_materialSwitchAutoResults.Checked)
+                {
+                    await Task.Delay(1000);
+                    await AskHits();
+                }
+                await Task.Delay(2000);
+                await _HardyExecutor.CommandAllJastersUp();
                 Interlocked.Exchange(ref _executorRunning, 0);
             }
             else
@@ -643,25 +658,18 @@ namespace TaRU_Jaster
             
         }
 
-        private async void _materialButtonAskHits_Click(object sender, EventArgs e)
+        private async Task AskHits()
         {
             var targetList = new List<int>();
+            targetList.AddRange(Enumerable.Range(1, 30));
+            await AskHits(targetList);
+        }
 
-            for (int i = 1; i < 31; i++)
-            {
-                if (_targetSettings[i - 1].buttonInstance.UseAccentColor)
-                    targetList.Add(i);
-            }
-
-            // Add all targets if none selected
-            if (targetList.Count == 0)
-            {
-                targetList.AddRange(Enumerable.Range(1, 30));
-            }
-
+        private async Task AskHits(List<int> w_targets)
+        {
             var targetHitsList = new List<HitsForm.TargetHits>();
 
-            foreach (int targetNo in targetList)
+            foreach (int targetNo in w_targets)
             {
                 byte[] command = { 0x86, 0x00 };
                 command[1] = (byte)targetNo;
@@ -673,11 +681,12 @@ namespace TaRU_Jaster
                 // TODO: do something with data
                 LOG("Successfully received serial data from target " + targetNo + ": " + Utils.ByteArrayToString(res));
 
-                HitsForm.TargetHits entry = new HitsForm.TargetHits {  
-                                                targetNo     = targetNo, 
-                                                overallHits  = (short)(res[0] | (res[1] << 8)), 
-                                                riseCount    = (short)(res[2] | (res[3] << 8)), 
-                                                hitFallCount = (short)(res[4] | (res[5] << 8))
+                HitsForm.TargetHits entry = new HitsForm.TargetHits
+                {
+                    targetNo = targetNo,
+                    overallHits = (short)(res[0] | (res[1] << 8)),
+                    riseCount = (short)(res[2] | (res[3] << 8)),
+                    hitFallCount = (short)(res[4] | (res[5] << 8))
                 };
 
                 targetHitsList.Add(entry);
@@ -692,6 +701,27 @@ namespace TaRU_Jaster
             HitsForm f = new HitsForm();
             f.SetTargetHitsList(targetHitsList);
             f.Show();
+        }
+
+        private async void _materialButtonAskHits_Click(object sender, EventArgs e)
+        {
+            var targetList = new List<int>();
+
+            for (int i = 1; i < 31; i++)
+            {
+                if (_targetSettings[i - 1].buttonInstance.UseAccentColor)
+                    targetList.Add(i);
+            }
+
+            // Add all targets if none selected
+            if (targetList.Count == 0)
+            {
+                await AskHits();
+                return;
+            }
+
+            await AskHits(targetList);
+            return;
         }
 
         private void ShowTargetToolTip(int w_targetNo, IWin32Window w_window)
