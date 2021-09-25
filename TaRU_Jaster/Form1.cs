@@ -127,7 +127,7 @@ namespace TaRU_Jaster
             this._textBoxLog.Font = new Font("Lucida Console", 10.0f);
 
             // Default logging level is "INFO"
-            logLevel = 1;
+            logLevel = 3;
             this.materialComboBox1.SelectedIndex = 1;
         }
 
@@ -137,7 +137,7 @@ namespace TaRU_Jaster
             if(w_msg[w_msg.Length - 1] == '\n')
                 w_msg = w_msg.Remove(w_msg.Length - 1, 1);
 
-            // Output to the log if loglevel is lower or equal to logged event
+            // Output to the log if loglevel is higher or equal to logged event
             if(w_level >= logLevel)
                 _textBoxLog.AppendText("[ " + DateTime.Now.ToString("HH:mm:ss.fff") + " ] " + Logger._error_desc[w_level] + w_msg + "\r\n");
             
