@@ -33,7 +33,7 @@ namespace TaRU_Jaster
             public HardyExecutor.TargetStats stats;
         }
 
-
+        private HardyBasic.Interpreter _HardyBasicInterpreter = null;
         private HardyExecutor _HardyExecutor;
         private COMHandler _COMHandler;
         private bool _scriptTextChanged;
@@ -341,12 +341,11 @@ namespace TaRU_Jaster
         {
             if(0 == Interlocked.Exchange(ref _executorRunning, 1))
             {
-                HardyBasic.Interpreter hardyBasicInterpreter;
                 // TODO: Check the target list!!!
                 try
                 {
-                    hardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
-                    await hardyBasicInterpreter.Exec();
+                    _HardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
+                    await _HardyBasicInterpreter.Exec();
                 }
                 catch (Exception ex)
                 {
@@ -362,7 +361,8 @@ namespace TaRU_Jaster
 
         private void _materialButtonStopScript_Click(object sender, EventArgs e)
         {
-            // TODO
+            if (_HardyBasicInterpreter != null)
+                _HardyBasicInterpreter.ShouldExit = true;
         }
 
         private void UpdateTargetList(int w_targetNo)

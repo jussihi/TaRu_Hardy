@@ -127,9 +127,13 @@ namespace TaRU_Jaster.HardyBasic
             if (args.Count != 1)
                 throw new ArgumentException("SLEEP expects exactly one integer value!");
 
-
-            await Task.Delay(Convert.ToInt32(args[0].Real));
-
+            const int delay_delta = 50;
+            for(int i = 0; i < Convert.ToInt32(args[0].Real) / delay_delta; i++)
+            {
+                if (interpreter.ShouldExit)
+                    return Value.Zero;
+                await Task.Delay(delay_delta - 5);
+            }
             return Value.Zero;
         }
 

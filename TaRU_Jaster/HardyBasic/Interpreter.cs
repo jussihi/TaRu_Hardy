@@ -13,6 +13,8 @@ namespace TaRU_Jaster.HardyBasic
         public bool HasPrint { get; set; } = true;
         public bool HasInput { get; set; } = false;
 
+        public bool ShouldExit { get; set; } = false; // do we need to exit?
+
         private Lexer lex;
         private Token prevToken; // token before last one
         private Token lastToken; // last seen token
@@ -28,7 +30,7 @@ namespace TaRU_Jaster.HardyBasic
 
         private Marker lineMarker; // current line marker
 
-        private bool exit; // do we need to exit?
+        
 
         
 
@@ -97,9 +99,9 @@ namespace TaRU_Jaster.HardyBasic
 
         public async Task Exec()
         {
-            exit = false;
+            ShouldExit = false;
             GetNextToken();
-            while (!exit)
+            while (!ShouldExit)
             {
                 // Go through all lines and give the program a little break
                 // to prevent deadloops
@@ -126,7 +128,7 @@ namespace TaRU_Jaster.HardyBasic
 
             if (lastToken == Token.EOF)
             {
-                exit = true;
+                ShouldExit = true;
                 return;
             }
 
@@ -160,7 +162,7 @@ namespace TaRU_Jaster.HardyBasic
                     else goto default;
                     break;
                 case Token.EOF:
-                    exit = true;
+                    ShouldExit = true;
                     break;
                 default:
                     // case if HardyBuiltins is used
@@ -178,7 +180,7 @@ namespace TaRU_Jaster.HardyBasic
                                 goto start;
                         }
 
-                        await funcs[name](null, args);
+                        await funcs[name](this, args);
                         GetNextToken();
                         break;
                     }
@@ -331,7 +333,7 @@ namespace TaRU_Jaster.HardyBasic
 
         void End()
         {
-            exit = true;
+            ShouldExit = true;
         }
 
         async Task Let()
