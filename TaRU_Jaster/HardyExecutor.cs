@@ -49,28 +49,28 @@ namespace TaRU_Jaster
             _COMHandler = w_COMHandler;
         }
 
-        public async Task CommandAllJastersReset()
+        public async Task CommandAllHardysReset()
         {
-            LOG("RESET all Jasters ...", INFO);
+            LOG("RESET all targets ...", INFO);
 
-            byte[] jastersResetBuffer = { 0x91 };
-            await _COMHandler.SendSerial(jastersResetBuffer);
+            byte[] hardysResetBuffer = { 0x91 };
+            await _COMHandler.SendSerial(hardysResetBuffer);
         }
 
-        public async Task CommandAllJastersUp()
+        public async Task CommandAllHardysUp()
         {
-            LOG("UP all Jasters ...", INFO);
+            LOG("UP all targets ...", INFO);
 
-            byte[] jastersUpBuffer = { 0x80 };
-            await _COMHandler.SendSerial(jastersUpBuffer);
+            byte[] hardysUpBuffer = { 0x80 };
+            await _COMHandler.SendSerial(hardysUpBuffer);
         }
 
-        public async Task CommandAllJastersDown()
+        public async Task CommandAllHardysDown()
         {
-            LOG("DOWN all Jasters ...", INFO);
+            LOG("DOWN all targets ...", INFO);
 
-            byte[] jastersDownBuffer = { 0x81 };
-            await _COMHandler.SendSerial(jastersDownBuffer);
+            byte[] hardysDownBuffer = { 0x81 };
+            await _COMHandler.SendSerial(hardysDownBuffer);
         }
 
         private static byte[] AddTargetNumberToAddress(int w_target, byte[] w_addressBytes)
@@ -104,7 +104,7 @@ namespace TaRU_Jaster
                 case OneShotCommand.Up:
                     if (allTargets)
                     {
-                        await CommandAllJastersUp();
+                        await CommandAllHardysUp();
                         return true;
                     }
                     command = new byte[] { 0x82 };
@@ -113,7 +113,7 @@ namespace TaRU_Jaster
                 case OneShotCommand.Down:
                     if (allTargets)
                     {
-                        await CommandAllJastersDown();
+                        await CommandAllHardysDown();
                         return true;
                     }
                     command = new byte[] { 0x83 };
@@ -275,7 +275,7 @@ namespace TaRU_Jaster
                 case OneShotCommand.Reset:
                     if (allTargets)
                     {
-                        await CommandAllJastersReset();
+                        await CommandAllHardysReset();
                         return true;
                     }
                     command = new byte[] { 0x9B };

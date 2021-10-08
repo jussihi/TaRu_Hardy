@@ -100,6 +100,7 @@ namespace TaRU_Jaster.HardyBasic
         public async Task Exec()
         {
             ShouldExit = false;
+            LOG("Script started!", OUT);
             GetNextToken();
             while (!ShouldExit)
             {
@@ -108,6 +109,7 @@ namespace TaRU_Jaster.HardyBasic
                 // edit: no Task.Delay; its overhead is huge (~8ms)
                 await Line();
             }
+            LOG("Script ended!", OUT);
         }
 
         Token GetNextToken()

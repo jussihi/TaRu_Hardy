@@ -265,7 +265,7 @@ namespace TaRU_Jaster
 
         public void DisableSerialFunctionality()
         {
-            LOG("Connect to serial for full functionality! Serial can be connected on settings page.", INFO);
+            LOG("Connect to serial port on Settings page", INFO);
             return;
         }
 
@@ -345,15 +345,16 @@ namespace TaRU_Jaster
                 // TODO: Check the target list!!!
                 try
                 {
-                    await _HardyExecutor.CommandAllJastersDown();
+                    await _HardyExecutor.CommandAllHardysDown();
                     if (_materialSwitchResetResultsScriptStart.Checked)
                     {
                         await Task.Delay(1000);
-                        await _HardyExecutor.CommandAllJastersReset();
+                        await _HardyExecutor.CommandAllHardysReset();
                     }
                     await Task.Delay(3000);
                     _HardyBasicInterpreter = new HardyBasic.Interpreter(CodeTextBox.Text, _HardyExecutor, new List<int>());
                     await _HardyBasicInterpreter.Exec();
+                    _HardyBasicInterpreter = null;
                 }
                 catch (Exception ex)
                 {
@@ -365,7 +366,7 @@ namespace TaRU_Jaster
                     await AskHits();
                 }
                 await Task.Delay(2000);
-                await _HardyExecutor.CommandAllJastersUp();
+                await _HardyExecutor.CommandAllHardysDown();
                 Interlocked.Exchange(ref _executorRunning, 0);
             }
             else
@@ -378,6 +379,8 @@ namespace TaRU_Jaster
         {
             if (_HardyBasicInterpreter != null)
                 _HardyBasicInterpreter.ShouldExit = true;
+            else
+                LOG("Cannot end script: no script running!", ERR);
         }
 
         private void UpdateTargetList(int w_targetNo)
@@ -591,7 +594,7 @@ namespace TaRU_Jaster
             }
             catch (Exception ex)
             {
-                LOG("Trying to parse integer value sensitivity, exception: " + ex.Message + ". Not setting value.", WARN);
+                LOG("Trying to parse integer value sensitivity, exception: " + ex.Message + ". Current value not changed.", WARN);
             }
 
             try
@@ -603,7 +606,7 @@ namespace TaRU_Jaster
             }
             catch (Exception ex)
             {
-                LOG("Trying to parse integer value hits to fall, exception: " + ex.Message + ". Not setting value.", WARN);
+                LOG("Trying to parse integer value hits to fall, exception: " + ex.Message + ". Current value not changed.", WARN);
             }
             
             switch(checkBox1.Checked)
